@@ -19,6 +19,11 @@
 		468E302D2C3EAF47007A87A4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 468E302C2C3EAF47007A87A4 /* FirebaseFirestoreSwift */; };
 		468E302F2C3EAF4D007A87A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 468E302E2C3EAF4D007A87A4 /* FirebaseAuth */; };
 		468E30312C3EAF62007A87A4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 468E30302C3EAF62007A87A4 /* FirebaseStorage */; };
+		468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30332C3EB2CA007A87A4 /* Profile.swift */; };
+		468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30352C3EB3D4007A87A4 /* AuthState.swift */; };
+		468E30392C3EB428007A87A4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30382C3EB428007A87A4 /* AuthService.swift */; };
+		468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */; };
+		468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		468E300D2C3EACB4007A87A4 /* JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITests.swift; sourceTree = "<group>"; };
 		468E300F2C3EACB4007A87A4 /* JournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		468E30242C3EAE9A007A87A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		468E30332C3EB2CA007A87A4 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		468E30352C3EB3D4007A87A4 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		468E30382C3EB428007A87A4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +97,7 @@
 				468E30232C3EADFE007A87A4 /* App */,
 				468E30202C3EADCE007A87A4 /* Extensions */,
 				468E30272C3EAEB5007A87A4 /* Firebase */,
-				468E30212C3EADD7007A87A4 /* Models */,
+				468E30322C3EB2B4007A87A4 /* Models */,
 				468E30222C3EADE0007A87A4 /* Components */,
 				468E301F2C3EADC4007A87A4 /* Services */,
 				468E301E2C3EADB7007A87A4 /* Subviews */,
@@ -148,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				468E2FF42C3EACB3007A87A4 /* ContentView.swift */,
+				468E303A2C3EBAE2007A87A4 /* Authentication */,
+				468E303E2C3EBD40007A87A4 /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -162,6 +174,7 @@
 		468E301F2C3EADC4007A87A4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				468E30382C3EB428007A87A4 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -171,13 +184,6 @@
 			children = (
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		468E30212C3EADD7007A87A4 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		468E30222C3EADE0007A87A4 /* Components */ = {
@@ -208,6 +214,47 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		468E30322C3EB2B4007A87A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				468E30372C3EB3D8007A87A4 /* Auth */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		468E30372C3EB3D8007A87A4 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				468E30352C3EB3D4007A87A4 /* AuthState.swift */,
+				468E30332C3EB2CA007A87A4 /* Profile.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		468E303A2C3EBAE2007A87A4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				468E303B2C3EBAF3007A87A4 /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		468E303B2C3EBAF3007A87A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		468E303E2C3EBD40007A87A4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,8 +397,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */,
 				468E2FF52C3EACB3007A87A4 /* ContentView.swift in Sources */,
+				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
+				468E30392C3EB428007A87A4 /* AuthService.swift in Sources */,
+				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
 				468E2FF32C3EACB3007A87A4 /* JournalApp.swift in Sources */,
+				468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
