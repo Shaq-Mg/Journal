@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 
 final class AuthService {
     @Published var profile = Profile()
-    @Published var authState: AuthState = .undefined
+    @Published var authState: AuthState = .nonAuthenticated
     @Published var uid = ""
     
     init() {
@@ -31,12 +31,12 @@ final class AuthService {
         guard name != "" else { return }
         try await Auth.auth().createUser(withEmail: email, password: password)
         guard uid != "" else { return }
-        try createNewUser(name: name)
+        try createNewUser(name: name, email: email)
     }
     
-    private func createNewUser(name: String) throws {
+    private func createNewUser(name: String, email: String) throws {
         let reference = Firestore.firestore().collection("users").document(uid)
-        let profile = Profile(name: name)
+        let profile = Profile(name: name, email: email)
         try reference.setData(from: profile)
     }
     

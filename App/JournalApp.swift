@@ -19,9 +19,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct JournalApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var authViewModel = AuthViewModel(authService: AuthService())
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                RootView()
+            }
+            .environmentObject(authViewModel)
         }
     }
 }

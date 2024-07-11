@@ -12,7 +12,7 @@ final class AuthViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var confirmPassword = ""
-    @Published var isUserLoggedIn = ""
+    @Published var showSignInView = true
     @Published var loginStatusMessage = ""
     
     let authService: AuthService
