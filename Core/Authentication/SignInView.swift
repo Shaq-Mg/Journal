@@ -9,10 +9,11 @@ import SwiftUI
 
 struct SignInView: View {
     @EnvironmentObject private var viewModel: AuthViewModel
+    @Binding var showSignInView: Bool
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.secondary.opacity(0.8).ignoresSafeArea()
+                Color.indigo.opacity(0.8).ignoresSafeArea()
                 VStack(spacing: 20) {
                     VStack(spacing: 8) {
                         InputView(text: $viewModel.email, title: "Email", placeholder: "User@hotmail.com")
@@ -23,7 +24,7 @@ struct SignInView: View {
                         Task {
                             do {
                                 try await viewModel.signIn()
-                                viewModel.showSignInView = false
+                                showSignInView = false
                                 viewModel.loginStatusMessage = "Successfully logged in user: \(viewModel.authService.uid)"
                             } catch {
                                 print("Failed to login user \(error)")
@@ -33,7 +34,7 @@ struct SignInView: View {
                     }
                     
                     NavigationLink("Dont have a account? Sign up") {
-                        SignUpView()
+                        SignUpView(showSignInView: $showSignInView)
                     }
                     .font(.callout)
                     .foregroundStyle(.black)
@@ -50,7 +51,7 @@ struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         let authService = AuthService()
         NavigationStack {
-            SignInView()
+            SignInView(showSignInView: .constant(true))
         }
         .environmentObject(AuthViewModel(authService: authService))
     }

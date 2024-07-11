@@ -13,6 +13,9 @@
 		467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615B02C3FFE4F005A7ECF /* SignUpView.swift */; };
 		467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615B22C3FFFC7005A7ECF /* RootView.swift */; };
 		467615B62C400128005A7ECF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615B52C400128005A7ECF /* HomeView.swift */; };
+		468C4C7C2C400E8B006C7FBE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468C4C7B2C400E8B006C7FBE /* HeaderView.swift */; };
+		468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */; };
+		468C4C812C400FF9006C7FBE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468C4C802C400FF9006C7FBE /* SettingsView.swift */; };
 		468E2FF32C3EACB3007A87A4 /* JournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E2FF22C3EACB3007A87A4 /* JournalApp.swift */; };
 		468E2FF72C3EACB3007A87A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468E2FF62C3EACB3007A87A4 /* Assets.xcassets */; };
 		468E2FFA2C3EACB3007A87A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468E2FF92C3EACB3007A87A4 /* Preview Assets.xcassets */; };
@@ -55,6 +58,9 @@
 		467615B02C3FFE4F005A7ECF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		467615B22C3FFFC7005A7ECF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		467615B52C400128005A7ECF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		468C4C7B2C400E8B006C7FBE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButtonView.swift; sourceTree = "<group>"; };
+		468C4C802C400FF9006C7FBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		468E2FEF2C3EACB3007A87A4 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468E2FF22C3EACB3007A87A4 /* JournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalApp.swift; sourceTree = "<group>"; };
 		468E2FF62C3EACB3007A87A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		468C4C7F2C400FE6006C7FBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		468E2FE62C3EACB3007A87A4 = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +213,9 @@
 		468E30222C3EADE0007A87A4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */,
 				467615AA2C3FFB8C005A7ECF /* InputView.swift */,
+				468C4C7B2C400E8B006C7FBE /* HeaderView.swift */,
 				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
 			);
 			path = Components;
@@ -267,7 +283,8 @@
 		468E303E2C3EBD40007A87A4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */,
+				468C4C802C400FF9006C7FBE /* SettingsView.swift */,
+				468C4C7F2C400FE6006C7FBE /* ViewModel */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -412,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468C4C812C400FF9006C7FBE /* SettingsView.swift in Sources */,
 				467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */,
 				467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */,
 				467615B62C400128005A7ECF /* HomeView.swift in Sources */,
@@ -419,6 +437,8 @@
 				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
 				468E30392C3EB428007A87A4 /* AuthService.swift in Sources */,
+				468C4C7C2C400E8B006C7FBE /* HeaderView.swift in Sources */,
+				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,
 				467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */,

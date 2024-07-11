@@ -9,12 +9,19 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject private var viewModel: AuthViewModel
+    @State private var showSignInView = true
     var body: some View {
         ZStack {
-            HomeView()
+            SettingsView(showSignInView: $showSignInView)
         }
-        .fullScreenCover(isPresented: $viewModel.showSignInView) {
-            SignInView()
+        .onAppear {
+            Task {
+                let authUser = try? await viewModel.fetchCurrentUser()
+                self.showSignInView = authUser == nil
+            }
+        }
+        .fullScreenCover(isPresented: $showSignInView) {
+            SignInView(showSignInView: $showSignInView)
         }
     }
 }
