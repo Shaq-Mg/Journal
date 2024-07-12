@@ -15,6 +15,8 @@
 		465AE9D12C41452A00B95230 /* SelectDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D02C41452A00B95230 /* SelectDateHeader.swift */; };
 		465AE9D32C41517700B95230 /* BookApptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D22C41517700B95230 /* BookApptView.swift */; };
 		465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D42C41522D00B95230 /* ApptInputView.swift */; };
+		465AE9DA2C416ADF00B95230 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D92C416ADF00B95230 /* Appointment.swift */; };
+		465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9DC2C416B3800B95230 /* FirebaseService.swift */; };
 		467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AA2C3FFB8C005A7ECF /* InputView.swift */; };
 		467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AC2C3FFC41005A7ECF /* SignInView.swift */; };
 		467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */; };
@@ -68,6 +70,8 @@
 		465AE9D02C41452A00B95230 /* SelectDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateHeader.swift; sourceTree = "<group>"; };
 		465AE9D22C41517700B95230 /* BookApptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApptView.swift; sourceTree = "<group>"; };
 		465AE9D42C41522D00B95230 /* ApptInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptInputView.swift; sourceTree = "<group>"; };
+		465AE9D92C416ADF00B95230 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		465AE9DC2C416B3800B95230 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		467615AA2C3FFB8C005A7ECF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		467615AC2C3FFC41005A7ECF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationButton.swift; sourceTree = "<group>"; };
@@ -148,6 +152,14 @@
 				465AE9CA2C41416E00B95230 /* Hours.swift */,
 			);
 			path = Calender;
+			sourceTree = "<group>";
+		};
+		465AE9D82C416AC400B95230 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				465AE9D92C416ADF00B95230 /* Appointment.swift */,
+			);
+			path = Appointment;
 			sourceTree = "<group>";
 		};
 		468C4C7F2C400FE6006C7FBE /* ViewModel */ = {
@@ -244,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				468E30382C3EB428007A87A4 /* AuthService.swift */,
+				465AE9DC2C416B3800B95230 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -294,6 +307,7 @@
 		468E30322C3EB2B4007A87A4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				465AE9D82C416AC400B95230 /* Appointment */,
 				468E30372C3EB3D8007A87A4 /* Auth */,
 				465AE9C92C41415300B95230 /* Calender */,
 			);
@@ -480,6 +494,7 @@
 				468C4C812C400FF9006C7FBE /* SettingsView.swift in Sources */,
 				467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */,
 				465AE9D32C41517700B95230 /* BookApptView.swift in Sources */,
+				465AE9DA2C416ADF00B95230 /* Appointment.swift in Sources */,
 				467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */,
 				467615B62C400128005A7ECF /* HomeView.swift in Sources */,
 				468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */,
@@ -492,6 +507,7 @@
 				468E30392C3EB428007A87A4 /* AuthService.swift in Sources */,
 				465AE9C72C41412600B95230 /* CalenderViewModel.swift in Sources */,
 				468C4C7C2C400E8B006C7FBE /* HeaderView.swift in Sources */,
+				465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,

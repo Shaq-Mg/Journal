@@ -51,7 +51,9 @@ extension CalenderView {
                     if value.day != -1 {
                         let hasAppts = vm.availableDays.contains(value.date.monthDayYearFormat())
                         NavigationLink {
-                            
+                            NavigationStack {
+                                BookApptView(currentDate: value.date)
+                            }
                         } label: {
                             Text("\(value.day)")
                                 .bold()

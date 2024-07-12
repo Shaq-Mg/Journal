@@ -16,10 +16,11 @@ struct BookApptView: View {
     
     var body: some View {
         VStack {
-            HeaderView(title: currentDate.dayOfTheWeek(), isDismiss: { })
             NavigationStack {
                 
                 VStack(spacing: 30) {
+                    Text(currentDate.dayOfTheWeek())
+                        .font(.system(size: 16, weight: .semibold))
                     ApptInputView(text: $name, title: "Name", placeholder: "Name")
                     
                     Text("Select a time")
