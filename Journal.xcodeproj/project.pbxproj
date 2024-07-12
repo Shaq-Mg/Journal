@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9C32C41406E00B95230 /* Date+Est.swift */; };
+		465AE9C72C41412600B95230 /* CalenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9C62C41412600B95230 /* CalenderViewModel.swift */; };
+		465AE9CB2C41416E00B95230 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9CA2C41416E00B95230 /* Hours.swift */; };
+		465AE9CD2C4141E200B95230 /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9CC2C4141E200B95230 /* Calender.swift */; };
 		467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AA2C3FFB8C005A7ECF /* InputView.swift */; };
 		467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AC2C3FFC41005A7ECF /* SignInView.swift */; };
 		467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */; };
@@ -54,6 +57,9 @@
 
 /* Begin PBXFileReference section */
 		465AE9C32C41406E00B95230 /* Date+Est.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Est.swift"; sourceTree = "<group>"; };
+		465AE9C62C41412600B95230 /* CalenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewModel.swift; sourceTree = "<group>"; };
+		465AE9CA2C41416E00B95230 /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
+		465AE9CC2C4141E200B95230 /* Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calender.swift; sourceTree = "<group>"; };
 		467615AA2C3FFB8C005A7ECF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		467615AC2C3FFC41005A7ECF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationButton.swift; sourceTree = "<group>"; };
@@ -109,6 +115,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465AE9C52C41410700B95230 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				465AE9C82C41413000B95230 /* ViewModel */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		465AE9C82C41413000B95230 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				465AE9C62C41412600B95230 /* CalenderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		465AE9C92C41415300B95230 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				465AE9CC2C4141E200B95230 /* Calender.swift */,
+				465AE9CA2C41416E00B95230 /* Hours.swift */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
 		468C4C7F2C400FE6006C7FBE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +216,7 @@
 			children = (
 				467615B52C400128005A7ECF /* HomeView.swift */,
 				468E303A2C3EBAE2007A87A4 /* Authentication */,
+				465AE9C52C41410700B95230 /* Calender */,
 				468E303E2C3EBD40007A87A4 /* Settings */,
 			);
 			path = Core;
@@ -251,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				468E30372C3EB3D8007A87A4 /* Auth */,
+				465AE9C92C41415300B95230 /* Calender */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -439,7 +472,10 @@
 				468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */,
 				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
+				465AE9CD2C4141E200B95230 /* Calender.swift in Sources */,
+				465AE9CB2C41416E00B95230 /* Hours.swift in Sources */,
 				468E30392C3EB428007A87A4 /* AuthService.swift in Sources */,
+				465AE9C72C41412600B95230 /* CalenderViewModel.swift in Sources */,
 				468C4C7C2C400E8B006C7FBE /* HeaderView.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
