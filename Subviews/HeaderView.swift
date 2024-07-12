@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     var isNavigate = false
     let title: String
-    let isPressed: () -> ()
+    let isDismiss: () -> ()
     var body: some View {
         VStack {
             HStack {
@@ -27,7 +27,7 @@ struct HeaderView: View {
                 Spacer()
                 if isNavigate {
                     Button {
-                        isPressed()
+                        isDismiss()
                     } label: {
                         Text("Cancel")
                             .foregroundStyle(.white)
@@ -46,6 +46,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title: "Menu", isPressed: { })
+        HeaderView(title: "Menu", isDismiss: { })
     }
 }

@@ -11,6 +11,10 @@
 		465AE9C72C41412600B95230 /* CalenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9C62C41412600B95230 /* CalenderViewModel.swift */; };
 		465AE9CB2C41416E00B95230 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9CA2C41416E00B95230 /* Hours.swift */; };
 		465AE9CD2C4141E200B95230 /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9CC2C4141E200B95230 /* Calender.swift */; };
+		465AE9CF2C4144A900B95230 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9CE2C4144A900B95230 /* CalenderView.swift */; };
+		465AE9D12C41452A00B95230 /* SelectDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D02C41452A00B95230 /* SelectDateHeader.swift */; };
+		465AE9D32C41517700B95230 /* BookApptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D22C41517700B95230 /* BookApptView.swift */; };
+		465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9D42C41522D00B95230 /* ApptInputView.swift */; };
 		467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AA2C3FFB8C005A7ECF /* InputView.swift */; };
 		467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AC2C3FFC41005A7ECF /* SignInView.swift */; };
 		467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */; };
@@ -60,6 +64,10 @@
 		465AE9C62C41412600B95230 /* CalenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewModel.swift; sourceTree = "<group>"; };
 		465AE9CA2C41416E00B95230 /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
 		465AE9CC2C4141E200B95230 /* Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calender.swift; sourceTree = "<group>"; };
+		465AE9CE2C4144A900B95230 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
+		465AE9D02C41452A00B95230 /* SelectDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateHeader.swift; sourceTree = "<group>"; };
+		465AE9D22C41517700B95230 /* BookApptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApptView.swift; sourceTree = "<group>"; };
+		465AE9D42C41522D00B95230 /* ApptInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptInputView.swift; sourceTree = "<group>"; };
 		467615AA2C3FFB8C005A7ECF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		467615AC2C3FFC41005A7ECF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationButton.swift; sourceTree = "<group>"; };
@@ -118,6 +126,8 @@
 		465AE9C52C41410700B95230 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
+				465AE9D22C41517700B95230 /* BookApptView.swift */,
+				465AE9CE2C4144A900B95230 /* CalenderView.swift */,
 				465AE9C82C41413000B95230 /* ViewModel */,
 			);
 			path = Calender;
@@ -250,8 +260,10 @@
 			isa = PBXGroup;
 			children = (
 				468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */,
+				465AE9D42C41522D00B95230 /* ApptInputView.swift */,
 				467615AA2C3FFB8C005A7ECF /* InputView.swift */,
 				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
+				465AE9D02C41452A00B95230 /* SelectDateHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -467,9 +479,12 @@
 			files = (
 				468C4C812C400FF9006C7FBE /* SettingsView.swift in Sources */,
 				467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */,
+				465AE9D32C41517700B95230 /* BookApptView.swift in Sources */,
 				467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */,
 				467615B62C400128005A7ECF /* HomeView.swift in Sources */,
 				468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */,
+				465AE9D12C41452A00B95230 /* SelectDateHeader.swift in Sources */,
+				465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */,
 				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
 				465AE9CD2C4141E200B95230 /* Calender.swift in Sources */,
@@ -483,6 +498,7 @@
 				467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */,
 				468E2FF32C3EACB3007A87A4 /* JournalApp.swift in Sources */,
 				465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */,
+				465AE9CF2C4144A900B95230 /* CalenderView.swift in Sources */,
 				468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
