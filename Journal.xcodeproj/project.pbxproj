@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465AE9C32C41406E00B95230 /* Date+Est.swift */; };
 		467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AA2C3FFB8C005A7ECF /* InputView.swift */; };
 		467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AC2C3FFC41005A7ECF /* SignInView.swift */; };
 		467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		465AE9C32C41406E00B95230 /* Date+Est.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Est.swift"; sourceTree = "<group>"; };
 		467615AA2C3FFB8C005A7ECF /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		467615AC2C3FFC41005A7ECF /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationButton.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		468E301E2C3EADB7007A87A4 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				468C4C7B2C400E8B006C7FBE /* HeaderView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 		468E30202C3EADCE007A87A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				465AE9C32C41406E00B95230 /* Date+Est.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,7 +219,6 @@
 			children = (
 				468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */,
 				467615AA2C3FFB8C005A7ECF /* InputView.swift */,
-				468C4C7B2C400E8B006C7FBE /* HeaderView.swift */,
 				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
 			);
 			path = Components;
@@ -443,6 +446,7 @@
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,
 				467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */,
 				468E2FF32C3EACB3007A87A4 /* JournalApp.swift in Sources */,
+				465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */,
 				468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
