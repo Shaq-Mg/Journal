@@ -8,6 +8,7 @@
 import Foundation
 
 final class SettingsViewModel: ObservableObject {
+    @Published private(set) var user: Profile? = nil
     let authService: AuthService
     
     init(authService: AuthService) {
@@ -32,5 +33,13 @@ final class SettingsViewModel: ObservableObject {
     
     func updateEmail(email: String) async throws {
         try await authService.updateEmail(email: email)
+    }
+    
+    func togglePremiumStatus() {
+        guard let user else { return }
+        let currentValue = user.isPremium ?? false
+        Task {
+            try await authService.updatePremiumStatus(userId: user.id ?? "", isPremium: !currentValue)
+        }
     }
 }

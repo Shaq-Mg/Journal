@@ -78,4 +78,9 @@ final class AuthService {
     func restPassword(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
+    
+    func updatePremiumStatus(userId: String, isPremium: Bool) async throws {
+        let data: [String:Any] = [ Profile.CodingKeys.isPremium.rawValue : isPremium ]
+        try await Firestore.firestore().document(userId).updateData(data)
+    }
 }
