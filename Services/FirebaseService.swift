@@ -28,4 +28,9 @@ final class FirebaseService {
         let document = db.collection(collectionPath).document()
         try await document.setData(documentData, merge: false)
     }
+
+    func update<T: Identifiable>(collectionPath: String, typeToUpdate: T, typeDictionary: [String:Any]) {
+        let db = Firestore.firestore()
+        db.collection("appointments").document("\(typeToUpdate.id)").updateData(typeDictionary)
+    }
 }
