@@ -19,6 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct JournalApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var apptViewModel = ApptViewModel()
     @StateObject private var authViewModel = AuthViewModel(authService: AuthService())
     @StateObject private var settingsViewModel = SettingsViewModel(authService: AuthService())
     var body: some Scene {
@@ -26,6 +27,7 @@ struct JournalApp: App {
             NavigationStack {
                 RootView()
             }
+            .environmentObject(apptViewModel)
             .environmentObject(authViewModel)
             .environmentObject(settingsViewModel)
         }

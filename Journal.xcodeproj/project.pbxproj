@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4618CA762C4552AA0067C27C /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA752C4552AA0067C27C /* Journal.swift */; };
+		4618CA792C45532B0067C27C /* ApptChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA782C45532B0067C27C /* ApptChartView.swift */; };
+		4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA7A2C4554350067C27C /* MainChartView.swift */; };
+		4618CA7F2C4554AA0067C27C /* ApptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA7E2C4554AA0067C27C /* ApptViewModel.swift */; };
+		4618CA812C45557F0067C27C /* ApptRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA802C45557F0067C27C /* ApptRowView.swift */; };
 		464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EC2C448C3100CABD64 /* PreviewProvider.swift */; };
 		464E26F02C448D5400CABD64 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EF2C448D5400CABD64 /* Service.swift */; };
 		464E26F32C448E1000CABD64 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26F22C448E1000CABD64 /* Client.swift */; };
@@ -65,6 +70,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4618CA752C4552AA0067C27C /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		4618CA782C45532B0067C27C /* ApptChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptChartView.swift; sourceTree = "<group>"; };
+		4618CA7A2C4554350067C27C /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
+		4618CA7E2C4554AA0067C27C /* ApptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptViewModel.swift; sourceTree = "<group>"; };
+		4618CA802C45557F0067C27C /* ApptRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptRowView.swift; sourceTree = "<group>"; };
 		464E26EC2C448C3100CABD64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		464E26EF2C448D5400CABD64 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		464E26F22C448E1000CABD64 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -133,6 +143,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4618CA742C4552930067C27C /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA752C4552AA0067C27C /* Journal.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		4618CA772C4552BA0067C27C /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA7A2C4554350067C27C /* MainChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		4618CA7C2C45547F0067C27C /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA7D2C45548A0067C27C /* ViewModel */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		4618CA7D2C45548A0067C27C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA7E2C4554AA0067C27C /* ApptViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		464E26EB2C448C0C00CABD64 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,8 +310,10 @@
 			isa = PBXGroup;
 			children = (
 				467615B52C400128005A7ECF /* HomeView.swift */,
+				4618CA7C2C45547F0067C27C /* Appointment */,
 				468E303A2C3EBAE2007A87A4 /* Authentication */,
 				465AE9C52C41410700B95230 /* Calender */,
+				4618CA772C4552BA0067C27C /* Chart */,
 				468E303E2C3EBD40007A87A4 /* Settings */,
 			);
 			path = Core;
@@ -279,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				468C4C7B2C400E8B006C7FBE /* HeaderView.swift */,
+				4618CA802C45557F0067C27C /* ApptRowView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -304,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */,
+				4618CA782C45532B0067C27C /* ApptChartView.swift */,
 				465AE9D42C41522D00B95230 /* ApptInputView.swift */,
 				467615AA2C3FFB8C005A7ECF /* InputView.swift */,
 				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
@@ -341,6 +387,7 @@
 				465AE9D82C416AC400B95230 /* Appointment */,
 				468E30372C3EB3D8007A87A4 /* Auth */,
 				465AE9C92C41415300B95230 /* Calender */,
+				4618CA742C4552930067C27C /* Chart */,
 				464E26F12C448DD100CABD64 /* Client */,
 				464E26EE2C448D3B00CABD64 /* Service */,
 			);
@@ -532,26 +579,31 @@
 				464E26F02C448D5400CABD64 /* Service.swift in Sources */,
 				467615B62C400128005A7ECF /* HomeView.swift in Sources */,
 				468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */,
+				4618CA792C45532B0067C27C /* ApptChartView.swift in Sources */,
 				465AE9D12C41452A00B95230 /* SelectDateHeader.swift in Sources */,
 				465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */,
 				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
 				465AE9CD2C4141E200B95230 /* Calender.swift in Sources */,
 				465AE9CB2C41416E00B95230 /* Hours.swift in Sources */,
+				4618CA7F2C4554AA0067C27C /* ApptViewModel.swift in Sources */,
 				468E30392C3EB428007A87A4 /* AuthService.swift in Sources */,
 				465AE9C72C41412600B95230 /* CalenderViewModel.swift in Sources */,
 				468C4C7C2C400E8B006C7FBE /* HeaderView.swift in Sources */,
+				4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */,
 				465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,
 				467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */,
 				464E26F32C448E1000CABD64 /* Client.swift in Sources */,
+				4618CA762C4552AA0067C27C /* Journal.swift in Sources */,
 				468E2FF32C3EACB3007A87A4 /* JournalApp.swift in Sources */,
 				465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */,
 				465AE9CF2C4144A900B95230 /* CalenderView.swift in Sources */,
 				468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */,
 				464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */,
+				4618CA812C45557F0067C27C /* ApptRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

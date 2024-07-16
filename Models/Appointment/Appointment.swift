@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 struct Appointment: Identifiable, Codable {
     @DocumentID var id: String?
     let name: String
-    let service: String
+    let service: Service
     let date: Date
     
     enum CodingKeys: String, CodingKey {
