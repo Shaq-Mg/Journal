@@ -12,6 +12,12 @@
 		4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA7A2C4554350067C27C /* MainChartView.swift */; };
 		4618CA7F2C4554AA0067C27C /* ApptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA7E2C4554AA0067C27C /* ApptViewModel.swift */; };
 		4618CA812C45557F0067C27C /* ApptRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA802C45557F0067C27C /* ApptRowView.swift */; };
+		4618CA852C4687390067C27C /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA842C4687390067C27C /* ClientView.swift */; };
+		4618CA872C4687530067C27C /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA862C4687530067C27C /* ClientViewModel.swift */; };
+		4618CA892C468EEF0067C27C /* ClientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA882C468EEF0067C27C /* ClientDetailView.swift */; };
+		4618CA8B2C4692280067C27C /* CreateNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA8A2C4692280067C27C /* CreateNavButton.swift */; };
+		4618CA8E2C46972D0067C27C /* CreateClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA8D2C46972D0067C27C /* CreateClientView.swift */; };
+		4618CA902C46997A0067C27C /* CreateTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA8F2C46997A0067C27C /* CreateTextfield.swift */; };
 		464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EC2C448C3100CABD64 /* PreviewProvider.swift */; };
 		464E26F02C448D5400CABD64 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EF2C448D5400CABD64 /* Service.swift */; };
 		464E26F32C448E1000CABD64 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26F22C448E1000CABD64 /* Client.swift */; };
@@ -75,6 +81,12 @@
 		4618CA7A2C4554350067C27C /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
 		4618CA7E2C4554AA0067C27C /* ApptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptViewModel.swift; sourceTree = "<group>"; };
 		4618CA802C45557F0067C27C /* ApptRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptRowView.swift; sourceTree = "<group>"; };
+		4618CA842C4687390067C27C /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
+		4618CA862C4687530067C27C /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
+		4618CA882C468EEF0067C27C /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailView.swift; sourceTree = "<group>"; };
+		4618CA8A2C4692280067C27C /* CreateNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNavButton.swift; sourceTree = "<group>"; };
+		4618CA8D2C46972D0067C27C /* CreateClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientView.swift; sourceTree = "<group>"; };
+		4618CA8F2C46997A0067C27C /* CreateTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextfield.swift; sourceTree = "<group>"; };
 		464E26EC2C448C3100CABD64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		464E26EF2C448D5400CABD64 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		464E26F22C448E1000CABD64 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -173,6 +185,34 @@
 				4618CA7E2C4554AA0067C27C /* ApptViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4618CA822C4686F70067C27C /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA8D2C46972D0067C27C /* CreateClientView.swift */,
+				4618CA882C468EEF0067C27C /* ClientDetailView.swift */,
+				4618CA842C4687390067C27C /* ClientView.swift */,
+				4618CA832C4687110067C27C /* ViewModel */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		4618CA832C4687110067C27C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA862C4687530067C27C /* ClientViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4618CA8C2C4692330067C27C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4618CA8A2C4692280067C27C /* CreateNavButton.swift */,
+				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		464E26EB2C448C0C00CABD64 /* Providers */ = {
@@ -314,6 +354,7 @@
 				468E303A2C3EBAE2007A87A4 /* Authentication */,
 				465AE9C52C41410700B95230 /* Calender */,
 				4618CA772C4552BA0067C27C /* Chart */,
+				4618CA822C4686F70067C27C /* Client */,
 				468E303E2C3EBD40007A87A4 /* Settings */,
 			);
 			path = Core;
@@ -322,8 +363,9 @@
 		468E301E2C3EADB7007A87A4 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				468C4C7B2C400E8B006C7FBE /* HeaderView.swift */,
 				4618CA802C45557F0067C27C /* ApptRowView.swift */,
+				4618CA8F2C46997A0067C27C /* CreateTextfield.swift */,
+				468C4C7B2C400E8B006C7FBE /* HeaderView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -352,8 +394,8 @@
 				4618CA782C45532B0067C27C /* ApptChartView.swift */,
 				465AE9D42C41522D00B95230 /* ApptInputView.swift */,
 				467615AA2C3FFB8C005A7ECF /* InputView.swift */,
-				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
 				465AE9D02C41452A00B95230 /* SelectDateHeader.swift */,
+				4618CA8C2C4692330067C27C /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -572,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				468C4C812C400FF9006C7FBE /* SettingsView.swift in Sources */,
+				4618CA8E2C46972D0067C27C /* CreateClientView.swift in Sources */,
 				467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */,
 				465AE9D32C41517700B95230 /* BookApptView.swift in Sources */,
 				465AE9DA2C416ADF00B95230 /* Appointment.swift in Sources */,
@@ -581,8 +624,10 @@
 				468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */,
 				4618CA792C45532B0067C27C /* ApptChartView.swift in Sources */,
 				465AE9D12C41452A00B95230 /* SelectDateHeader.swift in Sources */,
+				4618CA892C468EEF0067C27C /* ClientDetailView.swift in Sources */,
 				465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */,
 				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
+				4618CA872C4687530067C27C /* ClientViewModel.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
 				465AE9CD2C4141E200B95230 /* Calender.swift in Sources */,
 				465AE9CB2C41416E00B95230 /* Hours.swift in Sources */,
@@ -594,6 +639,7 @@
 				465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
+				4618CA852C4687390067C27C /* ClientView.swift in Sources */,
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,
 				467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */,
 				464E26F32C448E1000CABD64 /* Client.swift in Sources */,
@@ -602,6 +648,8 @@
 				465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */,
 				465AE9CF2C4144A900B95230 /* CalenderView.swift in Sources */,
 				468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */,
+				4618CA902C46997A0067C27C /* CreateTextfield.swift in Sources */,
+				4618CA8B2C4692280067C27C /* CreateNavButton.swift in Sources */,
 				464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */,
 				4618CA812C45557F0067C27C /* ApptRowView.swift in Sources */,
 			);
