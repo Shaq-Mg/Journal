@@ -12,7 +12,8 @@ struct RootView: View {
     @State private var showSignInView = true
     var body: some View {
         ZStack {
-            SettingsView(showSignInView: $showSignInView)
+            HomeView(showSignInView: $showSignInView)
+                .environmentObject(viewModel)
         }
         .onAppear {
             Task {

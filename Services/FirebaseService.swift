@@ -10,27 +10,26 @@ import Combine
 import Firebase
 
 final class FirebaseService {
+    @Published var profile: Profile? = nil
     
-    func fetchCollection<T: Codable>(from collectionPath: String, as type: T.Type) async throws -> [T] {
+    func create(collectionPath: String, docId: String, documentData: [String:Any]) async throws {
+        guard let uid = profile?.id else { return }
         let db = Firestore.firestore()
         
-        let snapshot = try await db.collection(collectionPath).getDocuments()
-        
-        let objects = try snapshot.documents.compactMap { document in
-            try document.data(as: T.self)
-        }
-        return objects
-    }
-    
-    func createCollection(collectionPath: String, documentData: [String:Any]) async throws {
-        let db = Firestore.firestore()
-        
-        let document = db.collection(collectionPath).document()
+        let document = db.collection("users").document(uid).collection(collectionPath).document(docId)
         try await document.setData(documentData, merge: false)
     }
 
-    func update<T: Identifiable>(collectionPath: String, typeToUpdate: T, typeDictionary: [String:Any]) {
+    func update<T: Identifiable>(collectionPath: String, uid: String, typeToUpdate: T, typeDictionary: [String:Any]) {
+        guard let uid = profile?.id else { return }
         let db = Firestore.firestore()
-        db.collection("appointments").document("\(typeToUpdate.id)").updateData(typeDictionary)
+        db.collection("users").document(uid).collection(collectionPath).document("\(typeToUpdate.id)").updateData(typeDictionary)
+    }
+    
+    func delete<T: Identifiable>(collectionPath: String, docId: String, typeToDelete: T) {
+        guard let uid = profile?.id else { return }
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(uid).collection(collectionPath).document(typeToDelete.id  as? String ?? "")
     }
 }

@@ -14,8 +14,8 @@ final class ClientViewModel: ObservableObject {
     @Published var name = ""
     @Published var phoneNumber = ""
     @Published var nickname = ""
-    @Published var notes = ""
     @Published var isFavourite = false
+    @Published var client: Client? = nil
     
     var filteredClients: [Client] {
         guard !searchText.isEmpty else { return clients }
@@ -30,14 +30,25 @@ final class ClientViewModel: ObservableObject {
     }
     
     func fetchClients() {
-        Task {
-            try await firebaseService.fetchCollection(from: "clients", as: Client.self)
+        db.collection("users").document().collection("clients").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        self.clients = snapshot.documents.map({ doc in
+                            return Client(id: doc.documentID, name: doc[Client.CodingKeys.name.rawValue] as? String ?? "n/a", phoneNumber: doc[Client.CodingKeys.phoneNumber.rawValue] as? String ?? "n/a", nickname: doc[Client.CodingKeys.nickname.rawValue] as? String ?? "n/a", isFavourite: doc[Client.CodingKeys.isFavourite.rawValue] as? Bool ?? false)
+                        })
+                    }
+                }
+            } else {
+                // handle error here
+            }
         }
     }
     
     func save(name: String, phoneNumber: String, nickname: String?, isFavourite: Bool) {
+        guard let uid = client?.id else { return }
         Task {
-            try await firebaseService.createCollection(collectionPath: "clients", documentData: [Client.CodingKeys.name.rawValue: name, Client.CodingKeys.phoneNumber.rawValue: phoneNumber, Client.CodingKeys.nickname.rawValue: nickname ?? "n/a", Client.CodingKeys.isFavourite.rawValue: isFavourite])
+            try await firebaseService.create(collectionPath: "clients", docId: uid, documentData: [Client.CodingKeys.name.rawValue: name, Client.CodingKeys.phoneNumber.rawValue: phoneNumber, Client.CodingKeys.nickname.rawValue: nickname ?? "n/a", Client.CodingKeys.isFavourite.rawValue: isFavourite])
         }
     }
     
@@ -47,7 +58,7 @@ final class ClientViewModel: ObservableObject {
     
     func delete(clientToDelete: Client) {
         let db = Firestore.firestore()
-        db.collection("clients").document(clientToDelete.id ?? "").delete { error in
+        db.collection("users").document().collection("clients").document(clientToDelete.id ?? "").delete { error in
             if error == nil {
                 DispatchQueue.main.async {
                     self.clients.removeAll { client in

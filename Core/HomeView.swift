@@ -8,25 +8,45 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var viewModel: AuthViewModel
+    @EnvironmentObject private var authVM: AuthViewModel
+    @EnvironmentObject private var apptVM: ApptViewModel
+    @EnvironmentObject private var calenderVM: CalenderViewModel
+    @EnvironmentObject private var settingsVM: SettingsViewModel
+    @Binding var showSignInView: Bool
     var body: some View {
-        NavigationStack {
-            Text("Hello, \(viewModel.authService.profile.name)")
+        TabView {
+            MainChartView()
+                .environmentObject(apptVM)
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+            CalenderView()
+                .environmentObject(calenderVM)
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Bookings")
+                }
+            SettingsView(showSignInView: $showSignInView)
+                .environmentObject(settingsVM)
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Account")
+                }
         }
-        .onAppear {
-            Task {
-                try await viewModel.fetchCurrentUser()
-            }
-        }
+        .tint(.indigo)
+        .task { try? await authVM.fetchCurrentUser() }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let authService = AuthService()
-        NavigationStack {
-            HomeView()
-        }
-        .environmentObject(AuthViewModel(authService: authService))
+        HomeView(showSignInView: .constant(false))
+            .environmentObject(AuthViewModel(authService: authService))
+            .environmentObject(ApptViewModel())
+            .environmentObject(CalenderViewModel())
+            .environmentObject(SettingsViewModel(authService: authService))
+        
     }
 }
