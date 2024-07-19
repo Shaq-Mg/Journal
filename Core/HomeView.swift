@@ -41,12 +41,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        let authService = AuthService()
         HomeView(showSignInView: .constant(false))
-            .environmentObject(AuthViewModel(authService: authService))
+            .environmentObject(AuthViewModel(authService: dev.authService))
             .environmentObject(ApptViewModel())
             .environmentObject(CalenderViewModel())
-            .environmentObject(SettingsViewModel(authService: authService))
+            .environmentObject(SettingsViewModel(authService: dev.authService))
         
     }
 }

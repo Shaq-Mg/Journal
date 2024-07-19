@@ -51,11 +51,10 @@ struct ClientView: View {
 
 struct ClientView_Previews: PreviewProvider {
     static var previews: some View {
-        let firebaseService = FirebaseService()
         NavigationStack {
             ClientView()
         }
-        .environmentObject(ClientViewModel(firebaseService: firebaseService))
+        .environmentObject(ClientViewModel(firebaseService: dev.firebaseService))
     }
 }
 

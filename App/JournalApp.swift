@@ -21,6 +21,7 @@ struct JournalApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var apptViewModel = ApptViewModel()
     @StateObject private var authViewModel = AuthViewModel(authService: AuthService())
+    @StateObject private var calenderVM = CalenderViewModel()
     @StateObject private var clientViewModel = ClientViewModel(firebaseService: FirebaseService())
     @StateObject private var settingsViewModel = SettingsViewModel(authService: AuthService())
     var body: some Scene {
@@ -30,6 +31,7 @@ struct JournalApp: App {
             }
             .environmentObject(apptViewModel)
             .environmentObject(authViewModel)
+            .environmentObject(calenderVM)
             .environmentObject(clientViewModel)
             .environmentObject(settingsViewModel)
         }

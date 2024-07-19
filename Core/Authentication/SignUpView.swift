@@ -54,10 +54,9 @@ struct SignUpView: View {
 }
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        let authService = AuthService()
         NavigationStack {
             SignUpView(showSignInView: .constant(false))
         }
-        .environmentObject(AuthViewModel(authService: authService))
+        .environmentObject(AuthViewModel(authService: dev.authService))
     }
 }

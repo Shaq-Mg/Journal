@@ -12,24 +12,18 @@ import Firebase
 final class FirebaseService {
     @Published var profile: Profile? = nil
     
-    func create(collectionPath: String, docId: String, documentData: [String:Any]) async throws {
-        guard let uid = profile?.id else { return }
-        let db = Firestore.firestore()
-        
-        let document = db.collection("users").document(uid).collection(collectionPath).document(docId)
-        try await document.setData(documentData, merge: false)
-    }
-
-    func update<T: Identifiable>(collectionPath: String, uid: String, typeToUpdate: T, typeDictionary: [String:Any]) {
-        guard let uid = profile?.id else { return }
-        let db = Firestore.firestore()
-        db.collection("users").document(uid).collection(collectionPath).document("\(typeToUpdate.id)").updateData(typeDictionary)
+    let userCollection = Firestore.firestore().collection("users")
+    
+    func userDocument(userId: String) -> DocumentReference {
+        userCollection.document(userId)
     }
     
-    func delete<T: Identifiable>(collectionPath: String, docId: String, typeToDelete: T) {
-        guard let uid = profile?.id else { return }
-        let db = Firestore.firestore()
-        
-        db.collection("users").document(uid).collection(collectionPath).document(typeToDelete.id  as? String ?? "")
+    func create(collectionPath: String, userId: String, documentData: [String:Any]) async throws {
+        let document = userDocument(userId: userId).collection(collectionPath).document()
+        try await document.setData(documentData, merge: false)
+    }
+    
+    func update<T: Identifiable>(collectionPath: String, uid: String, typeToUpdate: T, typeDictionary: [String:Any]) {
+        userDocument(userId: uid).collection(collectionPath).document("\(typeToUpdate.id)").updateData(typeDictionary)
     }
 }

@@ -30,7 +30,7 @@ final class ClientViewModel: ObservableObject {
     }
     
     func fetchClients() {
-        db.collection("users").document().collection("clients").getDocuments { snapshot, error in
+        firebaseService.userCollection.document().collection("clients").getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
@@ -48,7 +48,7 @@ final class ClientViewModel: ObservableObject {
     func save(name: String, phoneNumber: String, nickname: String?, isFavourite: Bool) {
         guard let uid = client?.id else { return }
         Task {
-            try await firebaseService.create(collectionPath: "clients", docId: uid, documentData: [Client.CodingKeys.name.rawValue: name, Client.CodingKeys.phoneNumber.rawValue: phoneNumber, Client.CodingKeys.nickname.rawValue: nickname ?? "n/a", Client.CodingKeys.isFavourite.rawValue: isFavourite])
+            try await firebaseService.create(collectionPath: "clients", userId: uid, documentData: [Client.CodingKeys.name.rawValue: name, Client.CodingKeys.phoneNumber.rawValue: phoneNumber, Client.CodingKeys.nickname.rawValue: nickname ?? "n/a", Client.CodingKeys.isFavourite.rawValue: isFavourite])
         }
     }
     
@@ -57,8 +57,7 @@ final class ClientViewModel: ObservableObject {
     }
     
     func delete(clientToDelete: Client) {
-        let db = Firestore.firestore()
-        db.collection("users").document().collection("clients").document(clientToDelete.id ?? "").delete { error in
+        firebaseService.userCollection.document().collection("clients").document(clientToDelete.id ?? "").delete { error in
             if error == nil {
                 DispatchQueue.main.async {
                     self.clients.removeAll { client in

@@ -29,10 +29,9 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        let authService = AuthService()
         NavigationStack {
             RootView()
         }
-        .environmentObject(AuthViewModel(authService: authService))
+        .environmentObject(AuthViewModel(authService: dev.authService))
     }
 }
