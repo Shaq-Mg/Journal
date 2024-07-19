@@ -56,6 +56,7 @@
 		468E30392C3EB428007A87A4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30382C3EB428007A87A4 /* AuthService.swift */; };
 		468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */; };
 		468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */; };
+		46BD05312C4A9A1900A70FC5 /* FormIsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD05302C4A9A1900A70FC5 /* FormIsValid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		468E30382C3EB428007A87A4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		46BD05302C4A9A1900A70FC5 /* FormIsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIsValid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				465AE9C32C41406E00B95230 /* Date+Est.swift */,
+				46BD05302C4A9A1900A70FC5 /* FormIsValid.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				4618CA8E2C46972D0067C27C /* CreateClientView.swift in Sources */,
 				467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */,
 				465AE9D32C41517700B95230 /* BookApptView.swift in Sources */,
+				46BD05312C4A9A1900A70FC5 /* FormIsValid.swift in Sources */,
 				465AE9DA2C416ADF00B95230 /* Appointment.swift in Sources */,
 				467615AD2C3FFC41005A7ECF /* SignInView.swift in Sources */,
 				464E26F02C448D5400CABD64 /* Service.swift in Sources */,

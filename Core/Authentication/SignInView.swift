@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @EnvironmentObject private var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     @Binding var showSignInView: Bool
     var body: some View {
         NavigationStack {
@@ -23,9 +23,11 @@ struct SignInView: View {
                     RegistrationButton(title: "Sign In") {
                         Task {
                             do {
-                                try await viewModel.signIn()
-                                showSignInView = false
-                                viewModel.loginStatusMessage = "Successfully logged in user: \(viewModel.authService.uid)"
+                                if formIsValid {
+                                    try await viewModel.signIn()
+                                    showSignInView = false
+                                    viewModel.loginStatusMessage = "Successfully logged in user: \(viewModel.authService.uid)"
+                                }
                             } catch {
                                 print("Failed to login user \(error)")
                                 viewModel.loginStatusMessage = "Failed to login user: \(error)"
@@ -40,8 +42,10 @@ struct SignInView: View {
                     .foregroundStyle(.black)
                     Text(viewModel.loginStatusMessage)
                         .foregroundStyle(.white)
+                        .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(.red))
                 }
                 .padding(.horizontal)
+                .onAppear { viewModel.clearLoginInformation() }
             }
         }
     }

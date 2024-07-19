@@ -24,6 +24,7 @@ final class AuthViewModel: ObservableObject {
         email = ""
         password = ""
         confirmPassword = ""
+        loginStatusMessage = ""
     }
     
     func fetchCurrentUser() async throws {
@@ -31,18 +32,10 @@ final class AuthViewModel: ObservableObject {
     }
     
     func signUp() async throws {
-        guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
-            print("No email or password found.") // handle error
-            return
-        }
         try await authService.createAccount(email: email, password: password, name: name)
     }
     
     func signIn() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("Incorrect login information") // handle error
-            return
-        }
         try await authService.signInUser(email: email, password: password)
     }
 }
