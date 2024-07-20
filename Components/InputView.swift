@@ -11,6 +11,7 @@ struct InputView: View {
     @Binding var text: String
     let title: String
     let placeholder: String
+    let action: ()->()
     var isSecureField = false
     
     var body: some View {
@@ -23,12 +24,28 @@ struct InputView: View {
                 if isSecureField {
                     SecureField(placeholder, text: $text)
                         .font(.system(size: 16))
+                        .overlay(alignment: .trailing) {
+                            Button {
+                                action()
+                            } label: {
+                                Image(systemName: "xmark.circle")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
                     
                 } else {
                     TextField(placeholder, text: $text)
                         .font(.system(size: 16))
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.none)
+                        .overlay(alignment: .trailing) {
+                            Button {
+                                action()
+                            } label: {
+                                Image(systemName: "xmark.circle")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
                 }
             }
             .padding()
@@ -43,6 +60,6 @@ struct InputView: View {
 
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
-        InputView(text: .constant(""), title: "Email", placeholder: "Email")
+        InputView(text: .constant(""), title: "Email", placeholder: "Email", action: { })
     }
 }

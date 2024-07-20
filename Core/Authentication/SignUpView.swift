@@ -17,13 +17,13 @@ struct SignUpView: View {
                 Color.indigo.opacity(0.8).ignoresSafeArea()
                 VStack(spacing: 20) {
                     VStack(spacing: 10) {
-                        InputView(text: $viewModel.name, title: "Name", placeholder: "Name")
+                        InputView(text: $viewModel.name, title: "Name", placeholder: "Name", action: { viewModel.name = "" })
                         
-                        InputView(text: $viewModel.email, title: "Email", placeholder: "User@hotmail.com")
+                        InputView(text: $viewModel.email, title: "Email", placeholder: "User@hotmail.com", action: { viewModel.email = "" })
                         
-                        InputView(text: $viewModel.password, title: "Password", placeholder: "password", isSecureField: true)
+                        InputView(text: $viewModel.password, title: "Password", placeholder: "password", action: { viewModel.password = "" }, isSecureField: true)
                         
-                        InputView(text: $viewModel.confirmPassword, title: "Confirm Password", placeholder: "Confirm password", isSecureField: true)
+                        InputView(text: $viewModel.confirmPassword, title: "Confirm Password", placeholder: "Confirm password", action: { viewModel.confirmPassword = "" }, isSecureField: true)
                         
                     }
                     RegistrationButton(title: "Create account") {
@@ -40,6 +40,7 @@ struct SignUpView: View {
                             }
                         }
                     }
+                    .disabled(!formIsValid)
                     
                     Button("Already have a account? Login") {
                         dismiss()

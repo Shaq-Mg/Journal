@@ -16,9 +16,9 @@ struct SignInView: View {
                 Color.indigo.opacity(0.8).ignoresSafeArea()
                 VStack(spacing: 20) {
                     VStack(spacing: 8) {
-                        InputView(text: $viewModel.email, title: "Email", placeholder: "User@hotmail.com")
+                        InputView(text: $viewModel.email, title: "Email", placeholder: "User@hotmail.com", action: { viewModel.email = "" })
                         
-                        InputView(text: $viewModel.password, title: "Password", placeholder: "password", isSecureField: true)
+                        InputView(text: $viewModel.password, title: "Password", placeholder: "password", action: { viewModel.password = "" }, isSecureField: true)
                     }
                     RegistrationButton(title: "Sign In") {
                         Task {
@@ -34,6 +34,7 @@ struct SignInView: View {
                             }
                         }
                     }
+                    .disabled(!formIsValid)
                     
                     NavigationLink("Dont have a account? Sign up") {
                         SignUpView(showSignInView: $showSignInView)

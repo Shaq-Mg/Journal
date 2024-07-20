@@ -14,7 +14,6 @@ extension SignInView {
         && !viewModel.password.isEmpty
         && viewModel.password.count >= 5
     }
-
 }
 
 extension SignUpView {
