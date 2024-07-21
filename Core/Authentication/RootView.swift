@@ -17,6 +17,7 @@ struct RootView: View {
                 SignInView()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

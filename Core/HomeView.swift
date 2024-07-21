@@ -20,12 +20,6 @@ struct HomeView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            CalenderView()
-                .environmentObject(calenderVM)
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Bookings")
-                }
             Text("Content unavailable")
                 .environmentObject(clientVM)
                 .tabItem {
@@ -42,6 +36,7 @@ struct HomeView: View {
         }
         .tint(.indigo)
         .task { try? await authVM.fetchCurrentUser() }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

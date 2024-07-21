@@ -27,7 +27,7 @@ struct ApptInputView: View {
             .frame(maxWidth: .infinity)
             .background(.white)
             .cornerRadius(20)
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 4).foregroundStyle(.black))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 2).foregroundStyle(.black))
         }
     }
 }

@@ -12,22 +12,24 @@ struct CalenderView: View {
     var body: some View {
         VStack {
             HeaderView(title: "Select a date", isDismiss: { })
-            VStack(spacing: 20) {
-                SelectDateHeader(selectedDate: $vm.selectedDate)
-                
-                HStack {
-                    ForEach(vm.days, id: \.self) { day in
-                        Text(day)
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity)
+            NavigationStack {
+                VStack(spacing: 20) {
+                    SelectDateHeader(selectedDate: $vm.selectedDate)
+                    
+                    HStack {
+                        ForEach(vm.days, id: \.self) { day in
+                            Text(day)
+                                .font(.system(size: 20, weight: .semibold))
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity)
+                        }
                     }
+                    calenderDays
                 }
-                calenderDays
+                .padding(.horizontal)
+                .navigationBarBackButtonHidden(true)
             }
-            .padding(.horizontal)
         }
-        .navigationBarBackButtonHidden(true)
         .onChange(of: vm.selectedMonth) { newValue in
             vm.selectedDate = vm.fetchSelectedMonth()
         }
@@ -49,9 +51,7 @@ extension CalenderView {
                     if value.day != -1 {
                         let hasAppts = vm.availableDays.contains(value.date.monthDayYearFormat())
                         NavigationLink {
-                            NavigationStack {
                                 BookApptView(currentDate: value.date)
-                            }
                         } label: {
                             Text("\(value.day)")
                                 .bold()
