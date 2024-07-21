@@ -20,7 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct JournalApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var apptViewModel = ApptViewModel()
-    @StateObject private var authViewModel = AuthViewModel(authService: AuthService())
+    @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var calenderVM = CalenderViewModel()
     @StateObject private var clientViewModel = ClientViewModel(firebaseService: FirebaseService())
     @StateObject private var settingsViewModel = SettingsViewModel(authService: AuthService())

@@ -10,7 +10,6 @@ import SwiftUI
 struct SignUpView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.dismiss) var dismiss
-    @Binding var showSignInView: Bool
     var body: some View {
         NavigationStack {
             ZStack {
@@ -30,9 +29,9 @@ struct SignUpView: View {
                         Task {
                             do {
                                 if formIsValid {
-                                    try await viewModel.signUp()
-                                    showSignInView = false
-                                    viewModel.loginStatusMessage = "Successfully created user: \(viewModel.authService.uid)"
+                                    try await viewModel.signUp(withEmail: viewModel.email, name: viewModel.name, password: viewModel.password, confirmPassword: viewModel.confirmPassword)
+                                    
+                                    viewModel.loginStatusMessage = "Successfully created user: \(viewModel.userSession?.uid)"
                                 }
                             } catch {
                                 print("Failed to login user \(error)")
@@ -48,8 +47,9 @@ struct SignUpView: View {
                     .font(.callout)
                     .foregroundStyle(.black)
                     Text(viewModel.loginStatusMessage)
-                        .foregroundStyle(.white)
-                        .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(.red))
+                        .padding(!viewModel.loginStatusMessage.isEmpty ? 8 : 0)
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundStyle(.red))
+                        .shadow(radius: 2)
                 }
                 .padding(.horizontal)
                 .onAppear { viewModel.clearLoginInformation() }
@@ -60,8 +60,8 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SignUpView(showSignInView: .constant(false))
+            SignUpView()
         }
-        .environmentObject(AuthViewModel(authService: dev.authService))
+        .environmentObject(ApptViewModel())
     }
 }

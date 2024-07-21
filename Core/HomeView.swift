@@ -12,7 +12,6 @@ struct HomeView: View {
     @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var settingsVM: SettingsViewModel
-    @Binding var showSignInView: Bool
     var body: some View {
         TabView {
             MainChartView()
@@ -27,7 +26,7 @@ struct HomeView: View {
                     Image(systemName: "calendar")
                     Text("Bookings")
                 }
-            SettingsView(showSignInView: $showSignInView)
+            SettingsView()
                 .environmentObject(settingsVM)
                 .tabItem {
                     Image(systemName: "gear")
@@ -41,8 +40,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showSignInView: .constant(false))
-            .environmentObject(AuthViewModel(authService: dev.authService))
+        HomeView()
+            .environmentObject(AuthViewModel())
             .environmentObject(ApptViewModel())
             .environmentObject(CalenderViewModel())
             .environmentObject(SettingsViewModel(authService: dev.authService))

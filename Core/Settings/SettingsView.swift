@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var viewModel: SettingsViewModel
+    @EnvironmentObject private var viewModel: AuthViewModel
     @State private var showSignOutAlert = false
     @State private var showDeleteAccountAlert = false
-    @Binding var showSignInView: Bool
     
     var body: some View {
         VStack {
@@ -32,7 +31,6 @@ struct SettingsView: View {
             Button("Yes", role: .destructive) {
                 DispatchQueue.main.async {
                     try? viewModel.signOut()
-                    showSignInView = true
                 }
             }
         } message: {
@@ -41,8 +39,7 @@ struct SettingsView: View {
         .confirmationDialog("Delete permanently", isPresented: $showDeleteAccountAlert, titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
                 Task {
-                    try await viewModel.delete()
-                    showSignInView = true
+                    try await viewModel.deleteAccount()
                 }
             }
         } message: {
@@ -53,6 +50,9 @@ struct SettingsView: View {
 }
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(showSignInView: .constant(false))
+        NavigationStack {
+            SettingsView()
+        }
+        .environmentObject(AuthViewModel())
     }
 }

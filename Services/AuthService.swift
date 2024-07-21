@@ -11,34 +11,9 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 final class AuthService {
-    @Published var profile = Profile()
-    @Published var authState: AuthState = .nonAuthenticated
     @Published var uid = ""
     
-    init() {
-        setupAuthListener()
-    }
-    
-    private func setupAuthListener() {
-        Auth.auth().addStateDidChangeListener { _, user in
-            self.authState = user == nil ? .nonAuthenticated : .authenticated
-            guard let user = user else { return }
-            self.uid = user.uid
-        }
-    }
-    
-    func createAccount(email: String, password: String, name: String) async throws {
-        guard name != "" else { return }
-        try await Auth.auth().createUser(withEmail: email, password: password)
-        guard uid != "" else { return }
-        try createNewUser(name: name, email: email)
-    }
-    
-    private func createNewUser(name: String, email: String) throws {
-        let reference = Firestore.firestore().collection("users").document(uid)
-        let profile = Profile(name: name, email: email)
-        try reference.setData(from: profile)
-    }
+    init() {  }
     
     func signInUser(email: String, password: String) async throws {
         try await Auth.auth().signIn(withEmail: email, password: password)
@@ -46,12 +21,6 @@ final class AuthService {
     
     func signOut() throws {
         try Auth.auth().signOut()
-    }
-    
-    func fetchUser() async throws {
-        guard uid != "" else { return }
-        let reference = Firestore.firestore().collection("users").document(uid)
-        profile = try await reference.getDocument(as: Profile.self)
     }
     
     func deleteAccount() async throws {
@@ -80,7 +49,7 @@ final class AuthService {
     }
     
     func updatePremiumStatus(userId: String, isPremium: Bool) async throws {
-        let data: [String:Any] = [ Profile.CodingKeys.isPremium.rawValue : isPremium ]
+        let data: [String:Any] = [ User.CodingKeys.isPremium.rawValue : isPremium ]
         try await Firestore.firestore().document(userId).updateData(data)
     }
 }

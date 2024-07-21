@@ -10,7 +10,7 @@ import Combine
 import Firebase
 
 final class FirebaseService {
-    @Published var profile: Profile? = nil
+    @Published var profile: User? = nil
     
     let userCollection = Firestore.firestore().collection("users")
     

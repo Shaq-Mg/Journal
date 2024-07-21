@@ -8,7 +8,7 @@
 import Foundation
 
 final class SettingsViewModel: ObservableObject {
-    @Published private(set) var user: Profile? = nil
+    @Published private(set) var user: User? = nil
     let authService: AuthService
     
     init(authService: AuthService) {

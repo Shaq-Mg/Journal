@@ -9,20 +9,13 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject private var viewModel: AuthViewModel
-    @State private var showSignInView = true
     var body: some View {
-        ZStack {
-            HomeView(showSignInView: $showSignInView)
-                .environmentObject(viewModel)
-        }
-        .onAppear {
-            Task {
-                let authUser = try? await viewModel.fetchCurrentUser()
-                self.showSignInView = authUser == nil
+        Group {
+            if viewModel.userSession != nil {
+                HomeView()
+            } else {
+                SignInView()
             }
-        }
-        .fullScreenCover(isPresented: $showSignInView) {
-            SignInView(showSignInView: $showSignInView)
         }
     }
 }
@@ -32,6 +25,6 @@ struct RootView_Previews: PreviewProvider {
         NavigationStack {
             RootView()
         }
-        .environmentObject(AuthViewModel(authService: dev.authService))
+        .environmentObject(AuthViewModel())
     }
 }

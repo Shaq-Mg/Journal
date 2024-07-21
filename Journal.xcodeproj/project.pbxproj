@@ -51,8 +51,7 @@
 		468E302D2C3EAF47007A87A4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 468E302C2C3EAF47007A87A4 /* FirebaseFirestoreSwift */; };
 		468E302F2C3EAF4D007A87A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 468E302E2C3EAF4D007A87A4 /* FirebaseAuth */; };
 		468E30312C3EAF62007A87A4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 468E30302C3EAF62007A87A4 /* FirebaseStorage */; };
-		468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30332C3EB2CA007A87A4 /* Profile.swift */; };
-		468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30352C3EB3D4007A87A4 /* AuthState.swift */; };
+		468E30342C3EB2CA007A87A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30332C3EB2CA007A87A4 /* User.swift */; };
 		468E30392C3EB428007A87A4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30382C3EB428007A87A4 /* AuthService.swift */; };
 		468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */; };
 		468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */; };
@@ -120,8 +119,7 @@
 		468E300D2C3EACB4007A87A4 /* JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITests.swift; sourceTree = "<group>"; };
 		468E300F2C3EACB4007A87A4 /* JournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		468E30242C3EAE9A007A87A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		468E30332C3EB2CA007A87A4 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		468E30352C3EB3D4007A87A4 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		468E30332C3EB2CA007A87A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		468E30382C3EB428007A87A4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -442,8 +440,7 @@
 		468E30372C3EB3D8007A87A4 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				468E30352C3EB3D4007A87A4 /* AuthState.swift */,
-				468E30332C3EB2CA007A87A4 /* Profile.swift */,
+				468E30332C3EB2CA007A87A4 /* User.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -630,7 +627,6 @@
 				465AE9D12C41452A00B95230 /* SelectDateHeader.swift in Sources */,
 				4618CA892C468EEF0067C27C /* ClientDetailView.swift in Sources */,
 				465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */,
-				468E30362C3EB3D4007A87A4 /* AuthState.swift in Sources */,
 				4618CA872C4687530067C27C /* ClientViewModel.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
 				465AE9CD2C4141E200B95230 /* Calender.swift in Sources */,
@@ -642,7 +638,7 @@
 				4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */,
 				465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
-				468E30342C3EB2CA007A87A4 /* Profile.swift in Sources */,
+				468E30342C3EB2CA007A87A4 /* User.swift in Sources */,
 				4618CA852C4687390067C27C /* ClientView.swift in Sources */,
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,
 				467615AB2C3FFB8C005A7ECF /* InputView.swift in Sources */,
