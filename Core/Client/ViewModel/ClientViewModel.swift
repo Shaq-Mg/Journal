@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 
+@MainActor
 final class ClientViewModel: ObservableObject {
     @Published var clients = [Client]()
     @Published var searchText = ""
@@ -27,10 +28,19 @@ final class ClientViewModel: ObservableObject {
     
     init(firebaseService: FirebaseService) {
         self.firebaseService = firebaseService
+        self.fetchClients()
+    }
+    
+    private func clearInformation() {
+        name = ""
+        phoneNumber = ""
+        nickname = ""
+        isFavourite = false
     }
     
     func fetchClients() {
-        firebaseService.userCollection.document().collection("clients").getDocuments { snapshot, error in
+        guard let uid = firebaseService.userSession?.uid else { return }
+        firebaseService.userDocument(userId: uid).collection("clients").getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
@@ -45,11 +55,12 @@ final class ClientViewModel: ObservableObject {
         }
     }
     
-    func save(name: String, phoneNumber: String, nickname: String?, isFavourite: Bool) {
-        guard let uid = client?.id else { return }
+    func create(name: String, phoneNumber: String, nickname: String?, isFavourite: Bool) {
+        guard let uid = firebaseService.userSession?.uid else { return }
         Task {
             try await firebaseService.create(collectionPath: "clients", userId: uid, documentData: [Client.CodingKeys.name.rawValue: name, Client.CodingKeys.phoneNumber.rawValue: phoneNumber, Client.CodingKeys.nickname.rawValue: nickname ?? "n/a", Client.CodingKeys.isFavourite.rawValue: isFavourite])
         }
+        self.clearInformation()
     }
     
     func update(clientToUpdate: Client) {
@@ -57,13 +68,15 @@ final class ClientViewModel: ObservableObject {
     }
     
     func delete(clientToDelete: Client) {
-        firebaseService.userCollection.document().collection("clients").document(clientToDelete.id ?? "").delete { error in
+        guard let uid = firebaseService.userSession?.uid else { return }
+        firebaseService.userDocument(userId: uid).collection("clients").document(clientToDelete.id ?? "").delete { error in
             if error == nil {
                 DispatchQueue.main.async {
                     self.clients.removeAll { client in
                         return client.id == clientToDelete.id
                     }
                 }
+                self.fetchClients()
             } else {
                 // handle error here
                 print("Failed to delete client to firestore")

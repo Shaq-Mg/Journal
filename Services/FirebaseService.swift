@@ -10,9 +10,14 @@ import Combine
 import Firebase
 
 final class FirebaseService {
-    @Published var profile: User? = nil
+    @Published var userSession: FirebaseAuth.User?
+    @Published var user: User? = nil
     
     let userCollection = Firestore.firestore().collection("users")
+    
+    init() {
+        self.userSession = Auth.auth().currentUser
+    }
     
     func userDocument(userId: String) -> DocumentReference {
         userCollection.document(userId)

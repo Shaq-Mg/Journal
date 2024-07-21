@@ -35,7 +35,7 @@ struct CreateClientView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        vm.save(name: vm.name, phoneNumber: vm.phoneNumber, nickname: vm.nickname, isFavourite: vm.isFavourite)
+                        vm.create(name: vm.name, phoneNumber: vm.phoneNumber, nickname: vm.nickname, isFavourite: vm.isFavourite)
                         dismiss()
                     } label: {
                       Text("Save")

@@ -12,26 +12,24 @@ struct CalenderView: View {
     var body: some View {
         VStack {
             HeaderView(title: "Select a date", isDismiss: { })
-            NavigationStack {
-                VStack(spacing: 20) {
-                    SelectDateHeader(selectedDate: $vm.selectedDate)
-                    
-                    HStack {
-                        ForEach(vm.days, id: \.self) { day in
-                            Text(day)
-                                .font(.system(size: 20, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity)
-                        }
+            VStack(spacing: 20) {
+                SelectDateHeader(selectedDate: $vm.selectedDate)
+                
+                HStack {
+                    ForEach(vm.days, id: \.self) { day in
+                        Text(day)
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity)
                     }
-                    calenderDays
                 }
-                .navigationBarBackButtonHidden(true)
-                .padding(.horizontal)
-                .onChange(of: vm.selectedMonth) { newValue in
-                    vm.selectedDate = vm.fetchSelectedMonth()
-                }
+                calenderDays
             }
+            .padding(.horizontal)
+        }
+        .navigationBarBackButtonHidden(true)
+        .onChange(of: vm.selectedMonth) { newValue in
+            vm.selectedDate = vm.fetchSelectedMonth()
         }
     }
 }
