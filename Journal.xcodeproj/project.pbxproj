@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4615AB522C4D23600037BDE1 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615AB512C4D23600037BDE1 /* MenuRowView.swift */; };
+		4615AB552C4D24370037BDE1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615AB542C4D24370037BDE1 /* MenuView.swift */; };
 		4618CA762C4552AA0067C27C /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA752C4552AA0067C27C /* Journal.swift */; };
 		4618CA792C45532B0067C27C /* ApptChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA782C45532B0067C27C /* ApptChartView.swift */; };
 		4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA7A2C4554350067C27C /* MainChartView.swift */; };
@@ -54,7 +56,6 @@
 		468E30342C3EB2CA007A87A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30332C3EB2CA007A87A4 /* User.swift */; };
 		468E30392C3EB428007A87A4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E30382C3EB428007A87A4 /* AuthService.swift */; };
 		468E303D2C3EBB12007A87A4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */; };
-		468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */; };
 		46BD05312C4A9A1900A70FC5 /* FormIsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BD05302C4A9A1900A70FC5 /* FormIsValid.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4615AB512C4D23600037BDE1 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
+		4615AB542C4D24370037BDE1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4618CA752C4552AA0067C27C /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		4618CA782C45532B0067C27C /* ApptChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptChartView.swift; sourceTree = "<group>"; };
 		4618CA7A2C4554350067C27C /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 		468E30332C3EB2CA007A87A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		468E30382C3EB428007A87A4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		468E303C2C3EBB12007A87A4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		46BD05302C4A9A1900A70FC5 /* FormIsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIsValid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4615AB532C4D23DB0037BDE1 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4615AB542C4D24370037BDE1 /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		4618CA742C4552930067C27C /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 		4618CA8C2C4692330067C27C /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */,
 				4618CA8A2C4692280067C27C /* CreateNavButton.swift */,
 				467615AE2C3FFD49005A7ECF /* RegistrationButton.swift */,
 			);
@@ -272,14 +283,6 @@
 				465AE9D92C416ADF00B95230 /* Appointment.swift */,
 			);
 			path = Appointment;
-			sourceTree = "<group>";
-		};
-		468C4C7F2C400FE6006C7FBE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				468E303F2C3EBD5E007A87A4 /* SettingsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		468E2FE62C3EACB3007A87A4 = {
@@ -355,6 +358,7 @@
 				465AE9C52C41410700B95230 /* Calender */,
 				4618CA772C4552BA0067C27C /* Chart */,
 				4618CA822C4686F70067C27C /* Client */,
+				4615AB532C4D23DB0037BDE1 /* Menu */,
 				468E303E2C3EBD40007A87A4 /* Settings */,
 			);
 			path = Core;
@@ -391,10 +395,10 @@
 		468E30222C3EADE0007A87A4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				468C4C7D2C400F92006C7FBE /* AccountButtonView.swift */,
 				4618CA782C45532B0067C27C /* ApptChartView.swift */,
 				465AE9D42C41522D00B95230 /* ApptInputView.swift */,
 				467615AA2C3FFB8C005A7ECF /* InputView.swift */,
+				4615AB512C4D23600037BDE1 /* MenuRowView.swift */,
 				465AE9D02C41452A00B95230 /* SelectDateHeader.swift */,
 				4618CA8C2C4692330067C27C /* Buttons */,
 			);
@@ -468,7 +472,6 @@
 			isa = PBXGroup;
 			children = (
 				468C4C802C400FF9006C7FBE /* SettingsView.swift */,
-				468C4C7F2C400FE6006C7FBE /* ViewModel */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -638,6 +641,8 @@
 				4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */,
 				465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
+				4615AB552C4D24370037BDE1 /* MenuView.swift in Sources */,
+				4615AB522C4D23600037BDE1 /* MenuRowView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* User.swift in Sources */,
 				4618CA852C4687390067C27C /* ClientView.swift in Sources */,
 				467615B32C3FFFC7005A7ECF /* RootView.swift in Sources */,
@@ -647,7 +652,6 @@
 				468E2FF32C3EACB3007A87A4 /* JournalApp.swift in Sources */,
 				465AE9C42C41406E00B95230 /* Date+Est.swift in Sources */,
 				465AE9CF2C4144A900B95230 /* CalenderView.swift in Sources */,
-				468E30402C3EBD5E007A87A4 /* SettingsViewModel.swift in Sources */,
 				4618CA902C46997A0067C27C /* CreateTextfield.swift in Sources */,
 				4618CA8B2C4692280067C27C /* CreateNavButton.swift in Sources */,
 				464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */,

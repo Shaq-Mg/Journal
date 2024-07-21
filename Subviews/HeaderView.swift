@@ -13,28 +13,35 @@ struct HeaderView: View {
     let isDismiss: () -> ()
     var body: some View {
         VStack {
-            HStack {
-                if isNavigate {
+            if isNavigate {
+                HStack {
                     Text("------")
                         .foregroundStyle(.clear)
-                } else {
                     Spacer()
-                }
-                Spacer()
-                Text(title)
-                    .foregroundStyle(.white)
-                    .font(.system(size: 20, weight: .semibold))
-                Spacer()
-                if isNavigate {
+                    Text(title)
+                        .foregroundStyle(.white)
+                        .font(.system(size: 20, weight: .semibold))
+                    Spacer()
                     Button {
                         isDismiss()
                     } label: {
                         Text("Cancel")
                             .foregroundStyle(.white)
-                            .font(.system(size: 20, weight: .semibold))
+                            .font(.system(size: 14, weight: .semibold))
                     }
-                } else {
+                }
+            } else {
+                HStack {
+                    Text("")
+                        .foregroundStyle(.clear)
                     Spacer()
+                    Text(title)
+                        .foregroundStyle(.white)
+                        .font(.system(size: 20, weight: .semibold))
+                    Spacer()
+                    Text("")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 20, weight: .semibold))
                 }
             }
         }
@@ -43,7 +50,6 @@ struct HeaderView: View {
         .background(.indigo)
     }
 }
-
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView(title: "Menu", isDismiss: { })

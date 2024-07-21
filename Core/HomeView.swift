@@ -11,7 +11,6 @@ struct HomeView: View {
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var calenderVM: CalenderViewModel
-    @EnvironmentObject private var settingsVM: SettingsViewModel
     var body: some View {
         TabView {
             MainChartView()
@@ -26,8 +25,14 @@ struct HomeView: View {
                     Image(systemName: "calendar")
                     Text("Bookings")
                 }
+            Text("Context unavailable")
+                .tabItem {
+                    Image(systemName: "chart.line.uptrend.xyaxis")
+                    Text("Statistics")
+                }
+            
             SettingsView()
-                .environmentObject(settingsVM)
+                .environmentObject(authVM)
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Account")
@@ -44,7 +49,7 @@ struct HomeView_Previews: PreviewProvider {
             .environmentObject(AuthViewModel())
             .environmentObject(ApptViewModel())
             .environmentObject(CalenderViewModel())
-            .environmentObject(SettingsViewModel(authService: dev.authService))
+            .environmentObject(AuthViewModel())
         
     }
 }
