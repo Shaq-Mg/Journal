@@ -13,12 +13,12 @@ struct Service: Identifiable, Codable {
     @DocumentID var id: String?
     let title: String
     let price: Double
-    let duartion: Double
+    let duration: Double
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: CodingKey {
         case id
         case title
         case price
-        case duartion
+        case duration
     }
 }

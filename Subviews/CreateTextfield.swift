@@ -14,7 +14,7 @@ struct CreateTextfield: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
-                .font(.caption2)
+                .font(.caption)
             TextField(placeholder, text: $text)
             Divider()
         }
