@@ -64,7 +64,8 @@ final class ClientViewModel: ObservableObject {
     }
     
     func update(clientToUpdate: Client) {
-        db.collection("clients").document(clientToUpdate.id ?? "").setData(["name": clientToUpdate.name, "phone_number": clientToUpdate.phoneNumber,"nickname": clientToUpdate.nickname ?? "n/a", "is_favourite": clientToUpdate.isFavourite], merge: true)
+        guard let uid = firebaseService.userSession?.uid else { return }
+        firebaseService.userCollection.document(uid).collection("clients").document(clientToUpdate.id ?? "").setData(["name": clientToUpdate.name, "phone_number": clientToUpdate.phoneNumber,"nickname": clientToUpdate.nickname ?? "n/a", "is_favourite": clientToUpdate.isFavourite], merge: true)
     }
     
     func delete(clientToDelete: Client) {

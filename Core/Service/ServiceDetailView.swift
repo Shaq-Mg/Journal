@@ -71,6 +71,6 @@ struct ServiceDetailView: View {
 struct ServiceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ServiceDetailView(service: dev.service)
-            .environmentObject(ServiceViewModel())
+            .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
     }
 }

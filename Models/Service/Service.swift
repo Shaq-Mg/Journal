@@ -12,10 +12,10 @@ import FirebaseFirestoreSwift
 struct Service: Identifiable, Codable {
     @DocumentID var id: String?
     let title: String
-    let price: Double
-    let duration: Double
+    let price: String
+    let duration: String
     
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
         case title
         case price

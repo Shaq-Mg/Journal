@@ -52,6 +52,6 @@ struct CreateServiceView_Previews: PreviewProvider {
         NavigationStack {
             CreateServiceView()
         }
-        .environmentObject(ServiceViewModel())
+        .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
     }
 }

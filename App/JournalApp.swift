@@ -23,7 +23,7 @@ struct JournalApp: App {
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var calenderViewModel = CalenderViewModel()
     @StateObject private var clientViewModel = ClientViewModel(firebaseService: FirebaseService())
-    @StateObject private var serviceViewModel = ServiceViewModel()
+    @StateObject private var serviceViewModel = ServiceViewModel(firebaseService: FirebaseService())
     var body: some Scene {
         WindowGroup {
             NavigationStack {

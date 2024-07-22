@@ -23,6 +23,7 @@ struct ServiceView: View {
                     }
                 }
             }
+            .onAppear { vm.fetchServices() }
             .searchable(text: $vm.searchText, prompt: "Search services")
             .onAppear { vm.fetchServices() }
             .sheet(isPresented: $isShowNewService) {
@@ -46,7 +47,7 @@ struct ServiceView_Previews: PreviewProvider {
         NavigationStack {
             ServiceView()
         }
-        .environmentObject(ServiceViewModel())
+        .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
     }
 }
 
