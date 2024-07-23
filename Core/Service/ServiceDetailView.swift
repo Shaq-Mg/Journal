@@ -43,7 +43,7 @@ struct ServiceDetailView: View {
                             Image(systemName: "minus.circle")
                             Text("Delete")
                         }
-                        .font(.headline)
+                        .font(.headline).bold()
                         .foregroundStyle(.indigo)
                         .padding(.vertical)
                     }

@@ -12,9 +12,10 @@ struct CreateServiceView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
+            Spacer()
             CreateTextfield(text: $vm.title, title: "Title", placeholder: "Title")
-            CreateTextfield(text: $vm.price, title: "Price", placeholder: "Price")
-            CreateTextfield(text: $vm.duration, title: "Duration", placeholder: "Duration")
+            CreateTextfield(text: $vm.price, title: "Price", placeholder: "Amount", isDecimal: true)
+            CreateTextfield(text: $vm.duration, title: "Duration", placeholder: "Minutes", isDecimal: true)
             Spacer()
             Button {
                 vm.saveService(title: vm.title, price: vm.price, duration: vm.duration)

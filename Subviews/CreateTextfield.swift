@@ -11,12 +11,21 @@ struct CreateTextfield: View {
     @Binding var text: String
     let title: String
     let placeholder: String
+    var isDecimal = false
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(title)
-                .font(.caption)
-            TextField(placeholder, text: $text)
-            Divider()
+            if isDecimal {
+                Text(title)
+                    .font(.caption)
+                TextField(placeholder, text: $text)
+                    .keyboardType(.decimalPad)
+                Divider()
+            } else {
+                Text(title)
+                    .font(.caption)
+                TextField(placeholder, text: $text)
+                Divider()
+            }
         }
     }
 }

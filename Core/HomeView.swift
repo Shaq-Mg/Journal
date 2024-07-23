@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var clientVM: ClientViewModel
+    @EnvironmentObject private var serviceVM: ServiceViewModel
     var body: some View {
         TabView {
             MainChartView()
@@ -21,7 +22,7 @@ struct HomeView: View {
                     Text("Home")
                 }
             Text("Content unavailable")
-                .environmentObject(clientVM)
+                .environmentObject(serviceVM)
                 .tabItem {
                     Image(systemName: "chart.line.uptrend.xyaxis")
                     Text("Statistics")
@@ -47,7 +48,7 @@ struct HomeView_Previews: PreviewProvider {
             .environmentObject(ApptViewModel())
             .environmentObject(CalenderViewModel())
             .environmentObject(ClientViewModel(firebaseService: dev.firebaseService))
-            .environmentObject(AuthViewModel())
+            .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
         
     }
 }
