@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4602DEFB2C54709300680459 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4602DEFA2C54709300680459 /* DayView.swift */; };
 		4615AB522C4D23600037BDE1 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615AB512C4D23600037BDE1 /* MenuRowView.swift */; };
 		4615AB552C4D24370037BDE1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615AB542C4D24370037BDE1 /* MenuView.swift */; };
 		4618CA762C4552AA0067C27C /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA752C4552AA0067C27C /* Journal.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4602DEFA2C54709300680459 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		4615AB512C4D23600037BDE1 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
 		4615AB542C4D24370037BDE1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4618CA752C4552AA0067C27C /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				465AE9D22C41517700B95230 /* BookApptView.swift */,
 				465AE9CE2C4144A900B95230 /* CalenderView.swift */,
+				4602DEFA2C54709300680459 /* DayView.swift */,
 				465AE9C82C41413000B95230 /* ViewModel */,
 			);
 			path = Calender;
@@ -650,6 +653,7 @@
 				468C4C812C400FF9006C7FBE /* SettingsView.swift in Sources */,
 				4618CA8E2C46972D0067C27C /* CreateClientView.swift in Sources */,
 				467615AF2C3FFD49005A7ECF /* RegistrationButton.swift in Sources */,
+				4602DEFB2C54709300680459 /* DayView.swift in Sources */,
 				465AE9D32C41517700B95230 /* BookApptView.swift in Sources */,
 				46BD05312C4A9A1900A70FC5 /* FormIsValid.swift in Sources */,
 				465AE9DA2C416ADF00B95230 /* Appointment.swift in Sources */,

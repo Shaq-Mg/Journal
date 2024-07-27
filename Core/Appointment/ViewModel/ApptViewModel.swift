@@ -9,4 +9,8 @@ import Foundation
 
 final class ApptViewModel: ObservableObject {
     @Published var appointments = [Appointment]()
+    
+    func fetchAppointments() {
+        
+    }
 }
