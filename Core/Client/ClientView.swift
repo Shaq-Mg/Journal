@@ -12,21 +12,39 @@ struct ClientView: View {
     @EnvironmentObject var viewModel: ClientViewModel
     
     var body: some View {
-        NavigationStack {
+        VStack {
+            HeaderView(onDismiss: true, title: "Clients")
             List {
-                Section("Clients") {
+                Section(viewModel.isFavourite ? "Favourites" : "All") {
                     ForEach(viewModel.filteredClients) { client in
                         ZStack(alignment: .leading) {
-                            NavigationLink(destination: ClientDetailView(client: client)) {
-                                EmptyView()
+                            if viewModel.filteredClients.isEmpty {
+                                Text("No clients available")
+                            } else {
+                                NavigationLink(destination: ClientDetailView(client: client)) {
+                                    EmptyView()
+                                }
+                                .opacity(0)
+                                ClientRowView(client: client)
                             }
-                            .opacity(0)
-                            ClientRowView(client: client)
                         }
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText)
+            .listStyle(.plain)
+            .overlay(alignment: .bottomTrailing, content: {
+                HStack {
+                    SearchBarView(searchText: $viewModel.searchText)
+                    Button {
+                        isShowNewClient.toggle()
+                    } label: {
+                        HStack {
+                            CreateNavButton()
+                                .padding()
+                        }
+                    }
+                }
+            })
             .onAppear { viewModel.fetchClients() }
             .sheet(isPresented: $isShowNewClient, content: {
                 NavigationStack {
@@ -34,18 +52,11 @@ struct ClientView: View {
                 }
                 .environmentObject(viewModel)
             })
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isShowNewClient.toggle()
-                    } label: {
-                        CreateNavButton()
-                    }
-                }
-            }
             .font(.title2)
             .fontWeight(.semibold)
-        }.navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(true)
+            
+        }
     }
 }
 

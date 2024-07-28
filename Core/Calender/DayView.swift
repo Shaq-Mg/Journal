@@ -12,9 +12,7 @@ struct DayView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
-            HeaderView(title: "Day") {
-                
-            }
+            HeaderView(title: "Day")
             NavigationStack {
                 List {
                     Section("Bookings today") {

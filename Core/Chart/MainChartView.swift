@@ -13,7 +13,7 @@ struct MainChartView: View {
     
     var body: some View {
         VStack(spacing: 50) {
-            HeaderView(title: authVM.currentUser?.name ?? "", isDismiss: { })
+            HeaderView(title: authVM.currentUser?.name ?? "")
             VStack(spacing: 20) {
                 ApptChartView()
                 VStack(alignment: .leading) {
@@ -30,6 +30,7 @@ struct MainChartView: View {
                         }
                         NavigationLink {
                             MenuView()
+                            
                         } label: {
                             Image(systemName: "plus")
                         }

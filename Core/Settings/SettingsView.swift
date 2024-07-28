@@ -14,7 +14,7 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            HeaderView(title: "Settings", isDismiss: { })
+            HeaderView(title: "Settings")
             List {
                 Section("Profile information") {
                     AccountButtonView(title: "Update password", imageName: "key.fill", isPressed: { })

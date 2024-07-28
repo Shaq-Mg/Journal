@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HeaderView: View {
-    var isNavigate = false
+    @Environment(\.dismiss) var dismiss
+    var onDismiss = false
     let title: String
-    let isDismiss: () -> ()
+    
     var body: some View {
         VStack {
-            if isNavigate {
+            if onDismiss {
                 HStack {
                     Text("------")
                         .foregroundStyle(.clear)
@@ -23,7 +24,7 @@ struct HeaderView: View {
                         .font(.system(size: 20, weight: .semibold))
                     Spacer()
                     Button {
-                        isDismiss()
+                        dismiss()
                     } label: {
                         Text("Cancel")
                             .foregroundStyle(.white)
@@ -52,6 +53,6 @@ struct HeaderView: View {
 }
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title: "Menu", isDismiss: { })
+        HeaderView(title: "Menu")
     }
 }

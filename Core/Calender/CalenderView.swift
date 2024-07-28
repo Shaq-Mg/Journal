@@ -11,7 +11,7 @@ struct CalenderView: View {
     @EnvironmentObject private var vm: CalenderViewModel
     var body: some View {
         VStack {
-            HeaderView(title: "Select a date", isDismiss: { })
+            HeaderView(onDismiss: true, title: "Select a date")
             NavigationStack {
                 VStack(spacing: 20) {
                     SelectDateHeader(selectedDate: $vm.selectedDate)

@@ -21,6 +21,7 @@ struct HomeView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
+            
             Text("Content unavailable")
                 .environmentObject(serviceVM)
                 .tabItem {

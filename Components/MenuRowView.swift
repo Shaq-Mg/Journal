@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct MenuRowView: View {
-    let image: String
-    let title: String
-    let color: Color = .indigo
+    let page: Page
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            Image(systemName: image)
-                .foregroundStyle(color)
-            Text(title)
+            Image(systemName: page.iconName)
+                .foregroundStyle(.indigo)
+            Text(page.title)
         }
         .font(.system(size: 18, weight: .semibold))
     }
@@ -24,6 +22,6 @@ struct MenuRowView: View {
 
 struct MenuRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuRowView(image: "message.fill", title: "Contact us")
+        MenuRowView(page: .client)
     }
 }

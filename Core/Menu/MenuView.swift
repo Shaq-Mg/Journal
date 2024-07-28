@@ -8,28 +8,28 @@
 import SwiftUI
 
 struct MenuView: View {
-    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
-            HeaderView(isNavigate: true, title: "Menu") {
-                dismiss()
-            }
+            HeaderView(onDismiss: true, title: "Menu")
             List {
                 Section("Business") {
-                    MenuRowView(image: "calendar", title: "Bookings")
-                    MenuRowView(image: "person.2.fill", title: "Clients")
-                    MenuRowView(image: "handbag.fill", title: "Services")
-                    MenuRowView(image: "book.closed.fill", title: "Schedule")
-                    MenuRowView(image: "personalhotspot", title: "Business page")
+                    ForEach(Page.allCases, id:\.self) { page in
+                        ZStack(alignment: .leading) {
+                            NavigationLink(value: Page.allCases) {
+                                MenuRowView(page: page)
+                            }
+                        }
+                    }
                 }
                 Section("Settings"){
-                    MenuRowView(image: "moon.fill", title: "Appearance")
-                    MenuRowView(image: "iphone", title: "Subscriptions")
-                    MenuRowView(image: "bell.badge.fill", title: "Notifications")
-                    MenuRowView(image: "message.fill", title: "Contact us")
-                    MenuRowView(image: "shield.righthalf.filled", title: "Privacy policy")
+//                    MenuRowView(title: "Appearance", iconName: "moon.fill")
+//                    MenuRowView(title: "Subscriptions", iconName: "iphone")
+//                    MenuRowView(title: "Notifications", iconName: "bell.badge.fill")
+//                    MenuRowView(title: "Contact us", iconName: "message.fill")
+//                    MenuRowView(title: "Privacy policy", iconName: "shield.righthalf.filled")
                 }
             }
+            .navigationDestination(for: Page.self) { $0 }
         }
         .navigationBarBackButtonHidden(true)
     }
