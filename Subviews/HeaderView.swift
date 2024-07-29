@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @State private var showSideMenu = false
     @Environment(\.dismiss) var dismiss
     var onDismiss = false
     let title: String
@@ -40,9 +41,13 @@ struct HeaderView: View {
                         .foregroundStyle(.white)
                         .font(.system(size: 20, weight: .semibold))
                     Spacer()
-                    Text("")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 20, weight: .semibold))
+                    Button {
+                        showSideMenu.toggle()
+                    } label: {
+                       Image(systemName: "line.3.horizontal")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 18, weight: .semibold))
+                    }
                 }
             }
         }

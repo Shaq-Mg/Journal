@@ -26,6 +26,11 @@ struct SettingsView: View {
                     AccountButtonView(title: "Sign out", imageName: "lock.fill", isPressed: { showSignOutAlert.toggle() })
                 }
             }
+            //                    MenuRowView(title: "Appearance", iconName: "moon.fill")
+            //                    MenuRowView(title: "Subscriptions", iconName: "iphone")
+            //                    MenuRowView(title: "Notifications", iconName: "bell.badge.fill")
+            //                    MenuRowView(title: "Contact us", iconName: "message.fill")
+            //                    MenuRowView(title: "Privacy policy", iconName: "shield.righthalf.filled")
         }
         .confirmationDialog("Sign out", isPresented: $showSignOutAlert, titleVisibility: .visible) {
             Button("Yes", role: .destructive) {

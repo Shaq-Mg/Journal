@@ -29,14 +29,14 @@ struct MainChartView: View {
                             }
                         }
                         NavigationLink {
-                            MenuView()
+                            
                             
                         } label: {
                             Image(systemName: "plus")
                         }
                         .font(.system(size: 18, weight: .bold))
                         .foregroundStyle(.white)
-                        .padding(10)
+                        .padding(8)
                         .background(Circle())
                         .padding()
                     }

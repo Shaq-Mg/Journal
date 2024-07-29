@@ -10,7 +10,6 @@
 		4602DEFB2C54709300680459 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4602DEFA2C54709300680459 /* DayView.swift */; };
 		460764842C557ACA003D6E5B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460764832C557ACA003D6E5B /* SearchBarView.swift */; };
 		4615AB522C4D23600037BDE1 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615AB512C4D23600037BDE1 /* MenuRowView.swift */; };
-		4615AB552C4D24370037BDE1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4615AB542C4D24370037BDE1 /* MenuView.swift */; };
 		4618CA762C4552AA0067C27C /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA752C4552AA0067C27C /* Journal.swift */; };
 		4618CA792C45532B0067C27C /* ApptChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA782C45532B0067C27C /* ApptChartView.swift */; };
 		4618CA7B2C4554350067C27C /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CA7A2C4554350067C27C /* MainChartView.swift */; };
@@ -27,6 +26,7 @@
 		461D41152C4E7C7800990C82 /* CreateServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D41142C4E7C7800990C82 /* CreateServiceView.swift */; };
 		461D41172C4E7E8D00990C82 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D41162C4E7E8D00990C82 /* ServiceDetailView.swift */; };
 		461D41192C4E7FDA00990C82 /* DetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D41182C4E7FDA00990C82 /* DetailSectionView.swift */; };
+		4634E3CD2C57B14E00262103 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4634E3CC2C57B14E00262103 /* SideMenuView.swift */; };
 		464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EC2C448C3100CABD64 /* PreviewProvider.swift */; };
 		464E26F02C448D5400CABD64 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EF2C448D5400CABD64 /* Service.swift */; };
 		464E26F32C448E1000CABD64 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26F22C448E1000CABD64 /* Client.swift */; };
@@ -91,7 +91,6 @@
 		4602DEFA2C54709300680459 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		460764832C557ACA003D6E5B /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		4615AB512C4D23600037BDE1 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
-		4615AB542C4D24370037BDE1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4618CA752C4552AA0067C27C /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		4618CA782C45532B0067C27C /* ApptChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptChartView.swift; sourceTree = "<group>"; };
 		4618CA7A2C4554350067C27C /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		461D41142C4E7C7800990C82 /* CreateServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceView.swift; sourceTree = "<group>"; };
 		461D41162C4E7E8D00990C82 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		461D41182C4E7FDA00990C82 /* DetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSectionView.swift; sourceTree = "<group>"; };
+		4634E3CC2C57B14E00262103 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		464E26EC2C448C3100CABD64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		464E26EF2C448D5400CABD64 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		464E26F22C448E1000CABD64 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 		4615AB532C4D23DB0037BDE1 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				4615AB542C4D24370037BDE1 /* MenuView.swift */,
+				4634E3CC2C57B14E00262103 /* SideMenuView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -707,6 +707,7 @@
 				465AE9D52C41522D00B95230 /* ApptInputView.swift in Sources */,
 				4618CA872C4687530067C27C /* ClientViewModel.swift in Sources */,
 				460764842C557ACA003D6E5B /* SearchBarView.swift in Sources */,
+				4634E3CD2C57B14E00262103 /* SideMenuView.swift in Sources */,
 				467615B12C3FFE4F005A7ECF /* SignUpView.swift in Sources */,
 				461D41132C4E7C1200990C82 /* ServiceView.swift in Sources */,
 				46F234472C56E019008971C5 /* NavigationPushViewModifier.swift in Sources */,
@@ -723,7 +724,6 @@
 				461D41112C4E7B1000990C82 /* ServiceViewModel.swift in Sources */,
 				465AE9DD2C416B3800B95230 /* FirebaseService.swift in Sources */,
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
-				4615AB552C4D24370037BDE1 /* MenuView.swift in Sources */,
 				4615AB522C4D23600037BDE1 /* MenuRowView.swift in Sources */,
 				46F234492C56E24C008971C5 /* NavigationStepModifier.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* User.swift in Sources */,

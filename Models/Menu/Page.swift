@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-enum Page: View, Hashable , CaseIterable {
-    case client, service, bookings, schedule
+enum Page: Int, Hashable , CaseIterable {
+    case home, client, service, bookings, schedule
     
     var title: String {
         switch self {
@@ -17,6 +17,7 @@ enum Page: View, Hashable , CaseIterable {
         case .service: return "Service"
         case .bookings: return "Bookings"
         case .schedule: return "Schedule"
+        case .home: return "Home"
             
         }
     }
@@ -27,20 +28,7 @@ enum Page: View, Hashable , CaseIterable {
         case .service: return "handbag.fill"
         case .bookings: return "calendar"
         case .schedule: return "book.closed.fill"
-            
-        }
-    }
-    
-    var body: some View {
-        switch self {
-        case .client:
-            ClientView()
-        case .service:
-            ServiceView()
-        case .bookings:
-            CalenderView()
-        case .schedule:
-            EmptyView()
+        case .home: return "house"
             
         }
     }
