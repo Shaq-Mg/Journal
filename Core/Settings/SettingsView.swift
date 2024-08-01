@@ -32,6 +32,7 @@ struct SettingsView: View {
             //                    MenuRowView(title: "Notifications", iconName: "bell.badge.fill")
             //                    MenuRowView(title: "Contact us", iconName: "message.fill")
             //                    MenuRowView(title: "Privacy policy", iconName: "shield.righthalf.filled")
+            .navigationBarBackButtonHidden(true)
         }
         .confirmationDialog("Sign out", isPresented: $showSignOutAlert, titleVisibility: .visible) {
             Button("Yes", role: .destructive) {
@@ -54,6 +55,7 @@ struct SettingsView: View {
         
     }
 }
+
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {

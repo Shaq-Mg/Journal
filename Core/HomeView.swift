@@ -34,8 +34,8 @@ struct HomeView: View {
                     .environmentObject(apptVM)
                     .tag(3)
                 
-                Text("Schedule View")
-                    .environmentObject(apptVM)
+                ScheduleView(showSideMenu: $isMenuShowing)
+                    .environmentObject(calenderVM)
                     .tag(4)
                 
                 SettingsView(showSideMenu: $isMenuShowing)

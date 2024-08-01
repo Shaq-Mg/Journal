@@ -18,7 +18,7 @@ struct MenuRowView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             Image(systemName: page.iconName)
-                .foregroundStyle(.indigo)
+                .foregroundStyle(isSelected ? .black : .indigo)
             Text(page.title)
                 .foregroundStyle(.black)
             Spacer()

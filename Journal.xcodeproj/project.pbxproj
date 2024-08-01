@@ -27,6 +27,7 @@
 		461D41172C4E7E8D00990C82 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D41162C4E7E8D00990C82 /* ServiceDetailView.swift */; };
 		461D41192C4E7FDA00990C82 /* DetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D41182C4E7FDA00990C82 /* DetailSectionView.swift */; };
 		4634E3CD2C57B14E00262103 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4634E3CC2C57B14E00262103 /* SideMenuView.swift */; };
+		46447FC92C5B933B00CAAF1D /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46447FC82C5B933B00CAAF1D /* ScheduleView.swift */; };
 		464E26ED2C448C3100CABD64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EC2C448C3100CABD64 /* PreviewProvider.swift */; };
 		464E26F02C448D5400CABD64 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26EF2C448D5400CABD64 /* Service.swift */; };
 		464E26F32C448E1000CABD64 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E26F22C448E1000CABD64 /* Client.swift */; };
@@ -108,6 +109,7 @@
 		461D41162C4E7E8D00990C82 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		461D41182C4E7FDA00990C82 /* DetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSectionView.swift; sourceTree = "<group>"; };
 		4634E3CC2C57B14E00262103 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		46447FC82C5B933B00CAAF1D /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		464E26EC2C448C3100CABD64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		464E26EF2C448D5400CABD64 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		464E26F22C448E1000CABD64 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				465AE9D22C41517700B95230 /* BookApptView.swift */,
 				465AE9CE2C4144A900B95230 /* CalenderView.swift */,
 				4602DEFA2C54709300680459 /* DayView.swift */,
+				46447FC82C5B933B00CAAF1D /* ScheduleView.swift */,
 				465AE9C82C41413000B95230 /* ViewModel */,
 			);
 			path = Calender;
@@ -726,6 +729,7 @@
 				468C4C7E2C400F92006C7FBE /* AccountButtonView.swift in Sources */,
 				4615AB522C4D23600037BDE1 /* MenuRowView.swift in Sources */,
 				46F234492C56E24C008971C5 /* NavigationStepModifier.swift in Sources */,
+				46447FC92C5B933B00CAAF1D /* ScheduleView.swift in Sources */,
 				468E30342C3EB2CA007A87A4 /* User.swift in Sources */,
 				46983BD32C5471F3009714CE /* Page.swift in Sources */,
 				4618CA852C4687390067C27C /* ClientView.swift in Sources */,

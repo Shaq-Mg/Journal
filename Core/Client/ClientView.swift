@@ -56,7 +56,6 @@ struct ClientView: View {
             .font(.title2)
             .fontWeight(.semibold)
             .navigationBarBackButtonHidden(true)
-            
         }
     }
 }

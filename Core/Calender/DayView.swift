@@ -23,6 +23,7 @@ struct DayView: View {
                     }
                 }
                 .onAppear { vm.fetchAppointments() }
+                .navigationBarBackButtonHidden(true)
             }
         }
     }
@@ -32,7 +33,7 @@ struct DayView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             DayView(showSideMenu: .constant(false))
-                .environmentObject(ApptViewModel())
         }
+        .environmentObject(ApptViewModel())
     }
 }

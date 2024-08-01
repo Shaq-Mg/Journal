@@ -1,18 +1,20 @@
 //
-//  CalenderView.swift
+//  ScheduleView.swift
 //  Journal
 //
-//  Created by Shaquille McGregor on 12/07/2024.
+//  Created by Shaquille McGregor on 01/08/2024.
 //
 
 import SwiftUI
 
-struct CalenderView: View {
-    @EnvironmentObject private var vm: CalenderViewModel
+struct ScheduleView: View {
+    @EnvironmentObject var apptVM: ApptViewModel
+    @EnvironmentObject var vm: CalenderViewModel
     @Binding var showSideMenu: Bool
+    
     var body: some View {
         VStack {
-            HeaderView(showSideMenu: $showSideMenu, title: "Select a date")
+            HeaderView(showSideMenu: $showSideMenu, title: "Schedule")
             NavigationStack {
                 VStack(spacing: 20) {
                     SelectDateHeader(selectedDate: $vm.selectedDate)
@@ -25,7 +27,7 @@ struct CalenderView: View {
                                 .frame(maxWidth: .infinity)
                         }
                     }
-                    calenderDays
+                    scheduleCalender
                 }
                 .navigationBarBackButtonHidden(true)
                 .padding(.horizontal)
@@ -37,23 +39,24 @@ struct CalenderView: View {
     }
 }
 
-struct CalenderView_Previews: PreviewProvider {
+struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        CalenderView(showSideMenu: .constant(false))
-            .environmentObject(CalenderViewModel())
-        
+        ScheduleView(showSideMenu: .constant(false))
+        .environmentObject(ApptViewModel())
+        .environmentObject(CalenderViewModel())
     }
 }
-extension CalenderView {
-    private var calenderDays: some View {
+
+extension ScheduleView {
+    private var scheduleCalender: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7)) {
             ForEach(vm.fetchDates()) { value in
                 VStack {
                     if value.day != -1 {
                         let hasAppts = vm.availableDays.contains(value.date.monthDayYearFormat())
                         NavigationLink {
-                            BookApptView(currentDate: value.date)
-                                .environmentObject(vm)
+                            DayView(showSideMenu: $showSideMenu)
+                                .environmentObject(apptVM)
                         } label: {
                             Text("\(value.day)")
                                 .bold()
