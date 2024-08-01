@@ -11,10 +11,11 @@ struct SettingsView: View {
     @EnvironmentObject private var viewModel: AuthViewModel
     @State private var showSignOutAlert = false
     @State private var showDeleteAccountAlert = false
+    @Binding var showSideMenu: Bool
     
     var body: some View {
         VStack {
-            HeaderView(title: "Settings")
+            HeaderView(showSideMenu: $showSideMenu, title: "Settings")
             List {
                 Section("Profile information") {
                     AccountButtonView(title: "Update password", imageName: "key.fill", isPressed: { })
@@ -56,7 +57,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SettingsView()
+            SettingsView(showSideMenu: .constant(false))
         }
         .environmentObject(AuthViewModel())
     }

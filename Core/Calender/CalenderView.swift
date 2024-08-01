@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct CalenderView: View {
+    @Binding var showSideMenu: Bool
     @EnvironmentObject private var vm: CalenderViewModel
     var body: some View {
         VStack {
-            HeaderView(onDismiss: true, title: "Select a date")
+            HeaderView(showSideMenu: $showSideMenu, title: "Select a date")
             NavigationStack {
                 VStack(spacing: 20) {
                     SelectDateHeader(selectedDate: $vm.selectedDate)
@@ -38,7 +39,7 @@ struct CalenderView: View {
 
 struct CalenderView_Previews: PreviewProvider {
     static var previews: some View {
-        CalenderView()
+        CalenderView(showSideMenu: .constant(false))
             .environmentObject(CalenderViewModel())
         
     }

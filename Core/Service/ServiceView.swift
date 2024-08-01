@@ -10,19 +10,39 @@ import SwiftUI
 struct ServiceView: View {
     @EnvironmentObject var vm: ServiceViewModel
     @State private var isShowNewService = false
+    @Binding var showSideMenu: Bool
     var body: some View {
-        NavigationStack {
+        VStack {
+            HeaderView(showSideMenu: $showSideMenu, title: "Services")
             List {
                 ForEach(vm.filteredServices) { service in
                     ZStack(alignment: .leading) {
-                        NavigationLink(destination: ServiceDetailView(service: service)) {
-                            EmptyView()
+                        if vm.filteredServices.isEmpty {
+                            Text("No services available")
+                        } else {
+                            NavigationLink(destination: ServiceDetailView(service: service)) {
+                                EmptyView()
+                            }
+                            .opacity(0)
+                            ServiceRowView(service: service)
                         }
-                        .opacity(0)
-                        ServiceRowView(service: service)
                     }
                 }
             }
+            .listStyle(.plain)
+            .overlay(alignment: .bottomTrailing, content: {
+                HStack {
+                    SearchBarView(searchText: $vm.searchText)
+                    Button {
+                        isShowNewService.toggle()
+                    } label: {
+                        HStack {
+                            CreateNavButton()
+                                .padding()
+                        }
+                    }
+                }
+            })
             .onAppear { vm.fetchServices() }
             .searchable(text: $vm.searchText, prompt: "Search services")
             .onAppear { vm.fetchServices() }
@@ -45,7 +65,7 @@ struct ServiceView: View {
 struct ServiceView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ServiceView()
+            ServiceView(showSideMenu: .constant(false))
         }
         .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
     }

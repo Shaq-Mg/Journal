@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct DayView: View {
+    @Binding var showSideMenu: Bool
     @EnvironmentObject var vm: ApptViewModel
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
-            HeaderView(title: "Day")
+            HeaderView(showSideMenu: $showSideMenu, onDismiss: true, title: "Day")
             NavigationStack {
                 List {
                     Section("Bookings today") {
@@ -30,7 +31,7 @@ struct DayView: View {
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DayView()
+            DayView(showSideMenu: .constant(false))
                 .environmentObject(ApptViewModel())
         }
     }

@@ -10,10 +10,11 @@ import SwiftUI
 struct ClientView: View {
     @State private var isShowNewClient = false
     @EnvironmentObject var viewModel: ClientViewModel
+    @Binding var showSideMenu: Bool
     
     var body: some View {
         VStack {
-            HeaderView(onDismiss: true, title: "Clients")
+            HeaderView(showSideMenu: $showSideMenu, title: "Clients")
             List {
                 Section(viewModel.isFavourite ? "Favourites" : "All") {
                     ForEach(viewModel.filteredClients) { client in
@@ -63,7 +64,7 @@ struct ClientView: View {
 struct ClientView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ClientView()
+            ClientView(showSideMenu: .constant(false))
         }
         .environmentObject(ClientViewModel(firebaseService: dev.firebaseService))
     }

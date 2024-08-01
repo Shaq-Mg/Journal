@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @State private var showSideMenu = false
+    @Binding var showSideMenu: Bool
     @Environment(\.dismiss) var dismiss
     var onDismiss = false
     let title: String
@@ -58,6 +58,6 @@ struct HeaderView: View {
 }
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title: "Menu")
+        HeaderView(showSideMenu: .constant(false), title: "Menu")
     }
 }

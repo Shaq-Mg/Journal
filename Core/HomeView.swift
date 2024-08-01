@@ -13,31 +13,39 @@ struct HomeView: View {
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var clientVM: ClientViewModel
     @EnvironmentObject private var serviceVM: ServiceViewModel
+    @State private var selectedTab = 0
+    @State private var isMenuShowing = false
     var body: some View {
-        TabView {
-            MainChartView()
-                .environmentObject(apptVM)
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-            
-            Text("Content unavailable")
-                .environmentObject(serviceVM)
-                .tabItem {
-                    Image(systemName: "chart.line.uptrend.xyaxis")
-                    Text("Statistics")
-                }
-            
-            SettingsView()
-                .environmentObject(authVM)
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text("Account")
-                }
+        ZStack {
+            TabView(selection: $selectedTab) {
+                MainChartView(showSideMenu: $isMenuShowing)
+                    .environmentObject(authVM)
+                    .tag(0)
+                
+                ClientView(showSideMenu: $isMenuShowing)
+                    .environmentObject(clientVM)
+                    .tag(1)
+                
+                ServiceView(showSideMenu: $isMenuShowing)
+                    .environmentObject(serviceVM)
+                    .tag(2)
+                
+                CalenderView(showSideMenu: $isMenuShowing)
+                    .environmentObject(apptVM)
+                    .tag(3)
+                
+                Text("Schedule View")
+                    .environmentObject(apptVM)
+                    .tag(4)
+                
+                SettingsView(showSideMenu: $isMenuShowing)
+                    .environmentObject(authVM)
+                    .tag(5)
+            }
+            .tint(.indigo)
+            SideMenuView(isMenuShowing: $isMenuShowing, selectedTab: $selectedTab)
         }
-        .tint(.indigo)
-        .task { try? await authVM.fetchCurrentUser() }
+        .task { await authVM.fetchCurrentUser() }
         .navigationBarBackButtonHidden(true)
     }
 }

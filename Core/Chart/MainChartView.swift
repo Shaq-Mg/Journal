@@ -10,10 +10,11 @@ import SwiftUI
 struct MainChartView: View {
     @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var authVM: AuthViewModel
+    @Binding var showSideMenu: Bool
     
     var body: some View {
         VStack(spacing: 50) {
-            HeaderView(title: authVM.currentUser?.name ?? "")
+            HeaderView(showSideMenu: $showSideMenu, title: authVM.currentUser?.name ?? "")
             VStack(spacing: 20) {
                 ApptChartView()
                 VStack(alignment: .leading) {
@@ -50,7 +51,7 @@ struct MainChartView: View {
 
 struct MainChartView_Previews: PreviewProvider {
     static var previews: some View {
-        MainChartView()
+        MainChartView(showSideMenu: .constant(false))
             .environmentObject(ApptViewModel())
             .environmentObject(AuthViewModel())
     }
