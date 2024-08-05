@@ -11,39 +11,51 @@ struct CalenderView: View {
     @EnvironmentObject private var vm: CalenderViewModel
     @Binding var showSideMenu: Bool
     var body: some View {
-        VStack {
-            HeaderView(showSideMenu: $showSideMenu, title: "Select a date")
-            NavigationStack {
-                VStack(spacing: 20) {
-                    SelectDateHeader(selectedDate: $vm.selectedDate)
-                    
-                    HStack {
-                        ForEach(vm.days, id: \.self) { day in
-                            Text(day)
-                                .font(.system(size: 20, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity)
-                        }
-                    }
-                    calenderDays
-                }
-                .navigationBarBackButtonHidden(true)
-                .padding(.horizontal)
-                .onChange(of: vm.selectedMonth) { newValue in
-                    vm.selectedDate = vm.fetchSelectedMonth()
+        VStack(spacing: 20) {
+            SelectDateHeader(selectedDate: $vm.selectedDate)
+            
+            HStack {
+                ForEach(vm.days, id: \.self) { day in
+                    Text(day)
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity)
                 }
             }
+            calenderDays
+        }
+        .padding(.horizontal)
+        .navigationTitle("Select a date")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .padding()
+        .background(Color.init(white: 0.95))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showSideMenu.toggle()
+                } label: {
+                    Image(systemName: "line.3.horizontal")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(.black)
+                }
+            }
+        }
+        .onChange(of: vm.selectedMonth) { newValue in
+            vm.selectedDate = vm.fetchSelectedMonth()
         }
     }
 }
 
 struct CalenderView_Previews: PreviewProvider {
     static var previews: some View {
-        CalenderView(showSideMenu: .constant(false))
-            .environmentObject(CalenderViewModel())
-        
+        NavigationStack {
+            CalenderView(showSideMenu: .constant(false))
+        }
+        .environmentObject(CalenderViewModel())
     }
 }
+
 extension CalenderView {
     private var calenderDays: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7)) {

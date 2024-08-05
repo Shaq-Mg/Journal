@@ -44,8 +44,6 @@ struct ServiceView: View {
                 }
             })
             .onAppear { vm.fetchServices() }
-            .searchable(text: $vm.searchText, prompt: "Search services")
-            .onAppear { vm.fetchServices() }
             .sheet(isPresented: $isShowNewService) {
                 CreateServiceView()
             }
@@ -55,7 +53,9 @@ struct ServiceView: View {
                 Button {
                     isShowNewService.toggle()
                 } label: {
-                    CreateNavButton()
+                    NavigationStack {
+                        CreateNavButton()
+                    }
                 }
             }
         }

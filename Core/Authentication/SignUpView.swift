@@ -62,6 +62,6 @@ struct SignUpView_Previews: PreviewProvider {
         NavigationStack {
             SignUpView()
         }
-        .environmentObject(ApptViewModel())
+        .environmentObject(AuthViewModel())
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ApptInputView: View {
     @Binding var text: String
     let title: String
+    let action: ()->()
     let placeholder: String
     
     var body: some View {
@@ -22,6 +23,19 @@ struct ApptInputView: View {
                 TextField(placeholder, text: $text)
                     .font(.system(size: 16))
                     .textInputAutocapitalization(.none)
+                    .overlay(alignment: .trailing) {
+                        if !text.isEmpty {
+                            withAnimation(.easeInOut) {
+                                Button {
+                                    action()
+                                } label: {
+                                    Text("Clear")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(.gray)
+                                }
+                            }
+                        }
+                    }
             }
             .padding()
             .frame(maxWidth: .infinity)
@@ -34,6 +48,6 @@ struct ApptInputView: View {
 
 struct ApptInputView_Previews: PreviewProvider {
     static var previews: some View {
-        ApptInputView(text: .constant(""), title: "Name", placeholder: "Name")
+        ApptInputView(text: .constant(""), title: "Name", action: { }, placeholder: "Name")
     }
 }

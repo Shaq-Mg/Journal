@@ -34,6 +34,6 @@ struct DayView_Previews: PreviewProvider {
         NavigationStack {
             DayView(showSideMenu: .constant(false))
         }
-        .environmentObject(ApptViewModel())
+        .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
     }
 }

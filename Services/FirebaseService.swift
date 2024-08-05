@@ -32,3 +32,13 @@ final class FirebaseService {
         userDocument(userId: uid).collection(collectionPath).document("\(typeToUpdate.id)").updateData(typeDictionary)
     }
 }
+
+extension Query {
+    func getDocuments<T>(type as: T.Type) async throws -> [T] where T : Decodable {
+        let snapshot = try await self.getDocuments()
+        
+        return try snapshot.documents.map({ doc in
+            try doc.data(as: T.self)
+        })
+    }
+}

@@ -52,7 +52,7 @@ struct MainChartView: View {
 struct MainChartView_Previews: PreviewProvider {
     static var previews: some View {
         MainChartView(showSideMenu: .constant(false))
-            .environmentObject(ApptViewModel())
+            .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
             .environmentObject(AuthViewModel())
     }
 }

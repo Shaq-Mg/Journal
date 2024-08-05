@@ -16,7 +16,7 @@ struct Client: Identifiable, Codable {
     let nickname: String?
     let isFavourite: Bool
     
-    enum CodingKeys:String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
         case phoneNumber = "phone_number"

@@ -42,8 +42,8 @@ struct ScheduleView: View {
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         ScheduleView(showSideMenu: .constant(false))
-        .environmentObject(ApptViewModel())
-        .environmentObject(CalenderViewModel())
+            .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
+            .environmentObject(CalenderViewModel())
     }
 }
 

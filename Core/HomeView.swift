@@ -17,32 +17,34 @@ struct HomeView: View {
     @State private var isMenuShowing = false
     var body: some View {
         ZStack {
-            TabView(selection: $selectedTab) {
-                MainChartView(showSideMenu: $isMenuShowing)
-                    .environmentObject(authVM)
-                    .tag(0)
-                
-                ClientView(showSideMenu: $isMenuShowing)
-                    .environmentObject(clientVM)
-                    .tag(1)
-                
-                ServiceView(showSideMenu: $isMenuShowing)
-                    .environmentObject(serviceVM)
-                    .tag(2)
-                
-                CalenderView(showSideMenu: $isMenuShowing)
-                    .environmentObject(apptVM)
-                    .tag(3)
-                
-                ScheduleView(showSideMenu: $isMenuShowing)
-                    .environmentObject(calenderVM)
-                    .tag(4)
-                
-                SettingsView(showSideMenu: $isMenuShowing)
-                    .environmentObject(authVM)
-                    .tag(5)
+            NavigationStack {
+                TabView(selection: $selectedTab) {
+                    MainChartView(showSideMenu: $isMenuShowing)
+                        .environmentObject(authVM)
+                        .tag(0)
+                    
+                    ClientView(showSideMenu: $isMenuShowing)
+                        .environmentObject(clientVM)
+                        .tag(1)
+                    
+                    ServiceView(showSideMenu: $isMenuShowing)
+                        .environmentObject(serviceVM)
+                        .tag(2)
+                    
+                    CalenderView(showSideMenu: $isMenuShowing)
+                        .environmentObject(apptVM)
+                        .tag(3)
+                    
+                    ScheduleView(showSideMenu: $isMenuShowing)
+                        .environmentObject(calenderVM)
+                        .tag(4)
+                    
+                    SettingsView(showSideMenu: $isMenuShowing)
+                        .environmentObject(authVM)
+                        .tag(5)
+                }
+                .tint(.indigo)
             }
-            .tint(.indigo)
             SideMenuView(isMenuShowing: $isMenuShowing, selectedTab: $selectedTab)
         }
         .task { await authVM.fetchCurrentUser() }
@@ -54,7 +56,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(AuthViewModel())
-            .environmentObject(ApptViewModel())
+            .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
             .environmentObject(CalenderViewModel())
             .environmentObject(ClientViewModel(firebaseService: dev.firebaseService))
             .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
