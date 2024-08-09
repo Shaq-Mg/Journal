@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DayView: View {
     @Binding var showSideMenu: Bool
-    @EnvironmentObject var vm: ApptViewModel
+    @EnvironmentObject var vm: CalenderViewModel
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
@@ -34,6 +34,6 @@ struct DayView_Previews: PreviewProvider {
         NavigationStack {
             DayView(showSideMenu: .constant(false))
         }
-        .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
+        .environmentObject(CalenderViewModel(service: dev.firebaseService))
     }
 }

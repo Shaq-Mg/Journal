@@ -25,7 +25,7 @@ struct BookApptView: View {
                         .font(.system(size: 16, weight: .semibold))
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4)) {
-                        ForEach(vm.times, id: \.self) { time in
+                        ForEach(self.dates, id: \.self) { time in
                             Button {
                                 withAnimation {
                                     selectedDate = time
@@ -83,6 +83,6 @@ struct BookApptView_Previews: PreviewProvider {
         NavigationStack {
             BookApptView(currentDate: Date())
         }
-        .environmentObject(CalenderViewModel())
+        .environmentObject(CalenderViewModel(service: dev.firebaseService))
     }
 }

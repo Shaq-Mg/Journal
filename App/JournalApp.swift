@@ -19,9 +19,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct JournalApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var apptViewModel = ApptViewModel(firebaseService: FirebaseService())
     @StateObject private var authViewModel = AuthViewModel()
-    @StateObject private var calenderViewModel = CalenderViewModel()
+    @StateObject private var calenderViewModel = CalenderViewModel(service: FirebaseService())
     @StateObject private var clientViewModel = ClientViewModel(firebaseService: FirebaseService())
     @StateObject private var serviceViewModel = ServiceViewModel(firebaseService: FirebaseService())
     var body: some Scene {
@@ -29,7 +28,6 @@ struct JournalApp: App {
             NavigationStack {
                 RootView()
             }
-            .environmentObject(apptViewModel)
             .environmentObject(authViewModel)
             .environmentObject(calenderViewModel)
             .environmentObject(clientViewModel)

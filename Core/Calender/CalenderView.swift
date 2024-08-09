@@ -52,7 +52,7 @@ struct CalenderView_Previews: PreviewProvider {
         NavigationStack {
             CalenderView(showSideMenu: .constant(false))
         }
-        .environmentObject(CalenderViewModel())
+        .environmentObject(CalenderViewModel(service: dev.firebaseService))
     }
 }
 

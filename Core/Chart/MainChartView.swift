@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainChartView: View {
-    @EnvironmentObject private var apptVM: ApptViewModel
+    @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var authVM: AuthViewModel
     @Binding var showSideMenu: Bool
     
@@ -24,7 +24,7 @@ struct MainChartView: View {
                     ZStack(alignment: .bottomTrailing) {
                         ScrollView {
                             List {
-                                ForEach(apptVM.appointments) { appt in
+                                ForEach(calenderVM.appointments) { appt in
                                     ApptRowView(appointment: appt)
                                 }
                             }
@@ -52,7 +52,7 @@ struct MainChartView: View {
 struct MainChartView_Previews: PreviewProvider {
     static var previews: some View {
         MainChartView(showSideMenu: .constant(false))
-            .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
             .environmentObject(AuthViewModel())
+            .environmentObject(CalenderViewModel(service: dev.firebaseService))
     }
 }

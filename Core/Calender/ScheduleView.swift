@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @EnvironmentObject var apptVM: ApptViewModel
     @EnvironmentObject var vm: CalenderViewModel
     @Binding var showSideMenu: Bool
     
@@ -42,8 +41,7 @@ struct ScheduleView: View {
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         ScheduleView(showSideMenu: .constant(false))
-            .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
-            .environmentObject(CalenderViewModel())
+            .environmentObject(CalenderViewModel(service: dev.firebaseService))
     }
 }
 
@@ -56,7 +54,7 @@ extension ScheduleView {
                         let hasAppts = vm.availableDays.contains(value.date.monthDayYearFormat())
                         NavigationLink {
                             DayView(showSideMenu: $showSideMenu)
-                                .environmentObject(apptVM)
+                                .environmentObject(vm)
                         } label: {
                             Text("\(value.day)")
                                 .bold()

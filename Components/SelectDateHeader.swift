@@ -44,6 +44,6 @@ struct SelectDateHeader: View {
 struct SelectDateHeader_Previews: PreviewProvider {
     static var previews: some View {
         SelectDateHeader(selectedDate: .constant(Date()))
-            .environmentObject(CalenderViewModel())
+            .environmentObject(CalenderViewModel(service: dev.firebaseService))
     }
 }

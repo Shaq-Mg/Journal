@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var authVM: AuthViewModel
-    @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var clientVM: ClientViewModel
     @EnvironmentObject private var serviceVM: ServiceViewModel
@@ -32,7 +31,7 @@ struct HomeView: View {
                         .tag(2)
                     
                     CalenderView(showSideMenu: $isMenuShowing)
-                        .environmentObject(apptVM)
+                        .environmentObject(calenderVM)
                         .tag(3)
                     
                     ScheduleView(showSideMenu: $isMenuShowing)
@@ -56,8 +55,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(AuthViewModel())
-            .environmentObject(ApptViewModel(firebaseService: dev.firebaseService))
-            .environmentObject(CalenderViewModel())
+            .environmentObject(CalenderViewModel(service: dev.firebaseService))
             .environmentObject(ClientViewModel(firebaseService: dev.firebaseService))
             .environmentObject(ServiceViewModel(firebaseService: dev.firebaseService))
         
