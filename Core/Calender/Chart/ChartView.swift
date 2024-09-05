@@ -10,7 +10,6 @@ import Charts
 
 struct ChartView: View {
     @Binding var selectedChart: ChartState
-    @State var isLoading = false
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -34,8 +33,6 @@ struct ChartView: View {
                 PreviousWeekChart()
             } else if selectedChart == .currentWeek {
                 CurrentWeekChart()
-            } else if isLoading {
-                ProgressView()
             }
         }
     }

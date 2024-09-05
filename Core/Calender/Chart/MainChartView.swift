@@ -31,8 +31,7 @@ struct MainChartView: View {
                             }
                         }
                         NavigationLink {
-                            
-                            
+                                                        
                         } label: {
                             Image(systemName: "plus")
                         }
