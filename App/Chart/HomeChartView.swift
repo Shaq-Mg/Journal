@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct MainChartView: View {
-    @EnvironmentObject private var calenderVM: CalenderViewModel
+struct HomeChartView: View {
+    @EnvironmentObject private var chartVM: ChartViewModel
     @EnvironmentObject private var authVM: AuthViewModel
     @AppStorage("chartTapped") private var selectedChart: ChartState = .currentWeek
     @Binding var showSideMenu: Bool
     
     var body: some View {
         VStack(spacing: 50) {
-            ReusableHeader(showSideMenu: $showSideMenu, title: authVM.currentUser?.name ?? "")
+            ReusableHeader(showSideMenu: $showSideMenu, title: authVM.currentUser?.name ?? "user")
             VStack(spacing: 20) {
                 ChartView(selectedChart: $selectedChart)
                 VStack(alignment: .leading) {
@@ -25,13 +25,13 @@ struct MainChartView: View {
                     ZStack(alignment: .bottomTrailing) {
                         ScrollView {
                             List {
-                                ForEach(calenderVM.appointments) { appt in
+                                ForEach(chartVM.appointments) { appt in
                                     ApptCellView(appointment: appt)
                                 }
                             }
                         }
                         NavigationLink {
-                                                        
+                            
                         } label: {
                             Image(systemName: "plus")
                         }
@@ -45,12 +45,15 @@ struct MainChartView: View {
             }
             .padding(.horizontal)
             .navigationBarBackButtonHidden(true)
+            .task {
+                await authVM.fetchUser()
+            }
         }
     }
 }
 
 #Preview {
-    MainChartView(showSideMenu: .constant(false))
-        .environmentObject(CalenderViewModel(service: FirebaseService()))
+    HomeChartView(showSideMenu: .constant(false))
+        .environmentObject(ChartViewModel(service: FirebaseService()))
         .environmentObject(AuthViewModel())
 }
