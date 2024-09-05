@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct ClientCellView: View {
+    let client: Client
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Circle()
+                .frame(width: 35, height: 35)
+                .foregroundStyle(.secondary)
+                .overlay {
+                    Text((client.name.prefix(1).capitalized))
+                        .font(.title3.bold())
+                        .foregroundStyle(.white)
+                }
+            VStack(alignment: .leading, spacing: 6) {
+                Text(client.name)
+                    .font(.system(size: 18, design: .rounded).bold())
+            }
+            Spacer()
+            if client.isFavourite {
+                Image(systemName: "checkmark.seal.fill")
+                    .foregroundStyle(.indigo)
+            }
+        }
     }
 }
 
 #Preview {
-    ClientCellView()
+    ClientCellView(client: Client(name: "Shaquille O'neil", phoneNumber: "06000000400", nickname: nil, isFavourite: true))
 }

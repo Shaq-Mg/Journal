@@ -7,13 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461B17DF2C866A4600DF490B /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17DE2C866A4600DF490B /* ClientView.swift */; };
+		461B17E12C866A5500DF490B /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E02C866A5500DF490B /* ClientViewModel.swift */; };
+		461B17E42C866A9300DF490B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E32C866A9300DF490B /* Client.swift */; };
+		461B17E62C866B3C00DF490B /* ClientCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E52C866B3C00DF490B /* ClientCellView.swift */; };
+		461B17E82C866C0700DF490B /* ClientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E72C866C0700DF490B /* ClientDetailView.swift */; };
+		461B17EA2C866C2A00DF490B /* CreateClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E92C866C2A00DF490B /* CreateClientView.swift */; };
+		461B17EC2C866FB600DF490B /* ReusableCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17EB2C866FB600DF490B /* ReusableCapsule.swift */; };
+		46414E432C8347430053B5D3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E422C8347430053B5D3 /* RootView.swift */; };
+		46414E452C84F67C0053B5D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E442C84F67C0053B5D3 /* HomeView.swift */; };
+		46414E472C84F68F0053B5D3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E462C84F68F0053B5D3 /* SignInView.swift */; };
+		46414E492C84F8E40053B5D3 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E482C84F8E40053B5D3 /* RegistrationView.swift */; };
+		46414E4B2C84FD7D0053B5D3 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E4A2C84FD7D0053B5D3 /* InputView.swift */; };
+		4643506F2C8737B3002C6406 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643506E2C8737B3002C6406 /* ChartView.swift */; };
+		464350712C8737D7002C6406 /* ChartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464350702C8737D7002C6406 /* ChartState.swift */; };
+		464350732C8738DA002C6406 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464350722C8738DA002C6406 /* Journal.swift */; };
+		468DE5242C85F17700F72C62 /* FormIsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5232C85F17700F72C62 /* FormIsValid.swift */; };
+		468DE52D2C8612FA00F72C62 /* Date+Est.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE52C2C8612FA00F72C62 /* Date+Est.swift */; };
+		468DE5342C86190000F72C62 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5332C86190000F72C62 /* Appointment.swift */; };
+		468DE5372C86191F00F72C62 /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5362C86191F00F72C62 /* Calender.swift */; };
+		468DE5392C86197100F72C62 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5382C86197100F72C62 /* Hours.swift */; };
+		468DE53C2C8619B000F72C62 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE53B2C8619B000F72C62 /* Service.swift */; };
+		468DE5402C861B6A00F72C62 /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE53F2C861B6A00F72C62 /* ServiceViewModel.swift */; };
+		468DE5422C861B8200F72C62 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5412C861B8200F72C62 /* FirebaseService.swift */; };
+		468DE5452C861C2D00F72C62 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5442C861C2D00F72C62 /* PreviewProvider.swift */; };
+		468DE5472C86269700F72C62 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5462C86269700F72C62 /* ServiceView.swift */; };
+		468DE5492C8627D200F72C62 /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5482C8627D200F72C62 /* ServiceDetailView.swift */; };
+		468DE54B2C8627EA00F72C62 /* CreateServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE54A2C8627EA00F72C62 /* CreateServiceView.swift */; };
+		468DE54E2C86283E00F72C62 /* ServiceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE54D2C86283E00F72C62 /* ServiceCellView.swift */; };
+		468DE5502C8628F600F72C62 /* ReusableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE54F2C8628F600F72C62 /* ReusableHeader.swift */; };
+		468DE5522C86298400F72C62 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5512C86298400F72C62 /* SearchBarView.swift */; };
+		468DE5552C8629DD00F72C62 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5542C8629DD00F72C62 /* CreateButton.swift */; };
+		468DE5572C862B0D00F72C62 /* SelectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5562C862B0D00F72C62 /* SelectDetailView.swift */; };
+		468DE5592C8632F700F72C62 /* CreateTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5582C8632F700F72C62 /* CreateTextfield.swift */; };
+		469AF22E2C833DDB0069191E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AF22D2C833DDB0069191E /* AuthService.swift */; };
+		469AF2312C83450F0069191E /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AF2302C83450F0069191E /* AuthUser.swift */; };
+		469AF2352C8346A30069191E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AF2342C8346A30069191E /* AuthenticationViewModel.swift */; };
+		46A0CA282C8783A100ECFF89 /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0CA272C8783A100ECFF89 /* MainChartView.swift */; };
+		46A0CA2D2C87844A00ECFF89 /* CalenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0CA2C2C87844A00ECFF89 /* CalenderViewModel.swift */; };
 		46A7E9EC2C81FFAE00CD04DB /* JournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7E9EB2C81FFAE00CD04DB /* JournalApp.swift */; };
-		46A7E9EE2C81FFAE00CD04DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7E9ED2C81FFAE00CD04DB /* ContentView.swift */; };
 		46A7E9F02C81FFAF00CD04DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A7E9EF2C81FFAF00CD04DB /* Assets.xcassets */; };
 		46A7E9F32C81FFAF00CD04DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A7E9F22C81FFAF00CD04DB /* Preview Assets.xcassets */; };
 		46A7E9FD2C81FFAF00CD04DB /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7E9FC2C81FFAF00CD04DB /* JournalTests.swift */; };
 		46A7EA072C81FFAF00CD04DB /* JournalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7EA062C81FFAF00CD04DB /* JournalUITests.swift */; };
 		46A7EA092C81FFAF00CD04DB /* JournalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7EA082C81FFAF00CD04DB /* JournalUITestsLaunchTests.swift */; };
+		46A7EA1E2C8201D300CD04DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A7EA1D2C8201D300CD04DB /* GoogleService-Info.plist */; };
+		46A7EA222C82026600CD04DB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA212C82026600CD04DB /* FirebaseAuth */; };
+		46A7EA242C82026F00CD04DB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA232C82026F00CD04DB /* FirebaseFirestore */; };
+		46A7EA262C82028100CD04DB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA252C82028100CD04DB /* FirebaseStorage */; };
+		46D5FAA32C87850100C9B37C /* ApptCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D5FAA22C87850100C9B37C /* ApptCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +76,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		461B17DE2C866A4600DF490B /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
+		461B17E02C866A5500DF490B /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
+		461B17E32C866A9300DF490B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		461B17E52C866B3C00DF490B /* ClientCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellView.swift; sourceTree = "<group>"; };
+		461B17E72C866C0700DF490B /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailView.swift; sourceTree = "<group>"; };
+		461B17E92C866C2A00DF490B /* CreateClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientView.swift; sourceTree = "<group>"; };
+		461B17EB2C866FB600DF490B /* ReusableCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCapsule.swift; sourceTree = "<group>"; };
+		46414E422C8347430053B5D3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		46414E442C84F67C0053B5D3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		46414E462C84F68F0053B5D3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		46414E482C84F8E40053B5D3 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		46414E4A2C84FD7D0053B5D3 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		4643506E2C8737B3002C6406 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		464350702C8737D7002C6406 /* ChartState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartState.swift; sourceTree = "<group>"; };
+		464350722C8738DA002C6406 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		468DE5232C85F17700F72C62 /* FormIsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIsValid.swift; sourceTree = "<group>"; };
+		468DE52C2C8612FA00F72C62 /* Date+Est.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Est.swift"; sourceTree = "<group>"; };
+		468DE5332C86190000F72C62 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		468DE5362C86191F00F72C62 /* Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calender.swift; sourceTree = "<group>"; };
+		468DE5382C86197100F72C62 /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
+		468DE53B2C8619B000F72C62 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		468DE53F2C861B6A00F72C62 /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
+		468DE5412C861B8200F72C62 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		468DE5442C861C2D00F72C62 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		468DE5462C86269700F72C62 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		468DE5482C8627D200F72C62 /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
+		468DE54A2C8627EA00F72C62 /* CreateServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceView.swift; sourceTree = "<group>"; };
+		468DE54D2C86283E00F72C62 /* ServiceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellView.swift; sourceTree = "<group>"; };
+		468DE54F2C8628F600F72C62 /* ReusableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableHeader.swift; sourceTree = "<group>"; };
+		468DE5512C86298400F72C62 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		468DE5542C8629DD00F72C62 /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
+		468DE5562C862B0D00F72C62 /* SelectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDetailView.swift; sourceTree = "<group>"; };
+		468DE5582C8632F700F72C62 /* CreateTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextfield.swift; sourceTree = "<group>"; };
+		469AF22D2C833DDB0069191E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		469AF2302C83450F0069191E /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		469AF2342C8346A30069191E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		46A0CA272C8783A100ECFF89 /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
+		46A0CA2C2C87844A00ECFF89 /* CalenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewModel.swift; sourceTree = "<group>"; };
 		46A7E9E82C81FFAE00CD04DB /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A7E9EB2C81FFAE00CD04DB /* JournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalApp.swift; sourceTree = "<group>"; };
-		46A7E9ED2C81FFAE00CD04DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46A7E9EF2C81FFAF00CD04DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46A7E9F22C81FFAF00CD04DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46A7E9F82C81FFAF00CD04DB /* JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +123,8 @@
 		46A7EA022C81FFAF00CD04DB /* JournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A7EA062C81FFAF00CD04DB /* JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITests.swift; sourceTree = "<group>"; };
 		46A7EA082C81FFAF00CD04DB /* JournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		46A7EA1D2C8201D300CD04DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		46D5FAA22C87850100C9B37C /* ApptCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +132,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A7EA222C82026600CD04DB /* FirebaseAuth in Frameworks */,
+				46A7EA242C82026F00CD04DB /* FirebaseFirestore in Frameworks */,
+				46A7EA262C82028100CD04DB /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,13 +155,172 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		461B17DC2C866A2100DF490B /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				461B17E72C866C0700DF490B /* ClientDetailView.swift */,
+				461B17DE2C866A4600DF490B /* ClientView.swift */,
+				461B17E92C866C2A00DF490B /* CreateClientView.swift */,
+				461B17DD2C866A2C00DF490B /* ViewModel */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		461B17DD2C866A2C00DF490B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				461B17E02C866A5500DF490B /* ClientViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		461B17E22C866A8000DF490B /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				461B17E32C866A9300DF490B /* Client.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		4643506D2C87379F002C6406 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				4643506E2C8737B3002C6406 /* ChartView.swift */,
+				46A0CA272C8783A100ECFF89 /* MainChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		468DE5252C86109300F72C62 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				464350702C8737D7002C6406 /* ChartState.swift */,
+				464350722C8738DA002C6406 /* Journal.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		468DE52E2C86182B00F72C62 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				46D5FAA62C87869B00C9B37C /* ViewModel */,
+				4643506D2C87379F002C6406 /* Chart */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		468DE5322C8618DC00F72C62 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5332C86190000F72C62 /* Appointment.swift */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		468DE5352C86190900F72C62 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5362C86191F00F72C62 /* Calender.swift */,
+				468DE5382C86197100F72C62 /* Hours.swift */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		468DE53A2C8619A500F72C62 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				468DE53B2C8619B000F72C62 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		468DE53D2C861A6C00F72C62 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				468DE54A2C8627EA00F72C62 /* CreateServiceView.swift */,
+				468DE5482C8627D200F72C62 /* ServiceDetailView.swift */,
+				468DE5462C86269700F72C62 /* ServiceView.swift */,
+				468DE53E2C861A7200F72C62 /* ViewModel */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		468DE53E2C861A7200F72C62 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				468DE53F2C861B6A00F72C62 /* ServiceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		468DE5432C861BFA00F72C62 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5442C861C2D00F72C62 /* PreviewProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		468DE54C2C86282900F72C62 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				46D5FAA22C87850100C9B37C /* ApptCellView.swift */,
+				461B17E52C866B3C00DF490B /* ClientCellView.swift */,
+				468DE54D2C86283E00F72C62 /* ServiceCellView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		468DE5532C8629C700F72C62 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5542C8629DD00F72C62 /* CreateButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		469AF22F2C8345060069191E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				469AF2302C83450F0069191E /* AuthUser.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		469AF2322C83465F0069191E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				46414E482C84F8E40053B5D3 /* RegistrationView.swift */,
+				46414E422C8347430053B5D3 /* RootView.swift */,
+				46414E462C84F68F0053B5D3 /* SignInView.swift */,
+				469AF2332C8346880069191E /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		469AF2332C8346880069191E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				469AF2342C8346A30069191E /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		46A7E9DF2C81FFAE00CD04DB = {
 			isa = PBXGroup;
 			children = (
+				46A7EA1B2C82018A00CD04DB /* App */,
+				46A7EA1A2C82018200CD04DB /* Extensions */,
+				46A7EA192C82017300CD04DB /* Models */,
+				46A7EA182C82016500CD04DB /* Utilities */,
+				46A7EA1C2C82019400CD04DB /* Components */,
+				46A7EA172C82015F00CD04DB /* Subviews */,
+				46A7EA152C82014A00CD04DB /* Core */,
 				46A7E9EA2C81FFAE00CD04DB /* Journal */,
 				46A7E9FB2C81FFAF00CD04DB /* JournalTests */,
 				46A7EA052C81FFAF00CD04DB /* JournalUITests */,
 				46A7E9E92C81FFAE00CD04DB /* Products */,
+				46A7EA202C82026600CD04DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,8 +337,6 @@
 		46A7E9EA2C81FFAE00CD04DB /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				46A7E9EB2C81FFAE00CD04DB /* JournalApp.swift */,
-				46A7E9ED2C81FFAE00CD04DB /* ContentView.swift */,
 				46A7E9EF2C81FFAF00CD04DB /* Assets.xcassets */,
 				46A7E9F12C81FFAF00CD04DB /* Preview Content */,
 			);
@@ -127,6 +368,97 @@
 			path = JournalUITests;
 			sourceTree = "<group>";
 		};
+		46A7EA152C82014A00CD04DB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				46414E442C84F67C0053B5D3 /* HomeView.swift */,
+				469AF2322C83465F0069191E /* Authentication */,
+				468DE52E2C86182B00F72C62 /* Calender */,
+				461B17DC2C866A2100DF490B /* Client */,
+				468DE53D2C861A6C00F72C62 /* Service */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		46A7EA172C82015F00CD04DB /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5532C8629C700F72C62 /* Buttons */,
+				468DE54C2C86282900F72C62 /* Cells */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		46A7EA182C82016500CD04DB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				469AF22D2C833DDB0069191E /* AuthService.swift */,
+				468DE5412C861B8200F72C62 /* FirebaseService.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		46A7EA192C82017300CD04DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5322C8618DC00F72C62 /* Appointment */,
+				469AF22F2C8345060069191E /* Auth */,
+				468DE5352C86190900F72C62 /* Calender */,
+				468DE5252C86109300F72C62 /* Chart */,
+				461B17E22C866A8000DF490B /* Client */,
+				468DE53A2C8619A500F72C62 /* Service */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		46A7EA1A2C82018200CD04DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				468DE52C2C8612FA00F72C62 /* Date+Est.swift */,
+				468DE5232C85F17700F72C62 /* FormIsValid.swift */,
+				468DE5432C861BFA00F72C62 /* Providers */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		46A7EA1B2C82018A00CD04DB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				46A7E9EB2C81FFAE00CD04DB /* JournalApp.swift */,
+				46A7EA1D2C8201D300CD04DB /* GoogleService-Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		46A7EA1C2C82019400CD04DB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				46414E4A2C84FD7D0053B5D3 /* InputView.swift */,
+				461B17EB2C866FB600DF490B /* ReusableCapsule.swift */,
+				468DE54F2C8628F600F72C62 /* ReusableHeader.swift */,
+				468DE5512C86298400F72C62 /* SearchBarView.swift */,
+				468DE5562C862B0D00F72C62 /* SelectDetailView.swift */,
+				468DE5582C8632F700F72C62 /* CreateTextfield.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		46A7EA202C82026600CD04DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46D5FAA62C87869B00C9B37C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				46A0CA2C2C87844A00ECFF89 /* CalenderViewModel.swift */,
+			);
+			name = ViewModel;
+			path = Chart/ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +475,11 @@
 			dependencies = (
 			);
 			name = Journal;
+			packageProductDependencies = (
+				46A7EA212C82026600CD04DB /* FirebaseAuth */,
+				46A7EA232C82026F00CD04DB /* FirebaseFirestore */,
+				46A7EA252C82028100CD04DB /* FirebaseStorage */,
+			);
 			productName = Journal;
 			productReference = 46A7E9E82C81FFAE00CD04DB /* Journal.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +552,9 @@
 				Base,
 			);
 			mainGroup = 46A7E9DF2C81FFAE00CD04DB;
+			packageReferences = (
+				46A7EA1F2C82024900CD04DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 46A7E9E92C81FFAE00CD04DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +573,7 @@
 			files = (
 				46A7E9F32C81FFAF00CD04DB /* Preview Assets.xcassets in Resources */,
 				46A7E9F02C81FFAF00CD04DB /* Assets.xcassets in Resources */,
+				46A7EA1E2C8201D300CD04DB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +598,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46A7E9EE2C81FFAE00CD04DB /* ContentView.swift in Sources */,
+				468DE52D2C8612FA00F72C62 /* Date+Est.swift in Sources */,
+				469AF2312C83450F0069191E /* AuthUser.swift in Sources */,
+				468DE54E2C86283E00F72C62 /* ServiceCellView.swift in Sources */,
+				4643506F2C8737B3002C6406 /* ChartView.swift in Sources */,
+				468DE5572C862B0D00F72C62 /* SelectDetailView.swift in Sources */,
+				46D5FAA32C87850100C9B37C /* ApptCellView.swift in Sources */,
+				46414E472C84F68F0053B5D3 /* SignInView.swift in Sources */,
+				464350732C8738DA002C6406 /* Journal.swift in Sources */,
+				461B17E62C866B3C00DF490B /* ClientCellView.swift in Sources */,
+				468DE5522C86298400F72C62 /* SearchBarView.swift in Sources */,
+				461B17EA2C866C2A00DF490B /* CreateClientView.swift in Sources */,
+				469AF2352C8346A30069191E /* AuthenticationViewModel.swift in Sources */,
+				464350712C8737D7002C6406 /* ChartState.swift in Sources */,
+				46414E432C8347430053B5D3 /* RootView.swift in Sources */,
+				461B17E42C866A9300DF490B /* Client.swift in Sources */,
+				468DE5242C85F17700F72C62 /* FormIsValid.swift in Sources */,
+				468DE54B2C8627EA00F72C62 /* CreateServiceView.swift in Sources */,
+				468DE5472C86269700F72C62 /* ServiceView.swift in Sources */,
+				468DE5392C86197100F72C62 /* Hours.swift in Sources */,
+				468DE5452C861C2D00F72C62 /* PreviewProvider.swift in Sources */,
+				46414E452C84F67C0053B5D3 /* HomeView.swift in Sources */,
+				468DE5502C8628F600F72C62 /* ReusableHeader.swift in Sources */,
+				468DE53C2C8619B000F72C62 /* Service.swift in Sources */,
+				461B17E12C866A5500DF490B /* ClientViewModel.swift in Sources */,
+				469AF22E2C833DDB0069191E /* AuthService.swift in Sources */,
+				468DE5552C8629DD00F72C62 /* CreateButton.swift in Sources */,
+				46414E4B2C84FD7D0053B5D3 /* InputView.swift in Sources */,
+				468DE5342C86190000F72C62 /* Appointment.swift in Sources */,
+				468DE5422C861B8200F72C62 /* FirebaseService.swift in Sources */,
+				46A0CA282C8783A100ECFF89 /* MainChartView.swift in Sources */,
+				46A0CA2D2C87844A00ECFF89 /* CalenderViewModel.swift in Sources */,
+				461B17DF2C866A4600DF490B /* ClientView.swift in Sources */,
 				46A7E9EC2C81FFAE00CD04DB /* JournalApp.swift in Sources */,
+				468DE5372C86191F00F72C62 /* Calender.swift in Sources */,
+				468DE5492C8627D200F72C62 /* ServiceDetailView.swift in Sources */,
+				468DE5402C861B6A00F72C62 /* ServiceViewModel.swift in Sources */,
+				46414E492C84F8E40053B5D3 /* RegistrationView.swift in Sources */,
+				461B17E82C866C0700DF490B /* ClientDetailView.swift in Sources */,
+				461B17EC2C866FB600DF490B /* ReusableCapsule.swift in Sources */,
+				468DE5592C8632F700F72C62 /* CreateTextfield.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +967,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		46A7EA1F2C82024900CD04DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		46A7EA212C82026600CD04DB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46A7EA1F2C82024900CD04DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		46A7EA232C82026F00CD04DB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46A7EA1F2C82024900CD04DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		46A7EA252C82028100CD04DB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46A7EA1F2C82024900CD04DB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 46A7E9E02C81FFAE00CD04DB /* Project object */;
 }

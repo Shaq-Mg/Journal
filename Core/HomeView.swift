@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var authViewModel: AuthViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button("Sign out") {
+                authViewModel.signOut()
+            }
+            .navigationTitle(authViewModel.currentUser?.email ?? "n/a")
+            .task { await authViewModel.fetchUser() }
+        }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(AuthViewModel())
 }

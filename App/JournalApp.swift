@@ -18,10 +18,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct JournalApp: App {
+    @StateObject private var authVM = AuthViewModel()
+    @StateObject private var calenderVM = CalenderViewModel(service: FirebaseService())
+    @StateObject private var clientVM = ClientViewModel(firebaseService: FirebaseService())
+    @StateObject private var serviceVM = ServiceViewModel(firebaseService: FirebaseService())
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                RootView()
+                    .environmentObject(authVM)
+                    .environmentObject(calenderVM)
+                    .environmentObject(clientVM)
+                    .environmentObject(serviceVM)
+            }
         }
     }
 }

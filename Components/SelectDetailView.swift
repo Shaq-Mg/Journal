@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct SelectDetailView: View {
+    let title: String
+    let description: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 10) {
+            Text(title + ":")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+            Text(description)
+        }
     }
 }
 
 #Preview {
-    SelectDetailView()
+    SelectDetailView(title: "Haircut", description: "40 mins")
 }

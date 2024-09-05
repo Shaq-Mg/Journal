@@ -10,7 +10,7 @@ import SwiftUI
 struct MainChartView: View {
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var authVM: AuthViewModel
-    @State private var selectedChart: ChartState = .currentWeek
+    @AppStorage("chartTapped") private var selectedChart: ChartState = .currentWeek
     @Binding var showSideMenu: Bool
     
     var body: some View {
@@ -48,7 +48,6 @@ struct MainChartView: View {
             .navigationBarBackButtonHidden(true)
         }
     }
-    
 }
 
 #Preview {
