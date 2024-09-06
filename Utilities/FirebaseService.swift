@@ -32,6 +32,38 @@ final class FirebaseService {
     func update<T: Identifiable>(collectionPath: String, uid: String, typeToUpdate: T, typeDictionary: [String:Any]) {
         userDocument(userId: uid).collection(collectionPath).document("\(typeToUpdate.id)").updateData(typeDictionary)
     }
+    
+    func generateAppointmentTimes(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) -> [Date] {
+        var timesArray: [Date] = []
+        
+        // Define the calendar and current date
+        let calendar = Calendar.current
+        let today = Date()
+        
+        // Create the start and end components for the time range
+        var startComponents = calendar.dateComponents([.year, .month, .day], from: today)
+        startComponents.hour = startHour
+        startComponents.minute = startMinute
+        
+        var endComponents = startComponents
+        endComponents.hour = endHour
+        endComponents.minute = endMinute
+        
+        // Convert the components to actual dates
+        guard let startTime = calendar.date(from: startComponents),
+              let endTime = calendar.date(from: endComponents) else {
+            return timesArray
+        }
+        
+        // Add time slots every 15 minutes from 8 AM to 10 PM
+        var currentTime = startTime
+        while currentTime <= endTime {
+            timesArray.append(currentTime)
+            currentTime = calendar.date(byAdding: .minute, value: 15, to: currentTime)!
+        }
+        
+        return timesArray
+    }
 }
 
 extension Query {

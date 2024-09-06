@@ -1,5 +1,5 @@
 //
-//  MainChartView.swift
+//  HomeChartView.swift
 //  Journal
 //
 //  Created by Shaquille McGregor on 03/09/2024.

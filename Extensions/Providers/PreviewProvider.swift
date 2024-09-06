@@ -20,7 +20,7 @@ class DeveloperPreview {
     
     let authService = AuthService()
     let firebaseService = FirebaseService()
-    let appointment = Appointment(name: "Kobe", service: "Haircut", date: Date())
+    let appointment = Appointment(name: "Kobe", service: "Haircut", time: Date())
     let client = Client(name: "Kobe Bryant", phoneNumber: "08001000002", nickname: nil, isFavourite: true)
     let service = Service(title: "Haircut & shave", price: "25.00", duration: "40")
 }

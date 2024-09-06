@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct CalenderHeaderView: View {
+    @EnvironmentObject var vm: CalenderViewModel
+    @Binding var selectedDate: Date
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 12) {
+            HStack {
+                Text(selectedDate.monthAndYear())
+                Image(systemName: "book")
+            }
+            .foregroundStyle(.black)
+            Spacer()
+            Button {
+                withAnimation {
+                    vm.selectedMonth -= 1
+                }
+            } label: {
+                Image(systemName: "chevron.left")
+                    .fontWeight(.semibold)
+            }
+            .disabled(vm.isPreviousMonthDisabled()) 
+            
+            Button {
+                withAnimation {
+                    vm.selectedMonth += 1
+                }
+            } label: {
+                Image(systemName: "chevron.right")
+                    .fontWeight(.semibold)
+            }
+        }
+        .font(.system(size: 20))
+        .foregroundStyle(Color.accentColor)
     }
 }
 
 #Preview {
-    CalenderHeaderView()
+    CalenderHeaderView(selectedDate: .constant(Date()))
+        .environmentObject(CalenderViewModel(service: FirebaseService()))
 }

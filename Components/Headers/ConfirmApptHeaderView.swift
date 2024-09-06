@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct ConfirmApptHeaderView: View {
+    let imageName: String
+    let text: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: imageName)
+                .foregroundStyle(Color.accentColor)
+            
+            Text(text)
+                .font(.system(size: 16, weight: .semibold))
+        }
+        .font(.system(size: 20, weight: .semibold))
     }
 }
 
 #Preview {
-    ConfirmApptHeaderView()
+    ConfirmApptHeaderView(imageName: "clock", text: "13:00 PM")
 }

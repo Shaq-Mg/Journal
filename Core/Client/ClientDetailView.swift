@@ -49,7 +49,6 @@ struct ClientDetailView: View {
                 }
             }
         }
-        
     }
 }
 

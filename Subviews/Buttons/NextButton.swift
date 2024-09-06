@@ -8,11 +8,32 @@
 import SwiftUI
 
 struct NextButton: View {
+    @EnvironmentObject private var calenderVM: CalenderViewModel
+    var isSave = true
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if isSave {
+                HStack {
+                    Text("Save")
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 16))
+                }
+                .padding(10)
+                .background(RoundedRectangle(cornerRadius: 10).foregroundStyle(Color.accentColor))
+            } else {
+                Image(systemName: "arrow.right")
+                    .padding(10)
+                    .background(Circle().foregroundStyle(Color.accentColor))
+            }
+        }
+        .font(.system(size: 18, weight: .semibold))
+        .foregroundStyle(.white)
+
     }
 }
 
 #Preview {
     NextButton()
+        .environmentObject(CalenderViewModel(service: FirebaseService()))
 }

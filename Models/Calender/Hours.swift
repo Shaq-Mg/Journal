@@ -9,13 +9,12 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-struct Hours: Codable {
-    @DocumentID var id: String?
-    let day: Int
-    let start: Int
-    let end: Int
+enum Hours: String, Identifiable, CaseIterable {
+    case morning = "Morning"
+    case afternoon = "Afternoon"
+    case evening = "Evening"
     
-    enum codingKeys: String, CodingKey {
-        case day, start, end
+    var id: String {
+        return rawValue
     }
 }

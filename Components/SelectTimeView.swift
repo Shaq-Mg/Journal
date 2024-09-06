@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct SelectTimeView: View {
+    @Binding var selectedTime: Date
+    var selectTime: [Date]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(selectTime, id: \.self) { time in
+            Button {
+                withAnimation {
+                    selectedTime = time
+                }
+            } label: {
+                Text(time.timeFromDate())
+                    .font(.system(size: selectedTime == time ? 22 : 16))
+                    .foregroundStyle(selectedTime == time ? Color.accentColor : .primary)
+                    .bold()
+                    .padding(8)
+                    .frame(width: UIScreen.main.bounds.width / 2)
+                    .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3).foregroundStyle(selectedTime == time ? Color.accentColor : .primary))
+                    .padding(6)
+            }
+        }
     }
 }
 
 #Preview {
-    SelectTimeView()
+    SelectTimeView(selectedTime: .constant(Date()), selectTime: [Date()])
 }

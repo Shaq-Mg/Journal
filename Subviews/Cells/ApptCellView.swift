@@ -23,7 +23,7 @@ struct ApptCellView: View {
             }
             Spacer()
             
-            Text("\(appointment.date.dayViewDateFormat())")
+            Text("\(appointment.time.dayViewDateFormat())")
                 .font(.system(size: 10, weight: .semibold))
         }
         .font(.system(size: 20, weight: .semibold))
@@ -31,5 +31,5 @@ struct ApptCellView: View {
 }
 
 #Preview {
-    ApptCellView(appointment: Appointment(name: "Kobe", service: "Haircut", date: Date()))
+    ApptCellView(appointment: Appointment(name: "Kobe", service: "Haircut", time: Date()))
 }

@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct BookServiceCellView: View {
+    let title: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 12) {
+            Image(systemName: "pencil")
+                .foregroundStyle(.white)
+                .padding(10)
+                .background(Circle().foregroundStyle(Color.accentColor))
+                .shadow(radius: 2)
+            
+            Text(title)
+            
+            Spacer()
+            
+            Circle()
+                .frame(width: 8, height: 8)
+                .foregroundStyle(.secondary)
+            
+        }
+        .font(.system(size: 20, weight: .semibold))
     }
 }
 
 #Preview {
-    BookServiceCellView()
+    BookServiceCellView(title: "Haircut")
 }

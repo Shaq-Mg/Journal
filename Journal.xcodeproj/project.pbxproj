@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46007CB42C8A57F000374869 /* SelectServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46007CB32C8A57F000374869 /* SelectServiceView.swift */; };
 		461B17DF2C866A4600DF490B /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17DE2C866A4600DF490B /* ClientView.swift */; };
 		461B17E12C866A5500DF490B /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E02C866A5500DF490B /* ClientViewModel.swift */; };
 		461B17E42C866A9300DF490B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E32C866A9300DF490B /* Client.swift */; };
@@ -14,6 +15,11 @@
 		461B17E82C866C0700DF490B /* ClientDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E72C866C0700DF490B /* ClientDetailView.swift */; };
 		461B17EA2C866C2A00DF490B /* CreateClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E92C866C2A00DF490B /* CreateClientView.swift */; };
 		461B17EC2C866FB600DF490B /* ReusableCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17EB2C866FB600DF490B /* ReusableCapsule.swift */; };
+		4633C70B2C8AFBB1007F15A9 /* BookServiceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633C70A2C8AFBB1007F15A9 /* BookServiceCellView.swift */; };
+		4633C7102C8B1324007F15A9 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633C70F2C8B1324007F15A9 /* DayView.swift */; };
+		4633C7122C8B3189007F15A9 /* ConfirmApptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */; };
+		4633C7142C8B3543007F15A9 /* ConfirmApptHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633C7132C8B3543007F15A9 /* ConfirmApptHeaderView.swift */; };
+		4633C7172C8B635A007F15A9 /* ApptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4633C7162C8B635A007F15A9 /* ApptDetailView.swift */; };
 		46414E432C8347430053B5D3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E422C8347430053B5D3 /* RootView.swift */; };
 		46414E452C84F67C0053B5D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E442C84F67C0053B5D3 /* HomeView.swift */; };
 		46414E472C84F68F0053B5D3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46414E462C84F68F0053B5D3 /* SignInView.swift */; };
@@ -40,11 +46,18 @@
 		468DE5552C8629DD00F72C62 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5542C8629DD00F72C62 /* CreateButton.swift */; };
 		468DE5572C862B0D00F72C62 /* SelectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5562C862B0D00F72C62 /* SelectDetailView.swift */; };
 		468DE5592C8632F700F72C62 /* CreateTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5582C8632F700F72C62 /* CreateTextfield.swift */; };
+		469A01972C8A08A60074B102 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01962C8A08A60074B102 /* CalenderView.swift */; };
+		469A019A2C8A09940074B102 /* CalenderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01992C8A09940074B102 /* CalenderHeaderView.swift */; };
+		469A01A22C8A16F10074B102 /* CalenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01A12C8A16F10074B102 /* CalenderViewModel.swift */; };
+		469A01A42C8A17420074B102 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01A32C8A17420074B102 /* ChartViewModel.swift */; };
+		469A01A62C8A21510074B102 /* BookApptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01A52C8A21510074B102 /* BookApptView.swift */; };
+		469A01A92C8A21BE0074B102 /* ApptInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01A82C8A21BE0074B102 /* ApptInputView.swift */; };
+		469A01AB2C8A3BCF0074B102 /* SelectTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01AA2C8A3BCF0074B102 /* SelectTimeView.swift */; };
+		469A01AD2C8A40390074B102 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469A01AC2C8A40390074B102 /* NextButton.swift */; };
 		469AF22E2C833DDB0069191E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AF22D2C833DDB0069191E /* AuthService.swift */; };
 		469AF2312C83450F0069191E /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AF2302C83450F0069191E /* AuthUser.swift */; };
 		469AF2352C8346A30069191E /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AF2342C8346A30069191E /* AuthenticationViewModel.swift */; };
-		46A0CA282C8783A100ECFF89 /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0CA272C8783A100ECFF89 /* MainChartView.swift */; };
-		46A0CA2D2C87844A00ECFF89 /* CalenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0CA2C2C87844A00ECFF89 /* CalenderViewModel.swift */; };
+		46A0CA282C8783A100ECFF89 /* HomeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0CA272C8783A100ECFF89 /* HomeChartView.swift */; };
 		46A7E9EC2C81FFAE00CD04DB /* JournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7E9EB2C81FFAE00CD04DB /* JournalApp.swift */; };
 		46A7E9F02C81FFAF00CD04DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A7E9EF2C81FFAF00CD04DB /* Assets.xcassets */; };
 		46A7E9F32C81FFAF00CD04DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A7E9F22C81FFAF00CD04DB /* Preview Assets.xcassets */; };
@@ -76,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46007CB32C8A57F000374869 /* SelectServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServiceView.swift; sourceTree = "<group>"; };
 		461B17DE2C866A4600DF490B /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		461B17E02C866A5500DF490B /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		461B17E32C866A9300DF490B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -83,6 +97,11 @@
 		461B17E72C866C0700DF490B /* ClientDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailView.swift; sourceTree = "<group>"; };
 		461B17E92C866C2A00DF490B /* CreateClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientView.swift; sourceTree = "<group>"; };
 		461B17EB2C866FB600DF490B /* ReusableCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCapsule.swift; sourceTree = "<group>"; };
+		4633C70A2C8AFBB1007F15A9 /* BookServiceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceCellView.swift; sourceTree = "<group>"; };
+		4633C70F2C8B1324007F15A9 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmApptView.swift; sourceTree = "<group>"; };
+		4633C7132C8B3543007F15A9 /* ConfirmApptHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmApptHeaderView.swift; sourceTree = "<group>"; };
+		4633C7162C8B635A007F15A9 /* ApptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDetailView.swift; sourceTree = "<group>"; };
 		46414E422C8347430053B5D3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		46414E442C84F67C0053B5D3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		46414E462C84F68F0053B5D3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -109,11 +128,18 @@
 		468DE5542C8629DD00F72C62 /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
 		468DE5562C862B0D00F72C62 /* SelectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDetailView.swift; sourceTree = "<group>"; };
 		468DE5582C8632F700F72C62 /* CreateTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextfield.swift; sourceTree = "<group>"; };
+		469A01962C8A08A60074B102 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
+		469A01992C8A09940074B102 /* CalenderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderHeaderView.swift; sourceTree = "<group>"; };
+		469A01A12C8A16F10074B102 /* CalenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalenderViewModel.swift; path = Core/Chart/CalenderViewModel.swift; sourceTree = SOURCE_ROOT; };
+		469A01A32C8A17420074B102 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		469A01A52C8A21510074B102 /* BookApptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApptView.swift; sourceTree = "<group>"; };
+		469A01A82C8A21BE0074B102 /* ApptInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptInputView.swift; sourceTree = "<group>"; };
+		469A01AA2C8A3BCF0074B102 /* SelectTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeView.swift; sourceTree = "<group>"; };
+		469A01AC2C8A40390074B102 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		469AF22D2C833DDB0069191E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		469AF2302C83450F0069191E /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		469AF2342C8346A30069191E /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
-		46A0CA272C8783A100ECFF89 /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
-		46A0CA2C2C87844A00ECFF89 /* CalenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewModel.swift; sourceTree = "<group>"; };
+		46A0CA272C8783A100ECFF89 /* HomeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartView.swift; sourceTree = "<group>"; };
 		46A7E9E82C81FFAE00CD04DB /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A7E9EB2C81FFAE00CD04DB /* JournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalApp.swift; sourceTree = "<group>"; };
 		46A7E9EF2C81FFAF00CD04DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,13 +208,11 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
-		4643506D2C87379F002C6406 /* Chart */ = {
+		4633C70C2C8B1104007F15A9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				4643506E2C8737B3002C6406 /* ChartView.swift */,
-				46A0CA272C8783A100ECFF89 /* MainChartView.swift */,
 			);
-			path = Chart;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		468DE5252C86109300F72C62 /* Chart */ = {
@@ -203,8 +227,13 @@
 		468DE52E2C86182B00F72C62 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
+				4633C7162C8B635A007F15A9 /* ApptDetailView.swift */,
+				469A01A52C8A21510074B102 /* BookApptView.swift */,
+				469A01962C8A08A60074B102 /* CalenderView.swift */,
+				4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */,
+				4633C70F2C8B1324007F15A9 /* DayView.swift */,
+				46007CB32C8A57F000374869 /* SelectServiceView.swift */,
 				46D5FAA62C87869B00C9B37C /* ViewModel */,
-				4643506D2C87379F002C6406 /* Chart */,
 			);
 			path = Calender;
 			sourceTree = "<group>";
@@ -222,6 +251,7 @@
 			children = (
 				468DE5362C86191F00F72C62 /* Calender.swift */,
 				468DE5382C86197100F72C62 /* Hours.swift */,
+				4633C70C2C8B1104007F15A9 /* Navigation */,
 			);
 			path = Calender;
 			sourceTree = "<group>";
@@ -265,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				46D5FAA22C87850100C9B37C /* ApptCellView.swift */,
+				4633C70A2C8AFBB1007F15A9 /* BookServiceCellView.swift */,
 				461B17E52C866B3C00DF490B /* ClientCellView.swift */,
 				468DE54D2C86283E00F72C62 /* ServiceCellView.swift */,
 			);
@@ -275,8 +306,47 @@
 			isa = PBXGroup;
 			children = (
 				468DE5542C8629DD00F72C62 /* CreateButton.swift */,
+				469A01AC2C8A40390074B102 /* NextButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		469A01982C8A09780074B102 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				469A01992C8A09940074B102 /* CalenderHeaderView.swift */,
+				468DE54F2C8628F600F72C62 /* ReusableHeader.swift */,
+				4633C7132C8B3543007F15A9 /* ConfirmApptHeaderView.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		469A019F2C8A16A10074B102 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				4643506E2C8737B3002C6406 /* ChartView.swift */,
+				46A0CA272C8783A100ECFF89 /* HomeChartView.swift */,
+				469A01A02C8A16A70074B102 /* ViewModel */,
+			);
+			name = Chart;
+			path = ../App/Chart;
+			sourceTree = "<group>";
+		};
+		469A01A02C8A16A70074B102 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				469A01A32C8A17420074B102 /* ChartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		469A01A72C8A21A50074B102 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				469A01A82C8A21BE0074B102 /* ApptInputView.swift */,
+				46414E4A2C84FD7D0053B5D3 /* InputView.swift */,
+			);
+			path = Inputs;
 			sourceTree = "<group>";
 		};
 		469AF22F2C8345060069191E /* Auth */ = {
@@ -374,6 +444,7 @@
 				46414E442C84F67C0053B5D3 /* HomeView.swift */,
 				469AF2322C83465F0069191E /* Authentication */,
 				468DE52E2C86182B00F72C62 /* Calender */,
+				469A019F2C8A16A10074B102 /* Chart */,
 				461B17DC2C866A2100DF490B /* Client */,
 				468DE53D2C861A6C00F72C62 /* Service */,
 			);
@@ -433,12 +504,13 @@
 		46A7EA1C2C82019400CD04DB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				46414E4A2C84FD7D0053B5D3 /* InputView.swift */,
 				461B17EB2C866FB600DF490B /* ReusableCapsule.swift */,
-				468DE54F2C8628F600F72C62 /* ReusableHeader.swift */,
 				468DE5512C86298400F72C62 /* SearchBarView.swift */,
 				468DE5562C862B0D00F72C62 /* SelectDetailView.swift */,
+				469A01AA2C8A3BCF0074B102 /* SelectTimeView.swift */,
 				468DE5582C8632F700F72C62 /* CreateTextfield.swift */,
+				469A01A72C8A21A50074B102 /* Inputs */,
+				469A01982C8A09780074B102 /* Headers */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -453,7 +525,7 @@
 		46D5FAA62C87869B00C9B37C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				46A0CA2C2C87844A00ECFF89 /* CalenderViewModel.swift */,
+				469A01A12C8A16F10074B102 /* CalenderViewModel.swift */,
 			);
 			name = ViewModel;
 			path = Chart/ViewModel;
@@ -599,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				468DE52D2C8612FA00F72C62 /* Date+Est.swift in Sources */,
+				4633C7172C8B635A007F15A9 /* ApptDetailView.swift in Sources */,
 				469AF2312C83450F0069191E /* AuthUser.swift in Sources */,
 				468DE54E2C86283E00F72C62 /* ServiceCellView.swift in Sources */,
 				4643506F2C8737B3002C6406 /* ChartView.swift in Sources */,
@@ -608,9 +681,13 @@
 				464350732C8738DA002C6406 /* Journal.swift in Sources */,
 				461B17E62C866B3C00DF490B /* ClientCellView.swift in Sources */,
 				468DE5522C86298400F72C62 /* SearchBarView.swift in Sources */,
+				4633C7122C8B3189007F15A9 /* ConfirmApptView.swift in Sources */,
+				4633C7142C8B3543007F15A9 /* ConfirmApptHeaderView.swift in Sources */,
 				461B17EA2C866C2A00DF490B /* CreateClientView.swift in Sources */,
 				469AF2352C8346A30069191E /* AuthenticationViewModel.swift in Sources */,
+				4633C70B2C8AFBB1007F15A9 /* BookServiceCellView.swift in Sources */,
 				464350712C8737D7002C6406 /* ChartState.swift in Sources */,
+				469A01AD2C8A40390074B102 /* NextButton.swift in Sources */,
 				46414E432C8347430053B5D3 /* RootView.swift in Sources */,
 				461B17E42C866A9300DF490B /* Client.swift in Sources */,
 				468DE5242C85F17700F72C62 /* FormIsValid.swift in Sources */,
@@ -622,22 +699,30 @@
 				468DE5502C8628F600F72C62 /* ReusableHeader.swift in Sources */,
 				468DE53C2C8619B000F72C62 /* Service.swift in Sources */,
 				461B17E12C866A5500DF490B /* ClientViewModel.swift in Sources */,
+				469A01A62C8A21510074B102 /* BookApptView.swift in Sources */,
 				469AF22E2C833DDB0069191E /* AuthService.swift in Sources */,
 				468DE5552C8629DD00F72C62 /* CreateButton.swift in Sources */,
 				46414E4B2C84FD7D0053B5D3 /* InputView.swift in Sources */,
+				469A01A42C8A17420074B102 /* ChartViewModel.swift in Sources */,
+				4633C7102C8B1324007F15A9 /* DayView.swift in Sources */,
 				468DE5342C86190000F72C62 /* Appointment.swift in Sources */,
 				468DE5422C861B8200F72C62 /* FirebaseService.swift in Sources */,
-				46A0CA282C8783A100ECFF89 /* MainChartView.swift in Sources */,
-				46A0CA2D2C87844A00ECFF89 /* CalenderViewModel.swift in Sources */,
+				46A0CA282C8783A100ECFF89 /* HomeChartView.swift in Sources */,
 				461B17DF2C866A4600DF490B /* ClientView.swift in Sources */,
+				469A01A92C8A21BE0074B102 /* ApptInputView.swift in Sources */,
 				46A7E9EC2C81FFAE00CD04DB /* JournalApp.swift in Sources */,
 				468DE5372C86191F00F72C62 /* Calender.swift in Sources */,
 				468DE5492C8627D200F72C62 /* ServiceDetailView.swift in Sources */,
 				468DE5402C861B6A00F72C62 /* ServiceViewModel.swift in Sources */,
 				46414E492C84F8E40053B5D3 /* RegistrationView.swift in Sources */,
+				469A019A2C8A09940074B102 /* CalenderHeaderView.swift in Sources */,
 				461B17E82C866C0700DF490B /* ClientDetailView.swift in Sources */,
+				469A01A22C8A16F10074B102 /* CalenderViewModel.swift in Sources */,
 				461B17EC2C866FB600DF490B /* ReusableCapsule.swift in Sources */,
 				468DE5592C8632F700F72C62 /* CreateTextfield.swift in Sources */,
+				469A01972C8A08A60074B102 /* CalenderView.swift in Sources */,
+				46007CB42C8A57F000374869 /* SelectServiceView.swift in Sources */,
+				469A01AB2C8A3BCF0074B102 /* SelectTimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

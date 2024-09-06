@@ -20,6 +20,7 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    // Generate dates of the month
     func datesOfMonth() -> [Date] {
         let calendar = Calendar.current
         let currentMonth = calendar.component(.month, from: self)
