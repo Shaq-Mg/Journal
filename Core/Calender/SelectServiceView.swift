@@ -10,6 +10,7 @@ import SwiftUI
 struct SelectServiceView: View {
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var serviceVM: ServiceViewModel
+    @State private var isSelected = false
     @Binding var bookingConfirmed: Bool
     var currentDate: Date
     
@@ -18,12 +19,14 @@ struct SelectServiceView: View {
             List {
                 Section("Services") {
                     ForEach(serviceVM.services) { service in
-                        ZStack(alignment: .leading) {
-                            BookServiceCellView(title: service.title)
-                                .onTapGesture {
-                                    
+                        BookServiceCellView(isSelected: $isSelected, service: service)
+                            .onTapGesture {
+                                withAnimation(.easeInOut) {
+                                    isSelected = true
                                 }
-                        }
+                                let selectedTitle = service.title
+                                calenderVM.title = selectedTitle
+                            }
                     }
                 }
             }
@@ -40,10 +43,10 @@ struct SelectServiceView: View {
                     bookingConfirmed.toggle()
                 }
             }, label: {
-               NextButton(isSave: true)
-                })
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.top)
+                NextButton(isSave: true)
+            })
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.top)
         }
         .padding(.horizontal)
     }

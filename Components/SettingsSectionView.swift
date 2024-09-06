@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct SettingsSectionView: View {
+    let title: String
+    let imageName: String
+    let isPressed: () -> ()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            isPressed()
+        } label: {
+            HStack(alignment: .center, spacing: 16) {
+                Image(systemName: imageName)
+                    .foregroundStyle(.indigo)
+                Text(title)
+            }
+            .font(.system(size: 18, weight: .semibold))
+            .foregroundStyle(.black)
+        }
     }
 }
 
 #Preview {
-    SettingsSectionView()
+    SettingsSectionView(title: "Update email", imageName: "envelope.fill") {
+        
+    }
 }

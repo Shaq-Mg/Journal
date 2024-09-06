@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct BookServiceCellView: View {
-    let title: String
+    @Binding var isSelected: Bool
+    let service: Service
+    
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: "pencil")
@@ -17,19 +19,22 @@ struct BookServiceCellView: View {
                 .background(Circle().foregroundStyle(Color.accentColor))
                 .shadow(radius: 2)
             
-            Text(title)
+            Text(service.title)
             
             Spacer()
             
-            Circle()
-                .frame(width: 8, height: 8)
-                .foregroundStyle(.secondary)
-            
+            if isSelected {
+                Image(systemName: "checkmark")
+            } else {
+                Circle()
+                    .frame(width: 8, height: 8)
+                    .foregroundStyle(.secondary)
+            }
         }
         .font(.system(size: 20, weight: .semibold))
     }
 }
 
 #Preview {
-    BookServiceCellView(title: "Haircut")
+    BookServiceCellView(isSelected: .constant(true), service: Service(title: "Haircut", price: "£20", duration: "40 mins"))
 }

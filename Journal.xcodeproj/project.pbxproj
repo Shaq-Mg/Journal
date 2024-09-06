@@ -68,6 +68,8 @@
 		46A7EA222C82026600CD04DB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA212C82026600CD04DB /* FirebaseAuth */; };
 		46A7EA242C82026F00CD04DB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA232C82026F00CD04DB /* FirebaseFirestore */; };
 		46A7EA262C82028100CD04DB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA252C82028100CD04DB /* FirebaseStorage */; };
+		46C643D72C8B8C94000A824E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C643D62C8B8C94000A824E /* SettingsView.swift */; };
+		46C643D92C8B8D35000A824E /* SettingsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C643D82C8B8D35000A824E /* SettingsSectionView.swift */; };
 		46D5FAA32C87850100C9B37C /* ApptCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D5FAA22C87850100C9B37C /* ApptCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +152,8 @@
 		46A7EA062C81FFAF00CD04DB /* JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITests.swift; sourceTree = "<group>"; };
 		46A7EA082C81FFAF00CD04DB /* JournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		46A7EA1D2C8201D300CD04DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		46C643D62C8B8C94000A824E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		46C643D82C8B8D35000A824E /* SettingsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionView.swift; sourceTree = "<group>"; };
 		46D5FAA22C87850100C9B37C /* ApptCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -446,6 +450,7 @@
 				468DE52E2C86182B00F72C62 /* Calender */,
 				469A019F2C8A16A10074B102 /* Chart */,
 				461B17DC2C866A2100DF490B /* Client */,
+				46C643D52C8B8C7D000A824E /* Settings */,
 				468DE53D2C861A6C00F72C62 /* Service */,
 			);
 			path = Core;
@@ -508,6 +513,7 @@
 				468DE5512C86298400F72C62 /* SearchBarView.swift */,
 				468DE5562C862B0D00F72C62 /* SelectDetailView.swift */,
 				469A01AA2C8A3BCF0074B102 /* SelectTimeView.swift */,
+				46C643D82C8B8D35000A824E /* SettingsSectionView.swift */,
 				468DE5582C8632F700F72C62 /* CreateTextfield.swift */,
 				469A01A72C8A21A50074B102 /* Inputs */,
 				469A01982C8A09780074B102 /* Headers */,
@@ -520,6 +526,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46C643D52C8B8C7D000A824E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				46C643D62C8B8C94000A824E /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		46D5FAA62C87869B00C9B37C /* ViewModel */ = {
@@ -674,6 +688,7 @@
 				4633C7172C8B635A007F15A9 /* ApptDetailView.swift in Sources */,
 				469AF2312C83450F0069191E /* AuthUser.swift in Sources */,
 				468DE54E2C86283E00F72C62 /* ServiceCellView.swift in Sources */,
+				46C643D92C8B8D35000A824E /* SettingsSectionView.swift in Sources */,
 				4643506F2C8737B3002C6406 /* ChartView.swift in Sources */,
 				468DE5572C862B0D00F72C62 /* SelectDetailView.swift in Sources */,
 				46D5FAA32C87850100C9B37C /* ApptCellView.swift in Sources */,
@@ -691,6 +706,7 @@
 				46414E432C8347430053B5D3 /* RootView.swift in Sources */,
 				461B17E42C866A9300DF490B /* Client.swift in Sources */,
 				468DE5242C85F17700F72C62 /* FormIsValid.swift in Sources */,
+				46C643D72C8B8C94000A824E /* SettingsView.swift in Sources */,
 				468DE54B2C8627EA00F72C62 /* CreateServiceView.swift in Sources */,
 				468DE5472C86269700F72C62 /* ServiceView.swift in Sources */,
 				468DE5392C86197100F72C62 /* Hours.swift in Sources */,
