@@ -23,4 +23,6 @@ struct Client: Identifiable, Codable {
         case nickname = "nickname"
         case isFavourite = "is_favourite"
     }
+    
+    static let preview = Client(name: "Kobe", phoneNumber: "07800000000", nickname: "Mamba", isFavourite: true)
 }

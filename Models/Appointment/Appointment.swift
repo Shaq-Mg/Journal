@@ -21,4 +21,6 @@ struct Appointment: Identifiable, Codable {
         case service
         case time
     }
+    
+    static let preview = Appointment(name: "Kobe", service: "Haircut", time: Date())
 }

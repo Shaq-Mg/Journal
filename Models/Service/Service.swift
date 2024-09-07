@@ -21,4 +21,6 @@ struct Service: Identifiable, Codable {
         case price
         case duration
     }
+    
+    static let preview = Service(id: nil, title: "Haircut", price: "£25", duration: "40 mins")
 }
