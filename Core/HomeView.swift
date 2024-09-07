@@ -8,19 +8,57 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var authVM: AuthViewModel
+    @EnvironmentObject private var calenderVM: CalenderViewModel
+    @EnvironmentObject private var clientVM: ClientViewModel
+    @EnvironmentObject private var serviceVM: ServiceViewModel
+    @State private var selectedTab = 0
+    @State private var isMenuShowing = false
     var body: some View {
-        VStack {
-            Button("Sign out") {
-                authViewModel.signOut()
+        ZStack {
+            NavigationStack {
+                TabView(selection: $selectedTab) {
+                    HomeChartView(showSideMenu: $isMenuShowing)
+                        .environmentObject(authVM)
+                        .tag(0)
+                    
+                    ClientView(showSideMenu: $isMenuShowing)
+                        .environmentObject(clientVM)
+                        .tag(1)
+                    
+                    ServiceView(showSideMenu: $isMenuShowing)
+                        .environmentObject(serviceVM)
+                        .tag(2)
+                    
+                    CalenderView(showSideMenu: $isMenuShowing)
+                        .environmentObject(calenderVM)
+                        .tag(3)
+                    
+                    Text("Schedule View")
+                        .environmentObject(calenderVM)
+                        .tag(4)
+                    
+                    SettingsView(showSideMenu: $isMenuShowing)
+                        .environmentObject(authVM)
+                        .tag(5)
+                }
+                .tint(.indigo)
             }
-            .navigationTitle(authViewModel.currentUser?.email ?? "n/a")
-            .task { await authViewModel.fetchUser() }
+            MenuView(isMenuShowing: $isMenuShowing, selectedTab: $selectedTab)
+                .environmentObject(authVM)
         }
+        .task { await authVM.fetchUser() }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
-#Preview {
-    HomeView()
-        .environmentObject(AuthViewModel())
-}
+//#Preview {
+//    NavigationStack {
+//        let service = FirebaseService()
+//        HomeView()
+//            .environmentObject(AuthViewModel())
+//            .environmentObject(CalenderViewModel(service: service))
+//            .environmentObject(ClientViewModel(firebaseService: service))
+//            .environmentObject(ServiceViewModel(firebaseService: service))
+//    }
+//}

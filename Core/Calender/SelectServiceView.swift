@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SelectServiceView: View {
     @EnvironmentObject private var calenderVM: CalenderViewModel
-    @EnvironmentObject private var serviceVM: ServiceViewModel
     @State private var isSelected = false
     @Binding var bookingConfirmed: Bool
     var currentDate: Date
@@ -18,15 +17,25 @@ struct SelectServiceView: View {
         VStack {
             List {
                 Section("Services") {
-                    ForEach(serviceVM.services) { service in
-                        BookServiceCellView(isSelected: $isSelected, service: service)
-                            .onTapGesture {
-                                withAnimation(.easeInOut) {
-                                    isSelected = true
-                                }
-                                let selectedTitle = service.title
-                                calenderVM.title = selectedTitle
+                    ForEach(calenderVM.services) { service in
+                        HStack {
+                            BookServiceCellView(service: service)
+                            Spacer()
+                            if isSelected {
+                                Image(systemName: "checkmark")
+                            } else {
+                                Circle()
+                                    .frame(width: 8, height: 8)
+                                    .foregroundStyle(.secondary)
                             }
+                        }
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                isSelected = true
+                            }
+                            let selectedTitle = service.title
+                            calenderVM.title = selectedTitle
+                        }
                     }
                 }
             }
@@ -35,7 +44,7 @@ struct SelectServiceView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .background(Color.init(white: 0.95))
-            .onAppear(perform: serviceVM.fetchServices)
+            .onAppear(perform: calenderVM.fetchServices)
             
             Button(action: {
                 calenderVM.bookAppointment(name: calenderVM.name, title: calenderVM.title, time: calenderVM.selectedTime)
@@ -45,6 +54,7 @@ struct SelectServiceView: View {
             }, label: {
                 NextButton(isSave: true)
             })
+            .disabled(calenderVM.title.isEmpty)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.top)
         }
@@ -56,6 +66,5 @@ struct SelectServiceView: View {
     NavigationStack {
         SelectServiceView(bookingConfirmed: .constant(false), currentDate: Date())
             .environmentObject(CalenderViewModel(service: FirebaseService()))
-            .environmentObject(ServiceViewModel(firebaseService: FirebaseService()))
     }
 }

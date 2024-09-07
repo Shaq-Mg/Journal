@@ -18,15 +18,15 @@ struct MenuCellView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             Image(systemName: page.iconName)
-                .foregroundStyle(isSelected ? .black : .indigo)
+                .foregroundStyle(isSelected ? .white : .indigo)
             Text(page.title)
-                .foregroundStyle(.black)
+                .foregroundStyle(isSelected ? .white : .black)
             Spacer()
         }
         .padding(.leading)
         .font(.system(size: 18, weight: .semibold))
         .frame(width: 216, height: 44)
-        .background(isSelected ? .indigo.opacity(0.2) : .clear)
+        .background(isSelected ? Color.accentColor.opacity(0.8) : .clear)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

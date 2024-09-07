@@ -15,7 +15,7 @@ struct HomeChartView: View {
     
     var body: some View {
         VStack(spacing: 50) {
-            ReusableHeader(showSideMenu: $showSideMenu, title: authVM.currentUser?.name ?? "user")
+            ReusableHeader(showSideMenu: $showSideMenu, title: "Home")
             VStack(spacing: 20) {
                 ChartView(selectedChart: $selectedChart)
                 VStack(alignment: .leading) {

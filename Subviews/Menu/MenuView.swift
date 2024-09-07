@@ -62,16 +62,12 @@ extension MenuView {
                     .font(.system(size: 18))
                     .foregroundStyle(.white)
                     .padding()
-                    .background(Circle().foregroundStyle(.secondary.opacity(0.2)))
+                    .background(Circle().foregroundStyle(Color.accentColor.opacity(0.5)))
                     .shadow(radius: 2)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(viewModel.currentUser?.name ?? "name")
-                        .font(.headline)
-                        .shadow(radius: 2)
-                    Text(viewModel.currentUser?.email ?? "email")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                
+                Text(viewModel.currentUser?.email ?? "email")
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
                 Spacer()
             }
             Divider()

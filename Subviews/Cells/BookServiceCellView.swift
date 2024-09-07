@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BookServiceCellView: View {
-    @Binding var isSelected: Bool
     let service: Service
     
     var body: some View {
@@ -20,21 +19,11 @@ struct BookServiceCellView: View {
                 .shadow(radius: 2)
             
             Text(service.title)
-            
-            Spacer()
-            
-            if isSelected {
-                Image(systemName: "checkmark")
-            } else {
-                Circle()
-                    .frame(width: 8, height: 8)
-                    .foregroundStyle(.secondary)
-            }
         }
         .font(.system(size: 20, weight: .semibold))
     }
 }
 
 #Preview {
-    BookServiceCellView(isSelected: .constant(true), service: Service(title: "Haircut", price: "£20", duration: "40 mins"))
+    BookServiceCellView(service: Service(title: "Haircut", price: "£20", duration: "40 mins"))
 }

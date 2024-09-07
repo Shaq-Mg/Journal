@@ -19,6 +19,8 @@ final class CalenderViewModel: ObservableObject {
     @Published var selectedDate = Date()
     @Published var selectedTime = Date()
     
+    @Published var services = [Service]()
+    
     @Published var name = ""
     @Published var title = ""
     
@@ -91,6 +93,23 @@ final class CalenderViewModel: ObservableObject {
             } else {
                 // handle error here
                 print("Failed to delete client to firestore")
+            }
+        }
+    }
+    
+    func fetchServices() {
+        guard let uid = service.userSession?.uid else { return }
+        service.userDocument(userId: uid).collection("services").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        self.services = snapshot.documents.map({ doc in
+                            return Service(id: doc.documentID, title: doc[Service.CodingKeys.title.rawValue] as? String ?? "n/a", price: doc[Service.CodingKeys.price.rawValue] as? String ?? "", duration: doc[Service.CodingKeys.duration.rawValue] as? String ?? "")
+                        })
+                    }
+                }
+            } else {
+                // handle error here
             }
         }
     }
