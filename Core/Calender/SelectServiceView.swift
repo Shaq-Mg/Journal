@@ -18,21 +18,12 @@ struct SelectServiceView: View {
             List {
                 Section("Services") {
                     ForEach(calenderVM.services) { service in
-                        HStack {
-                            BookServiceCellView(service: service)
-                            Spacer()
-                            if isSelected {
-                                Image(systemName: "checkmark")
-                            } else {
-                                Circle()
-                                    .frame(width: 8, height: 8)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
+                        BookServiceCellView(service: service)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 isSelected = true
                             }
+                            calenderVM.service = service
                             let selectedTitle = service.title
                             calenderVM.title = selectedTitle
                         }
@@ -46,17 +37,24 @@ struct SelectServiceView: View {
             .background(Color.init(white: 0.95))
             .onAppear(perform: calenderVM.fetchServices)
             
-            Button(action: {
-                calenderVM.bookAppointment(name: calenderVM.name, title: calenderVM.title, time: calenderVM.selectedTime)
-                withAnimation(.spring()) {
-                    bookingConfirmed.toggle()
+            HStack {
+                if let service = calenderVM.service {
+                    Text(service.title)
+                        .font(.headline)
                 }
-            }, label: {
-                NextButton(isSave: true)
-            })
-            .disabled(calenderVM.title.isEmpty)
-            .frame(maxWidth: .infinity, alignment: .trailing)
+                Spacer()
+                Button(action: {
+                    calenderVM.bookAppointment(name: calenderVM.name, title: calenderVM.title, time: calenderVM.selectedTime ?? Date())
+                    withAnimation(.spring()) {
+                        bookingConfirmed.toggle()
+                    }
+                }, label: {
+                    NextButton(isSave: true)
+                })
+                .disabled(calenderVM.title.isEmpty)
+                .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.top)
+            }
         }
         .padding(.horizontal)
     }
@@ -65,6 +63,6 @@ struct SelectServiceView: View {
 #Preview {
     NavigationStack {
         SelectServiceView(bookingConfirmed: .constant(false), currentDate: Date())
-            .environmentObject(CalenderViewModel(service: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }

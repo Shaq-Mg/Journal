@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SelectTimeView: View {
-    @Binding var selectedTime: Date
-    var selectTime: [Date]
+    @Binding var selectedTime: Date?
+    var times: [Date]
     var body: some View {
-        ForEach(selectTime, id: \.self) { time in
+        ForEach(times, id: \.self) { time in
             Button {
                 withAnimation {
                     selectedTime = time
@@ -31,5 +31,5 @@ struct SelectTimeView: View {
 }
 
 #Preview {
-    SelectTimeView(selectedTime: .constant(Date()), selectTime: [Date()])
+    SelectTimeView(selectedTime: .constant(Date()), times: [Date()])
 }

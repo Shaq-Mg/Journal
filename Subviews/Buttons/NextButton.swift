@@ -35,5 +35,5 @@ struct NextButton: View {
 
 #Preview {
     NextButton()
-        .environmentObject(CalenderViewModel(service: FirebaseService()))
+        .environmentObject(CalenderViewModel(database: FirebaseService()))
 }

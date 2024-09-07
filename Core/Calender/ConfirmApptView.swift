@@ -45,13 +45,14 @@ struct ConfirmApptView: View {
                 SelectServiceView(bookingConfirmed: $bookingConfirmed, currentDate: calenderVM.selectedDate)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
     NavigationStack {
         ConfirmApptView()
-            .environmentObject(CalenderViewModel(service: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
             .environmentObject(ServiceViewModel(firebaseService: FirebaseService()))
     }
 }

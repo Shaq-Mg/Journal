@@ -37,6 +37,6 @@ struct DayView: View {
 #Preview {
     NavigationStack {
         DayView(showSideMenu: .constant(false))
-            .environmentObject(CalenderViewModel(service: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }

@@ -54,7 +54,7 @@ struct HomeView: View {
 
 //#Preview {
 //    NavigationStack {
-//        let service = FirebaseService()
+//        let database = FirebaseService()
 //        HomeView()
 //            .environmentObject(AuthViewModel())
 //            .environmentObject(CalenderViewModel(service: service))

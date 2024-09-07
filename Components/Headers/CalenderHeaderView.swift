@@ -44,5 +44,5 @@ struct CalenderHeaderView: View {
 
 #Preview {
     CalenderHeaderView(selectedDate: .constant(Date()))
-        .environmentObject(CalenderViewModel(service: FirebaseService()))
+        .environmentObject(CalenderViewModel(database: FirebaseService()))
 }

@@ -19,7 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct JournalApp: App {
     @StateObject private var authVM = AuthViewModel()
-    @StateObject private var calenderVM = CalenderViewModel(service: FirebaseService())
+    @StateObject private var calenderVM = CalenderViewModel(database: FirebaseService())
     @StateObject private var chartVM = ChartViewModel(service: FirebaseService())
     @StateObject private var clientVM = ClientViewModel(firebaseService: FirebaseService())
     @StateObject private var serviceVM = ServiceViewModel(firebaseService: FirebaseService())

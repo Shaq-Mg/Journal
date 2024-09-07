@@ -54,6 +54,6 @@ struct ApptDetailView: View {
 #Preview {
     NavigationStack {
         ApptDetailView(appt: Appointment(name: "Kobe", service: "Haircut", time: Date()))
-            .environmentObject(CalenderViewModel(service: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }

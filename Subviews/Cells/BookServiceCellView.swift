@@ -19,6 +19,11 @@ struct BookServiceCellView: View {
                 .shadow(radius: 2)
             
             Text(service.title)
+            Spacer()
+            
+            Circle()
+                .frame(width: 8, height: 8)
+                .foregroundStyle(.secondary)
         }
         .font(.system(size: 20, weight: .semibold))
     }

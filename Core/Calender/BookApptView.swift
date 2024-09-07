@@ -34,11 +34,11 @@ struct BookApptView: View {
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 1)) {
                         if hours == .morning {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, selectTime: calenderVM.generateMorningTimes())
+                            SelectTimeView(selectedTime: $calenderVM.selectedTime, times: calenderVM.generateMorningTimes())
                         } else if hours == .afternoon {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, selectTime: calenderVM.generateAfternoonTimes())
+                            SelectTimeView(selectedTime: $calenderVM.selectedTime, times: calenderVM.generateAfternoonTimes())
                         } else if hours == .evening {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, selectTime: calenderVM.generateEveningTimes())
+                            SelectTimeView(selectedTime: $calenderVM.selectedTime, times: calenderVM.generateEveningTimes())
                         }
                     }
                 }
@@ -80,6 +80,6 @@ struct BookApptView: View {
 #Preview {
     NavigationStack {
         BookApptView(currentDate: Date())
-            .environmentObject(CalenderViewModel(service: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }

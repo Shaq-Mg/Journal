@@ -11,15 +11,18 @@ import FirebaseFirestore
 
 final class CalenderViewModel: ObservableObject {
     @Published var availableDates = [Date]()
-    @Published var appointments = [Appointment]()
     @Published var hours = [Hours]()
     @Published var availableDays: Set<String> = []
     @Published var selectedMonth = 0
     @Published var currentDate: Date?
     @Published var selectedDate = Date()
-    @Published var selectedTime = Date()
+    @Published var selectedTime: Date? = nil
     
+    @Published var appointments = [Appointment]()
     @Published var services = [Service]()
+    
+    @Published var appointment: Appointment? = nil
+    @Published var service: Service? = nil
     
     @Published var name = ""
     @Published var title = ""
@@ -27,22 +30,22 @@ final class CalenderViewModel: ObservableObject {
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     let hoursCollection = Firestore.firestore().collection("hours")
     let db = Firestore.firestore()
-    let service: FirebaseService
+    let database: FirebaseService
     
-    init(service: FirebaseService) {
-        self.service = service
+    init(database: FirebaseService) {
+        self.database = database
     }
     
     func generateMorningTimes() -> [Date] {
-        service.generateAppointmentTimes(startHour: 6, startMinute: 0, endHour: 11, endMinute: 45)
+        database.generateAppointmentTimes(startHour: 6, startMinute: 0, endHour: 11, endMinute: 45)
     }
     
     func generateAfternoonTimes() -> [Date] {
-        service.generateAppointmentTimes(startHour: 12, startMinute: 0, endHour: 16, endMinute: 45)
+        database.generateAppointmentTimes(startHour: 12, startMinute: 0, endHour: 16, endMinute: 45)
     }
     
     func generateEveningTimes() -> [Date] {
-        service.generateAppointmentTimes(startHour: 17, startMinute: 0, endHour: 22, endMinute: 0)
+        database.generateAppointmentTimes(startHour: 17, startMinute: 0, endHour: 22, endMinute: 0)
     }
     
     func fetchDates() -> [Calender] {
@@ -68,21 +71,21 @@ final class CalenderViewModel: ObservableObject {
     }
     
     func bookAppointment(name: String, title: String, time: Date) {
-        guard let uid = service.userSession?.uid else { return }
+        guard let uid = database.userSession?.uid else { return }
         
         Task {
-            try await service.create(collectionPath: "appointments", userId: uid, documentData: [Appointment.CodingKeys.name.rawValue: name, Appointment.CodingKeys.service.rawValue: title, Appointment.CodingKeys.time.rawValue: time])
+            try await database.create(collectionPath: "appointments", userId: uid, documentData: [Appointment.CodingKeys.name.rawValue: name, Appointment.CodingKeys.service.rawValue: title, Appointment.CodingKeys.time.rawValue: time])
         }
     }
     
     func updateAppt(apptToUpdate: Appointment) {
-        guard let uid = service.userSession?.uid else { return }
-        service.userCollection.document(uid).collection("appointments").document(apptToUpdate.id ?? "").setData(["name": apptToUpdate.name, "title": apptToUpdate.service, "time": apptToUpdate.time], merge: true)
+        guard let uid = database.userSession?.uid else { return }
+        database.userCollection.document(uid).collection("appointments").document(apptToUpdate.id ?? "").setData(["name": apptToUpdate.name, "title": apptToUpdate.service, "time": apptToUpdate.time], merge: true)
     }
     
     func deleteAppt(apptToDelete: Appointment) {
-        guard let uid = service.userSession?.uid else { return }
-        service.userDocument(userId: uid).collection("appointments").document(apptToDelete.id ?? "").delete { error in
+        guard let uid = database.userSession?.uid else { return }
+        database.userDocument(userId: uid).collection("appointments").document(apptToDelete.id ?? "").delete { error in
             if error == nil {
                 DispatchQueue.main.async {
                     self.appointments.removeAll { appt in
@@ -98,8 +101,8 @@ final class CalenderViewModel: ObservableObject {
     }
     
     func fetchServices() {
-        guard let uid = service.userSession?.uid else { return }
-        service.userDocument(userId: uid).collection("services").getDocuments { snapshot, error in
+        guard let uid = database.userSession?.uid else { return }
+        database.userDocument(userId: uid).collection("services").getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
@@ -115,8 +118,8 @@ final class CalenderViewModel: ObservableObject {
     }
     
     func fetchAppts() {
-        guard let uid = service.userSession?.uid else { return }
-        service.userDocument(userId: uid).collection("appointments").getDocuments { snapshot, error in
+        guard let uid = database.userSession?.uid else { return }
+        database.userDocument(userId: uid).collection("appointments").getDocuments { snapshot, error in
             if error == nil {
                 if let snapshot = snapshot {
                     DispatchQueue.main.async {
