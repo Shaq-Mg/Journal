@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectServiceView: View {
+struct BookServiceView: View {
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @State private var isSelected = false
     @Binding var bookingConfirmed: Bool
@@ -62,7 +62,7 @@ struct SelectServiceView: View {
 
 #Preview {
     NavigationStack {
-        SelectServiceView(bookingConfirmed: .constant(false), currentDate: Date())
+        BookServiceView(bookingConfirmed: .constant(false), currentDate: Date())
             .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }
