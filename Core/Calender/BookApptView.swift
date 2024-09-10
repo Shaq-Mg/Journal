@@ -11,6 +11,7 @@ struct BookApptView: View {
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @Environment(\.dismiss) private var dismiss
     @AppStorage("hours") private var hours: Hours = .morning
+    @State private var showConfirmTimeDate = false
     
     var currentDate: Date
     
@@ -34,45 +35,53 @@ struct BookApptView: View {
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 1)) {
                         if hours == .morning {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, times: calenderVM.generateMorningTimes())
+                           SelectTimeView(selectedTime: $calenderVM.selectedTime, showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableMorningTimes)
                         } else if hours == .afternoon {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, times: calenderVM.generateAfternoonTimes())
+                           SelectTimeView(selectedTime: $calenderVM.selectedTime, showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableAftenoonTimes)
                         } else if hours == .evening {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, times: calenderVM.generateEveningTimes())
+                            SelectTimeView(selectedTime: $calenderVM.selectedTime, showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableEveningTimes)
                         }
                     }
                 }
-                .padding(.bottom)
-                if !calenderVM.name.isEmpty {
-                    withAnimation(.easeInOut(duration: 1.0)) {
-                        NavigationLink(destination: {
-                            ConfirmApptView()
-                                .environmentObject(calenderVM)
-                        }, label: {
-                            NextButton()
-                        })
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .environmentObject(calenderVM)
-                    }
-                }
+                Divider()
+                bookApptFooter
             }
             .padding(.horizontal)
             .navigationTitle(currentDate.dayOfTheWeek())
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .background(Color.init(white: 0.95))
-            .onAppear {  }
+            .onAppear {
+                _ = calenderVM.generateMorningTimes()
+                _ = calenderVM.generateAfternoonTimes()
+                _ = calenderVM.generateEveningTimes()
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
                     } label: {
                         Text("Dismiss")
-                            .font(.headline)
+                            .font(.subheadline)
                             .foregroundStyle(.gray)
                     }
                 }
             }
+        }
+        .confirmationDialog("Select time", isPresented: $showConfirmTimeDate, titleVisibility: .visible) {
+            Button("Yes") {
+                DispatchQueue.main.async {
+                    if hours == .morning {
+                        calenderVM.selectMorningTimeSlot(calenderVM.selectedTime ?? Date())
+                    } else if hours == .afternoon {
+                        calenderVM.selectAfternoonTimeSlot(calenderVM.selectedTime ?? Date())
+                    } else if hours == .evening {
+                        calenderVM.selectEveningTimeSlot(calenderVM.selectedTime ?? Date())
+                    }
+                }
+            }
+        } message: {
+            Text("Do you want to select this time?")
         }
     }
 }
@@ -81,5 +90,29 @@ struct BookApptView: View {
     NavigationStack {
         BookApptView(currentDate: Date())
             .environmentObject(CalenderViewModel(database: FirebaseService()))
+    }
+}
+
+extension BookApptView {
+    private var bookApptFooter: some View {
+        HStack {
+            if let time = calenderVM.selectedTime {
+                Text(time.dayViewDateFormat())
+                    .font(.caption2)
+            }
+            
+            if !calenderVM.name.isEmpty && calenderVM.selectedTime != nil {
+                withAnimation(.easeInOut(duration: 1.0)) {
+                    NavigationLink(destination: {
+                        ConfirmApptView()
+                            .environmentObject(calenderVM)
+                    }, label: {
+                        NextButton()
+                    })
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .environmentObject(calenderVM)
+                }
+            }
+        }
     }
 }

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeChartView: View {
-    @EnvironmentObject private var chartVM: ChartViewModel
     @EnvironmentObject private var authVM: AuthViewModel
+    @EnvironmentObject private var chartVM: ChartViewModel
+    @EnvironmentObject private var calenderVM: CalenderViewModel
     @AppStorage("chartTapped") private var selectedChart: ChartState = .currentWeek
     @Binding var showSideMenu: Bool
     
@@ -31,7 +32,8 @@ struct HomeChartView: View {
                             }
                         }
                         NavigationLink {
-                            
+                            CalenderView()
+                                .environmentObject(calenderVM)
                         } label: {
                             Image(systemName: "plus")
                         }
@@ -54,6 +56,7 @@ struct HomeChartView: View {
 
 #Preview {
     HomeChartView(showSideMenu: .constant(false))
-        .environmentObject(ChartViewModel(service: FirebaseService()))
         .environmentObject(AuthViewModel())
+        .environmentObject(ChartViewModel(service: FirebaseService()))
+        .environmentObject(CalenderViewModel(database: FirebaseService()))
 }

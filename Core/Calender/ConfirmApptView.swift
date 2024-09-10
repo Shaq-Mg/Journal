@@ -42,7 +42,7 @@ struct ConfirmApptView: View {
                     }
                 }
             } else {
-                SelectServiceView(bookingConfirmed: $bookingConfirmed, currentDate: calenderVM.selectedDate)
+                BookServiceView(bookingConfirmed: $bookingConfirmed, currentDate: calenderVM.selectedDate)
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -11,6 +11,7 @@ import Firebase
 import Combine
 
 final class FirebaseService {
+    @Published var availableTimes = [Date]()
     @Published var userSession: FirebaseAuth.User?
     @Published var user: AuthUser? = nil
     
@@ -61,8 +62,8 @@ final class FirebaseService {
             timesArray.append(currentTime)
             currentTime = calendar.date(byAdding: .minute, value: 15, to: currentTime)!
         }
-        
-        return timesArray
+        self.availableTimes = timesArray
+        return availableTimes
     }
 }
 

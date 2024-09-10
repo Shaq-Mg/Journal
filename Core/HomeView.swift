@@ -30,19 +30,15 @@ struct HomeView: View {
                         .environmentObject(serviceVM)
                         .tag(2)
                     
-                    CalenderView(showSideMenu: $isMenuShowing)
+                    Text("Schedule View")
                         .environmentObject(calenderVM)
                         .tag(3)
                     
-                    Text("Schedule View")
-                        .environmentObject(calenderVM)
-                        .tag(4)
-                    
                     SettingsView(showSideMenu: $isMenuShowing)
                         .environmentObject(authVM)
-                        .tag(5)
+                        .tag(4)
                 }
-                .tint(.indigo)
+                .tint(Color.accentColor)
             }
             MenuView(isMenuShowing: $isMenuShowing, selectedTab: $selectedTab)
                 .environmentObject(authVM)

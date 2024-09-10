@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46007CB42C8A57F000374869 /* SelectServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46007CB32C8A57F000374869 /* SelectServiceView.swift */; };
+		46007CB42C8A57F000374869 /* BookServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46007CB32C8A57F000374869 /* BookServiceView.swift */; };
 		461B17DF2C866A4600DF490B /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17DE2C866A4600DF490B /* ClientView.swift */; };
 		461B17E12C866A5500DF490B /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E02C866A5500DF490B /* ClientViewModel.swift */; };
 		461B17E42C866A9300DF490B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B17E32C866A9300DF490B /* Client.swift */; };
@@ -94,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46007CB32C8A57F000374869 /* SelectServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServiceView.swift; sourceTree = "<group>"; };
+		46007CB32C8A57F000374869 /* BookServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceView.swift; sourceTree = "<group>"; };
 		461B17DE2C866A4600DF490B /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		461B17E02C866A5500DF490B /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		461B17E32C866A9300DF490B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 				469A01962C8A08A60074B102 /* CalenderView.swift */,
 				4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */,
 				4633C70F2C8B1324007F15A9 /* DayView.swift */,
-				46007CB32C8A57F000374869 /* SelectServiceView.swift */,
+				46007CB32C8A57F000374869 /* BookServiceView.swift */,
 				46D5FAA62C87869B00C9B37C /* ViewModel */,
 			);
 			path = Calender;
@@ -773,7 +773,7 @@
 				461B17EC2C866FB600DF490B /* ReusableCapsule.swift in Sources */,
 				468DE5592C8632F700F72C62 /* CreateTextfield.swift in Sources */,
 				469A01972C8A08A60074B102 /* CalenderView.swift in Sources */,
-				46007CB42C8A57F000374869 /* SelectServiceView.swift in Sources */,
+				46007CB42C8A57F000374869 /* BookServiceView.swift in Sources */,
 				469A01AB2C8A3BCF0074B102 /* SelectTimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

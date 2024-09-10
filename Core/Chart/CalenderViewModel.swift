@@ -10,15 +10,18 @@ import Firebase
 import FirebaseFirestore
 
 final class CalenderViewModel: ObservableObject {
-    @Published var availableDates = [Date]()
-    @Published var hours = [Hours]()
+    @Published var availableMorningTimes = [Date]()
+    @Published var availableAftenoonTimes = [Date]()
+    @Published var availableEveningTimes = [Date]()
+    
     @Published var availableDays: Set<String> = []
     @Published var selectedMonth = 0
     @Published var currentDate: Date?
     @Published var selectedDate = Date()
     @Published var selectedTime: Date? = nil
-    
+
     @Published var appointments = [Appointment]()
+    @Published var hours = [Hours]()
     @Published var services = [Service]()
     
     @Published var appointment: Appointment? = nil
@@ -36,16 +39,46 @@ final class CalenderViewModel: ObservableObject {
         self.database = database
     }
     
+    // Function to handle selecting a time slot
+    func selectMorningTimeSlot(_ time: Date) {
+        // Remove the selected time from the array
+        availableMorningTimes.removeAll { $0 == time }
+    }
+    
+    func selectAfternoonTimeSlot(_ time: Date) {
+        // Remove the selected time from the array
+        availableAftenoonTimes.removeAll { $0 == time }
+    }
+
+    func selectEveningTimeSlot(_ time: Date) {
+        // Remove the selected time from the array
+        availableEveningTimes.removeAll { $0 == time }
+    }
+
+    
+    // Helper function to format times
+    func formattedTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a" // e.g. 8:00 AM
+        return formatter.string(from: date)
+    }
+    
     func generateMorningTimes() -> [Date] {
-        database.generateAppointmentTimes(startHour: 6, startMinute: 0, endHour: 11, endMinute: 45)
+        let times = database.generateAppointmentTimes(startHour: 6, startMinute: 0, endHour: 11, endMinute: 45)
+        self.availableMorningTimes = times
+        return availableMorningTimes
     }
     
     func generateAfternoonTimes() -> [Date] {
-        database.generateAppointmentTimes(startHour: 12, startMinute: 0, endHour: 16, endMinute: 45)
+        let times = database.generateAppointmentTimes(startHour: 12, startMinute: 0, endHour: 16, endMinute: 45)
+        self.availableAftenoonTimes = times
+        return availableAftenoonTimes
     }
     
     func generateEveningTimes() -> [Date] {
-        database.generateAppointmentTimes(startHour: 17, startMinute: 0, endHour: 22, endMinute: 0)
+        let times = database.generateAppointmentTimes(startHour: 17, startMinute: 0, endHour: 22, endMinute: 0)
+        self.availableEveningTimes = times
+        return availableEveningTimes
     }
     
     func fetchDates() -> [Calender] {

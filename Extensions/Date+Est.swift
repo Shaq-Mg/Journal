@@ -88,7 +88,7 @@ extension Date {
         timeFormatter.dateFormat = "hh:mm a"
         let start = timeFormatter.string(from: self)
         
-        let endDate = Calendar.current.date(byAdding: .minute, value: 60, to: self)!
+        let endDate = Calendar.current.date(byAdding: .minute, value: 30, to: self)!
         let end = timeFormatter.string(from: endDate)
         
         let day = self.dayOfTheWeek()

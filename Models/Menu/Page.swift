@@ -8,13 +8,12 @@
 import Foundation
 
 enum Page: Int, Hashable , CaseIterable {
-    case home, client, service, bookings, schedule, settings
+   case home, client, service, schedule, settings
     
     var title: String {
         switch self {
         case .client: return "Clients"
         case .service: return "Services"
-        case .bookings: return "Bookings"
         case .schedule: return "Schedule"
         case .home: return "Home"
         case .settings: return "Settings"
@@ -25,8 +24,7 @@ enum Page: Int, Hashable , CaseIterable {
         switch self {
         case .client: return "person.2.fill"
         case .service: return "handbag.fill"
-        case .bookings: return "calendar"
-        case .schedule: return "book.closed.fill"
+        case .schedule: return "calendar"
         case .home: return "house.fill"
         case .settings: return "gear"
         }

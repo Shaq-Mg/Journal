@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CalenderView: View {
-    @EnvironmentObject private var vm: CalenderViewModel
-    @Binding var showSideMenu: Bool
+    @EnvironmentObject var vm: CalenderViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(spacing: 20) {
@@ -35,9 +35,9 @@ struct CalenderView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    showSideMenu.toggle()
+                    dismiss()
                 } label: {
-                    Image(systemName: "line.3.horizontal")
+                    Image(systemName: "house.fill")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundStyle(.black)
                 }
@@ -51,7 +51,7 @@ struct CalenderView: View {
 
 #Preview {
     NavigationStack {
-        CalenderView(showSideMenu: .constant(false))
+        CalenderView()
             .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }
