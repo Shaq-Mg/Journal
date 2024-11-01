@@ -14,7 +14,6 @@ struct CalenderView: View {
     var body: some View {
         VStack(spacing: 20) {
             CalenderHeaderView(selectedDate: $vm.selectedDate)
-                .environmentObject(vm)
             
             HStack {
                 ForEach(vm.days, id: \.self) { day in
@@ -43,7 +42,7 @@ struct CalenderView: View {
                 }
             }
         }
-        .onChange(of: vm.selectedMonth) { newValue in
+        .onChange(of: vm.selectedMonth) {
             vm.selectedDate = vm.fetchSelectedMonth()
         }
     }
@@ -62,7 +61,6 @@ extension CalenderView {
             ForEach(vm.fetchDates()) { value in
                 VStack {
                     if value.day != -1 {
-                        let hasAppts = vm.availableDays.contains(value.date.monthDayYearFormat())
                         NavigationLink {
                             BookApptView(currentDate: vm.selectedDate)
                                 .environmentObject(vm)
@@ -79,13 +77,10 @@ extension CalenderView {
                                             if value.date.monthDayYearFormat() == Date().monthDayYearFormat() {
                                                 Circle()
                                                     .frame(width: 36, height: 36)
-                                                    .foregroundStyle(.indigo)
+                                                    .foregroundStyle(Color.accentColor)
                                                     .shadow(radius: 1)
                                             }
                                         }
-                                        Circle()
-                                            .frame(width: 5, height: 5)
-                                            .foregroundStyle(hasAppts ? .indigo : .clear)
                                     })
                         }
                         

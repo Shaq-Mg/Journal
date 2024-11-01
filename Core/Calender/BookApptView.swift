@@ -12,13 +12,17 @@ struct BookApptView: View {
     @Environment(\.dismiss) private var dismiss
     @AppStorage("hours") private var hours: Hours = .morning
     @State private var showConfirmTimeDate = false
+    @State private var showNameAlert = false
     
     var currentDate: Date
     
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 30) {
-                ApptInputView(text: $calenderVM.name, title: "Name", action: { calenderVM.name = "" }, placeholder: "Name")
+                ReusableInputView(text: $calenderVM.name, placeholder: "Client Name", imageName: "plus")
+                    .onTapGesture { showNameAlert.toggle() }
+                    .padding(.top)
+                Divider()
                 
                 HStack {
                     Text("Select a time")
@@ -35,11 +39,11 @@ struct BookApptView: View {
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 1)) {
                         if hours == .morning {
-                           SelectTimeView(selectedTime: $calenderVM.selectedTime, showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableMorningTimes)
+                            SelectTimeView(showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableMorningTimes)
                         } else if hours == .afternoon {
-                           SelectTimeView(selectedTime: $calenderVM.selectedTime, showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableAftenoonTimes)
+                           SelectTimeView(showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableAftenoonTimes)
                         } else if hours == .evening {
-                            SelectTimeView(selectedTime: $calenderVM.selectedTime, showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableEveningTimes)
+                            SelectTimeView(showConfirmTimeDate: $showConfirmTimeDate, times: calenderVM.availableEveningTimes)
                         }
                     }
                 }
@@ -56,14 +60,19 @@ struct BookApptView: View {
                 _ = calenderVM.generateAfternoonTimes()
                 _ = calenderVM.generateEveningTimes()
             }
+            .alert("Enter name", isPresented: $showNameAlert, actions: {
+                TextField("Name", text: $calenderVM.name)
+            })
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
+                        calenderVM.selectedTime = nil
+                        calenderVM.name = ""
                         dismiss()
                     } label: {
-                        Text("Dismiss")
+                        Text("Cancel")
                             .font(.subheadline)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.black)
                     }
                 }
             }
@@ -81,7 +90,7 @@ struct BookApptView: View {
                 }
             }
         } message: {
-            Text("Do you want to select this time?")
+            Text("Are you sure you want to select this time?")
         }
     }
 }

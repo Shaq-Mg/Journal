@@ -31,9 +31,9 @@ final class CalenderViewModel: ObservableObject {
     @Published var title = ""
     
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    let hoursCollection = Firestore.firestore().collection("hours")
-    let db = Firestore.firestore()
-    let database: FirebaseService
+    private let hoursCollection = Firestore.firestore().collection("hours")
+    private let db = Firestore.firestore()
+    private let database: FirebaseService
     
     init(database: FirebaseService) {
         self.database = database

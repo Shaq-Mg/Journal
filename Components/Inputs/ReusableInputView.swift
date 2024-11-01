@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct ReusableInputView: View {
+    @Binding var text: String
+    let placeholder: String
+    let imageName: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 8) {
+            Image(systemName: imageName)
+                .foregroundStyle(Color("AccentColor"))
+                .font(.system(size: 22, weight: .semibold))
+            
+            if text.isEmpty {
+                Text(placeholder)
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text(text)
+                    .foregroundStyle(.black)
+            }
+            
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(.white)
+        .cornerRadius(8)
     }
 }
 
 #Preview {
-    ReusableInputView()
+    ReusableInputView(text: .constant(""), placeholder: "Name", imageName: "plus.circle")
 }

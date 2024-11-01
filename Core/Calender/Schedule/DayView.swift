@@ -11,10 +11,11 @@ struct DayView: View {
     @EnvironmentObject var vm: CalenderViewModel
     @Environment(\.dismiss) var dismiss
     @Binding var showSideMenu: Bool
+    var currentDate: Date
     
     var body: some View {
         VStack {
-            ReusableHeader(showSideMenu: $showSideMenu, title: vm.selectedDate.dayOfTheWeek())
+            ReusableHeader(showSideMenu: $showSideMenu, onDismiss: true, title: currentDate.dayOfTheWeek())
             List {
                 Section("Bookings today") {
                     ForEach(vm.appointments) { appointment in
@@ -36,7 +37,7 @@ struct DayView: View {
 
 #Preview {
     NavigationStack {
-        DayView(showSideMenu: .constant(false))
+        DayView(showSideMenu: .constant(false), currentDate: Date())
             .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }

@@ -19,7 +19,7 @@ struct Journal: Identifiable, Hashable {
         let today = Date()
         
         for i in 0..<7 {
-            if let previousDate = calendar.date(byAdding: .day, value: -i, to: today) {
+            if let previousDate = calendar.date(byAdding: .day, value: i, to: today) {
                 let value = Int.random(in: 1...20) // Replace with actual data if needed
                 data.append(Journal(booking: value, date: previousDate))
             }
@@ -34,7 +34,7 @@ struct Journal: Identifiable, Hashable {
         let today = Date()
         
         for i in 0..<7 {
-            if let nextDate = calendar.date(byAdding: .day, value: i, to: today) {
+            if let nextDate = calendar.date(byAdding: .day, value: -i, to: today) {
                 let value = Int.random(in: 1...20) // Replace with actual data if needed
                 data.append(Journal(booking: value, date: nextDate))
             }

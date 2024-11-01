@@ -22,7 +22,9 @@ final class AuthViewModel: ObservableObject {
     @Published var errorMessage = ""
     
     init() {
-        self.userSession = Auth.auth().currentUser
+        DispatchQueue.main.async {
+            self.userSession = Auth.auth().currentUser
+        }
         
         Task {
             await fetchUser()

@@ -16,7 +16,7 @@ struct MenuView: View {
         ZStack {
             if isMenuShowing {
                 Rectangle()
-                    .opacity(0.5)
+                    .foregroundStyle(.ultraThinMaterial)
                     .ignoresSafeArea()
                     .onTapGesture { isMenuShowing.toggle() }
                 HStack {

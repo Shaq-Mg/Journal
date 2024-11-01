@@ -46,7 +46,6 @@ struct ClientView: View {
                     }
                 }
             })
-            .onAppear { viewModel.fetchClients() }
             .sheet(isPresented: $isShowNewClient, content: {
                 NavigationStack {
                     CreateClientView()

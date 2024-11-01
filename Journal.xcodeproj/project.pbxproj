@@ -28,6 +28,7 @@
 		4643506F2C8737B3002C6406 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4643506E2C8737B3002C6406 /* ChartView.swift */; };
 		464350712C8737D7002C6406 /* ChartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464350702C8737D7002C6406 /* ChartState.swift */; };
 		464350732C8738DA002C6406 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464350722C8738DA002C6406 /* Journal.swift */; };
+		4670B8012CD549670030F5BB /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4670B8002CD549670030F5BB /* ScheduleView.swift */; };
 		468DE5242C85F17700F72C62 /* FormIsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5232C85F17700F72C62 /* FormIsValid.swift */; };
 		468DE52D2C8612FA00F72C62 /* Date+Est.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE52C2C8612FA00F72C62 /* Date+Est.swift */; };
 		468DE5342C86190000F72C62 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DE5332C86190000F72C62 /* Appointment.swift */; };
@@ -74,6 +75,7 @@
 		46D2F5C62C8C8A7A00C7DAE8 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D2F5C52C8C8A7A00C7DAE8 /* Page.swift */; };
 		46D2F5C82C8C8AF900C7DAE8 /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D2F5C72C8C8AF900C7DAE8 /* MenuCellView.swift */; };
 		46D5FAA32C87850100C9B37C /* ApptCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D5FAA22C87850100C9B37C /* ApptCellView.swift */; };
+		46DFB7FE2CD50E7E00B3180A /* ReusableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DFB7FD2CD50E7E00B3180A /* ReusableInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,7 @@
 		4643506E2C8737B3002C6406 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		464350702C8737D7002C6406 /* ChartState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartState.swift; sourceTree = "<group>"; };
 		464350722C8738DA002C6406 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		4670B8002CD549670030F5BB /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		468DE5232C85F17700F72C62 /* FormIsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIsValid.swift; sourceTree = "<group>"; };
 		468DE52C2C8612FA00F72C62 /* Date+Est.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Est.swift"; sourceTree = "<group>"; };
 		468DE5332C86190000F72C62 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 		46D2F5C52C8C8A7A00C7DAE8 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		46D2F5C72C8C8AF900C7DAE8 /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		46D5FAA22C87850100C9B37C /* ApptCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptCellView.swift; sourceTree = "<group>"; };
+		46DFB7FD2CD50E7E00B3180A /* ReusableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,15 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		4670B7FF2CD5492B0030F5BB /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				4633C70F2C8B1324007F15A9 /* DayView.swift */,
+				4670B8002CD549670030F5BB /* ScheduleView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		468DE5252C86109300F72C62 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,10 +252,10 @@
 			children = (
 				4633C7162C8B635A007F15A9 /* ApptDetailView.swift */,
 				469A01A52C8A21510074B102 /* BookApptView.swift */,
+				46007CB32C8A57F000374869 /* BookServiceView.swift */,
 				469A01962C8A08A60074B102 /* CalenderView.swift */,
 				4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */,
-				4633C70F2C8B1324007F15A9 /* DayView.swift */,
-				46007CB32C8A57F000374869 /* BookServiceView.swift */,
+				4670B7FF2CD5492B0030F5BB /* Schedule */,
 				46D5FAA62C87869B00C9B37C /* ViewModel */,
 			);
 			path = Calender;
@@ -355,6 +368,7 @@
 			children = (
 				469A01A82C8A21BE0074B102 /* ApptInputView.swift */,
 				46414E4A2C84FD7D0053B5D3 /* InputView.swift */,
+				46DFB7FD2CD50E7E00B3180A /* ReusableInputView.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -722,6 +736,7 @@
 				469AF2312C83450F0069191E /* AuthUser.swift in Sources */,
 				468DE54E2C86283E00F72C62 /* ServiceCellView.swift in Sources */,
 				46C643D92C8B8D35000A824E /* SettingsSectionView.swift in Sources */,
+				4670B8012CD549670030F5BB /* ScheduleView.swift in Sources */,
 				4643506F2C8737B3002C6406 /* ChartView.swift in Sources */,
 				468DE5572C862B0D00F72C62 /* SelectDetailView.swift in Sources */,
 				46D5FAA32C87850100C9B37C /* ApptCellView.swift in Sources */,
@@ -767,6 +782,7 @@
 				46414E492C84F8E40053B5D3 /* RegistrationView.swift in Sources */,
 				469A019A2C8A09940074B102 /* CalenderHeaderView.swift in Sources */,
 				461B17E82C866C0700DF490B /* ClientDetailView.swift in Sources */,
+				46DFB7FE2CD50E7E00B3180A /* ReusableInputView.swift in Sources */,
 				46D2F5C32C8C89D400C7DAE8 /* MenuView.swift in Sources */,
 				46D2F5C62C8C8A7A00C7DAE8 /* Page.swift in Sources */,
 				469A01A22C8A16F10074B102 /* CalenderViewModel.swift in Sources */,

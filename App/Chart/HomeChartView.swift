@@ -22,11 +22,11 @@ struct HomeChartView: View {
                 VStack(alignment: .leading) {
                     Text("Upcoming appointments")
                         .font(.system(size: 20, weight: .semibold))
-                    
+
                     ZStack(alignment: .bottomTrailing) {
                         ScrollView {
                             List {
-                                ForEach(chartVM.appointments) { appt in
+                                ForEach(chartVM.upcomingAppointments) { appt in
                                     ApptCellView(appointment: appt)
                                 }
                             }
@@ -48,7 +48,7 @@ struct HomeChartView: View {
             .padding(.horizontal)
             .navigationBarBackButtonHidden(true)
             .task {
-                await authVM.fetchUser()
+                chartVM.fetchUpcomingAppts(from: Date())
             }
         }
     }
