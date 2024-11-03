@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConfirmApptView: View {
-    @EnvironmentObject private var calenderVM: CalenderViewModel
+    @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var serviceVM: ServiceViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var bookingConfirmed = false
@@ -22,9 +22,9 @@ struct ConfirmApptView: View {
                     
                     VStack(alignment: .leading, spacing: 16) {
                         
-                        ConfirmApptHeaderView(imageName: "clock.fill", text: calenderVM.selectedDate.dayViewDateFormat())
-                        ConfirmApptHeaderView(imageName: "person.fill", text: calenderVM.name)
-                        ConfirmApptHeaderView(imageName: "pencil", text: calenderVM.title)
+                        ConfirmApptHeaderView(imageName: "clock.fill", text: apptVM.selectedDate.dayViewDateFormat())
+                        ConfirmApptHeaderView(imageName: "person.fill", text: apptVM.name)
+                        ConfirmApptHeaderView(imageName: "pencil", text: apptVM.title)
                     }
                 }
                 .transition(.move(edge: .bottom))
@@ -42,7 +42,7 @@ struct ConfirmApptView: View {
                     }
                 }
             } else {
-                BookServiceView(bookingConfirmed: $bookingConfirmed, currentDate: calenderVM.selectedDate)
+                BookServiceView(bookingConfirmed: $bookingConfirmed, currentDate: apptVM.selectedDate)
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -52,7 +52,7 @@ struct ConfirmApptView: View {
 #Preview {
     NavigationStack {
         ConfirmApptView()
-            .environmentObject(CalenderViewModel(database: FirebaseService()))
+            .environmentObject(ApptViewModel(database: FirebaseService()))
             .environmentObject(ServiceViewModel(firebaseService: FirebaseService()))
     }
 }

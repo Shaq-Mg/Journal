@@ -15,47 +15,47 @@ struct ClientView: View {
     var body: some View {
         VStack {
             ReusableHeader(showSideMenu: $showSideMenu, title: "Clients")
-            List {
-                Section(viewModel.isFavourite ? "Favourites" : "All") {
+            clientListHeader
+            Spacer()
+            if viewModel.filteredClients.isEmpty {
+                Text("No clients available")
+                    .fontWeight(.semibold)
+                Spacer()
+            } else {
+                List {
                     ForEach(viewModel.filteredClients) { client in
-                        ZStack(alignment: .leading) {
-                            if viewModel.filteredClients.isEmpty {
-                                Text("No clients available")
-                            } else {
-                                NavigationLink(destination: ClientDetailView(client: client)) {
-                                    EmptyView()
-                                }
-                                .opacity(0)
-                                ClientCellView(client: client)
-                            }
+                        NavigationLink(destination: ClientDetailView(client: client)) {
+                            EmptyView()
                         }
+                        .opacity(0)
+                        ClientCellView(client: client)
+                    }
+                }
+                .listStyle(.plain)
+            }
+        }
+        .onAppear(perform: viewModel.fetchClients)
+        .font(.title2)
+        .navigationBarBackButtonHidden(true)
+        .overlay(alignment: .bottomTrailing, content: {
+            HStack {
+                SearchBarView(searchText: $viewModel.searchText)
+                Button {
+                    isShowNewClient.toggle()
+                } label: {
+                    HStack {
+                        CreateButton()
+                            .padding()
                     }
                 }
             }
-            .listStyle(.plain)
-            .overlay(alignment: .bottomTrailing, content: {
-                HStack {
-                    SearchBarView(searchText: $viewModel.searchText)
-                    Button {
-                        isShowNewClient.toggle()
-                    } label: {
-                        HStack {
-                            CreateButton()
-                                .padding()
-                        }
-                    }
-                }
-            })
-            .sheet(isPresented: $isShowNewClient, content: {
-                NavigationStack {
-                    CreateClientView()
-                }
-                .environmentObject(viewModel)
-            })
-            .font(.title2)
-            .fontWeight(.semibold)
-            .navigationBarBackButtonHidden(true)
-        }
+        })
+        .sheet(isPresented: $isShowNewClient, content: {
+            NavigationStack {
+                CreateClientView()
+            }
+            .environmentObject(viewModel)
+        })
     }
 }
 
@@ -63,5 +63,31 @@ struct ClientView: View {
     NavigationStack {
         ClientView(showSideMenu: .constant(false))
             .environmentObject(ClientViewModel(firebaseService: FirebaseService()))
+    }
+}
+
+extension ClientView {
+    private var clientListHeader: some View {
+        HStack {
+            Button(action: {
+                viewModel.isFavourite.toggle()
+            }, label: {
+                Image(systemName: "slider.horizontal.3")
+                    .foregroundStyle(Color(.systemGray))
+            })
+            
+            Spacer()
+            
+            Image(systemName: "chevron.down")
+                .foregroundStyle(Color.accentColor)
+            
+                .rotationEffect(Angle(degrees: viewModel.isFavourite ? 180 : 1.0))
+            
+            Text(viewModel.isFavourite ? "" : "All")
+        }
+        .padding(.top, 8)
+        .padding(.horizontal)
+        .font(.system(size: 18, weight: .semibold))
+        .animation(.easeInOut(duration: 0.75), value: viewModel.isFavourite)
     }
 }

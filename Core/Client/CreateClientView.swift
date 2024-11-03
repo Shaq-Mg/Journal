@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct CreateClientView: View {
-    @EnvironmentObject private var vm: ClientViewModel
+    @EnvironmentObject private var viewModel: ClientViewModel
     @Environment(\.dismiss) private var dismiss
     var body: some View {
         NavigationStack {
             VStack(spacing: 12) {
                 headerView
                 
-                CreateTextfield(text: $vm.name, title: "Name", placeholder: "Name")
-                CreateTextfield(text: $vm.phoneNumber, title: "Phone number", placeholder: "Phone number")
-                CreateTextfield(text: $vm.nickname, title: "Nickname", placeholder: "Nickname")
-                Toggle("Favourite", isOn: $vm.isFavourite)
+                CreateTextfield(text: $viewModel.name, title: "Name", placeholder: "Name")
+                CreateTextfield(text: $viewModel.phoneNumber, title: "Phone number", placeholder: "Phone number")
+                CreateTextfield(text: $viewModel.nickname, title: "Nickname", placeholder: "Nickname")
+                Toggle("Favourite", isOn: $viewModel.isFavourite)
                     .tint(.indigo)
                 Spacer()
             }
@@ -48,8 +48,10 @@ extension CreateClientView {
             ReusableCapsule()
             Spacer()
             Button {
-                vm.create(name: vm.name, phoneNumber: vm.phoneNumber, nickname: vm.nickname, isFavourite: vm.isFavourite)
-                dismiss()
+                if !viewModel.name.isEmpty && !viewModel.phoneNumber.isEmpty {
+                    viewModel.create(name: viewModel.name, phoneNumber: viewModel.phoneNumber, nickname: viewModel.nickname, isFavourite: viewModel.isFavourite)
+                    dismiss()
+                }
             } label: {
                 Text("Save")
                     .font(.headline)

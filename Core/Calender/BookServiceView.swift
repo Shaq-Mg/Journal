@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookServiceView: View {
-    @EnvironmentObject private var calenderVM: CalenderViewModel
+    @EnvironmentObject private var apptVM: ApptViewModel
     @State private var isSelected = false
     @Binding var bookingConfirmed: Bool
     var currentDate: Date
@@ -17,15 +17,15 @@ struct BookServiceView: View {
         VStack {
             List {
                 Section("Services") {
-                    ForEach(calenderVM.services) { service in
+                    ForEach(apptVM.services) { service in
                         BookServiceCellView(service: service)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 isSelected = true
                             }
-                            calenderVM.service = service
+                            apptVM.service = service
                             let selectedTitle = service.title
-                            calenderVM.title = selectedTitle
+                            apptVM.title = selectedTitle
                         }
                     }
                 }
@@ -35,23 +35,23 @@ struct BookServiceView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .background(Color.init(white: 0.95))
-            .onAppear(perform: calenderVM.fetchServices)
+            .onAppear(perform: apptVM.fetchServices)
             
             HStack {
-                if let service = calenderVM.service {
+                if let service = apptVM.service {
                     Text(service.title)
                         .font(.headline)
                 }
                 Spacer()
                 Button(action: {
-                    calenderVM.bookAppointment(name: calenderVM.name, title: calenderVM.title, time: calenderVM.selectedTime ?? Date())
+                    apptVM.addAppointment(name: apptVM.name, service: apptVM.title, date: apptVM.selectedTime ?? Date())
                     withAnimation(.spring()) {
                         bookingConfirmed.toggle()
                     }
                 }, label: {
                     NextButton(isSave: true)
                 })
-                .disabled(calenderVM.title.isEmpty)
+                .disabled(apptVM.title.isEmpty)
                 .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.top)
             }
@@ -63,6 +63,6 @@ struct BookServiceView: View {
 #Preview {
     NavigationStack {
         BookServiceView(bookingConfirmed: .constant(false), currentDate: Date())
-            .environmentObject(CalenderViewModel(database: FirebaseService()))
+            .environmentObject(ApptViewModel(database: FirebaseService()))
     }
 }

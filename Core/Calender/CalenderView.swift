@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct CalenderView: View {
-    @EnvironmentObject var vm: CalenderViewModel
+    @EnvironmentObject private var apptVM: ApptViewModel
+    @EnvironmentObject private var calenderVM: CalenderViewModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(spacing: 20) {
-            CalenderHeaderView(selectedDate: $vm.selectedDate)
+            CalenderHeaderView(selectedDate: $calenderVM.selectedDate)
             
             HStack {
-                ForEach(vm.days, id: \.self) { day in
+                ForEach(calenderVM.days, id: \.self) { day in
                     Text(day)
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(.secondary)
@@ -42,8 +43,8 @@ struct CalenderView: View {
                 }
             }
         }
-        .onChange(of: vm.selectedMonth) {
-            vm.selectedDate = vm.fetchSelectedMonth()
+        .onChange(of: calenderVM.selectedMonth) {
+            calenderVM.selectedDate = calenderVM.fetchSelectedMonth()
         }
     }
 }
@@ -51,6 +52,7 @@ struct CalenderView: View {
 #Preview {
     NavigationStack {
         CalenderView()
+            .environmentObject(ApptViewModel(database: FirebaseService()))
             .environmentObject(CalenderViewModel(database: FirebaseService()))
     }
 }
@@ -58,12 +60,12 @@ struct CalenderView: View {
 extension CalenderView {
     private var calenderDays: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7)) {
-            ForEach(vm.fetchDates()) { value in
+            ForEach(calenderVM.fetchDates()) { value in
                 VStack {
                     if value.day != -1 {
                         NavigationLink {
-                            BookApptView(currentDate: vm.selectedDate)
-                                .environmentObject(vm)
+                            BookApptView(currentDate: calenderVM.selectedDate)
+                                .environmentObject(apptVM)
                         } label: {
                             Text("\(value.day)")
                                 .bold()

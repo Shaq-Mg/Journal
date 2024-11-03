@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DayView: View {
-    @EnvironmentObject var vm: CalenderViewModel
+    @EnvironmentObject var apptVM: ApptViewModel
     @Environment(\.dismiss) var dismiss
     @Binding var showSideMenu: Bool
     var currentDate: Date
@@ -18,7 +18,7 @@ struct DayView: View {
             ReusableHeader(showSideMenu: $showSideMenu, onDismiss: true, title: currentDate.dayOfTheWeek())
             List {
                 Section("Bookings today") {
-                    ForEach(vm.appointments) { appointment in
+                    ForEach(apptVM.appointments) { appointment in
                         ZStack {
                             NavigationLink(destination: ApptDetailView(appt: appointment)) {
                                 EmptyView()
@@ -29,7 +29,7 @@ struct DayView: View {
                     }
                 }
             }
-            .onAppear { vm.fetchAppts() }
+            .onAppear { apptVM.fetchAppointments(for: currentDate) }
         .navigationBarBackButtonHidden(true)
         }
     }
@@ -38,6 +38,6 @@ struct DayView: View {
 #Preview {
     NavigationStack {
         DayView(showSideMenu: .constant(false), currentDate: Date())
-            .environmentObject(CalenderViewModel(database: FirebaseService()))
+            .environmentObject(ApptViewModel(database: FirebaseService()))
     }
 }

@@ -69,6 +69,7 @@
 		46A7EA222C82026600CD04DB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA212C82026600CD04DB /* FirebaseAuth */; };
 		46A7EA242C82026F00CD04DB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA232C82026F00CD04DB /* FirebaseFirestore */; };
 		46A7EA262C82028100CD04DB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 46A7EA252C82028100CD04DB /* FirebaseStorage */; };
+		46AD305B2CD573180083ADEE /* ApptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AD305A2CD573180083ADEE /* ApptViewModel.swift */; };
 		46C643D72C8B8C94000A824E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C643D62C8B8C94000A824E /* SettingsView.swift */; };
 		46C643D92C8B8D35000A824E /* SettingsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C643D82C8B8D35000A824E /* SettingsSectionView.swift */; };
 		46D2F5C32C8C89D400C7DAE8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D2F5C22C8C89D400C7DAE8 /* MenuView.swift */; };
@@ -158,6 +159,7 @@
 		46A7EA062C81FFAF00CD04DB /* JournalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITests.swift; sourceTree = "<group>"; };
 		46A7EA082C81FFAF00CD04DB /* JournalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		46A7EA1D2C8201D300CD04DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		46AD305A2CD573180083ADEE /* ApptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApptViewModel.swift; path = Core/Calender/Schedule/ApptViewModel.swift; sourceTree = SOURCE_ROOT; };
 		46C643D62C8B8C94000A824E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		46C643D82C8B8D35000A824E /* SettingsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionView.swift; sourceTree = "<group>"; };
 		46D2F5C22C8C89D400C7DAE8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 		46D5FAA62C87869B00C9B37C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				46AD305A2CD573180083ADEE /* ApptViewModel.swift */,
 				469A01A12C8A16F10074B102 /* CalenderViewModel.swift */,
 			);
 			name = ViewModel;
@@ -779,6 +782,7 @@
 				468DE5372C86191F00F72C62 /* Calender.swift in Sources */,
 				468DE5492C8627D200F72C62 /* ServiceDetailView.swift in Sources */,
 				468DE5402C861B6A00F72C62 /* ServiceViewModel.swift in Sources */,
+				46AD305B2CD573180083ADEE /* ApptViewModel.swift in Sources */,
 				46414E492C84F8E40053B5D3 /* RegistrationView.swift in Sources */,
 				469A019A2C8A09940074B102 /* CalenderHeaderView.swift in Sources */,
 				461B17E82C866C0700DF490B /* ClientDetailView.swift in Sources */,

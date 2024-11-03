@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var calenderVM: CalenderViewModel
     @EnvironmentObject private var clientVM: ClientViewModel
@@ -30,7 +31,7 @@ struct HomeView: View {
                         .environmentObject(serviceVM)
                         .tag(2)
                     
-                    Text("Schedule View")
+                    ScheduleView(showSideMenu: $isMenuShowing)
                         .environmentObject(calenderVM)
                         .tag(3)
                     
@@ -47,14 +48,3 @@ struct HomeView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
-
-//#Preview {
-//    NavigationStack {
-//        let database = FirebaseService()
-//        HomeView()
-//            .environmentObject(AuthViewModel())
-//            .environmentObject(CalenderViewModel(service: service))
-//            .environmentObject(ClientViewModel(firebaseService: service))
-//            .environmentObject(ServiceViewModel(firebaseService: service))
-//    }
-//}

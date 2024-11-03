@@ -33,10 +33,10 @@ struct CreateServiceView: View {
                 .foregroundStyle(.white)
                 .font(.headline)
                 .padding()
+                .frame(height: 44)
                 .frame(maxWidth: .infinity)
                 .background(Color.accentColor)
                 .cornerRadius(10)
-                .overlay(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 1).foregroundStyle(.secondary))
                 .shadow(radius: 5)
                 .padding(.bottom, 62)
             }

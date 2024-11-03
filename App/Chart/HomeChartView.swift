@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeChartView: View {
+    @EnvironmentObject private var apptVM: ApptViewModel
     @EnvironmentObject private var authVM: AuthViewModel
     @EnvironmentObject private var chartVM: ChartViewModel
     @EnvironmentObject private var calenderVM: CalenderViewModel
@@ -22,7 +23,7 @@ struct HomeChartView: View {
                 VStack(alignment: .leading) {
                     Text("Upcoming appointments")
                         .font(.system(size: 20, weight: .semibold))
-
+                    
                     ZStack(alignment: .bottomTrailing) {
                         ScrollView {
                             List {
@@ -33,6 +34,7 @@ struct HomeChartView: View {
                         }
                         NavigationLink {
                             CalenderView()
+                                .environmentObject(apptVM)
                                 .environmentObject(calenderVM)
                         } label: {
                             Image(systemName: "plus")
@@ -55,8 +57,11 @@ struct HomeChartView: View {
 }
 
 #Preview {
-    HomeChartView(showSideMenu: .constant(false))
-        .environmentObject(AuthViewModel())
-        .environmentObject(ChartViewModel(service: FirebaseService()))
-        .environmentObject(CalenderViewModel(database: FirebaseService()))
+    NavigationStack {
+        HomeChartView(showSideMenu: .constant(false))
+            .environmentObject(ApptViewModel(database: FirebaseService()))
+            .environmentObject(AuthViewModel())
+            .environmentObject(ChartViewModel(service: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
+    }
 }

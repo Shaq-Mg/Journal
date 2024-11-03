@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ApptDetailView: View {
-    @EnvironmentObject private var calenderVM: CalenderViewModel
+    @EnvironmentObject private var apptVM: ApptViewModel
     @State private var showConfirmation = false
     @Environment(\.dismiss) private var dismiss
     let appt: Appointment
@@ -36,11 +36,11 @@ struct ApptDetailView: View {
             }
         }
         .confirmationDialog("Delete Appointment", isPresented: $showConfirmation) {
-            Button("Yes") { calenderVM.deleteAppt(apptToDelete: appt)}
+            Button("Yes") { apptVM.deleteAppt(apptToDelete: appt)}
         } message: {
             Text("Are you sure you want to delete this Appointment?")
         }
-        .navigationTitle(calenderVM.selectedDate.dayOfTheWeek())
+        .navigationTitle(apptVM.selectedDate.dayOfTheWeek())
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -54,6 +54,6 @@ struct ApptDetailView: View {
 #Preview {
     NavigationStack {
         ApptDetailView(appt: Appointment(name: "Kobe", service: "Haircut", time: Date()))
-            .environmentObject(CalenderViewModel(database: FirebaseService()))
+            .environmentObject(ApptViewModel(database: FirebaseService()))
     }
 }
