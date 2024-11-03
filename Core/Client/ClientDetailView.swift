@@ -15,33 +15,16 @@ struct ClientDetailView: View {
     
     var body: some View {
         List {
-            Section("General") {
+            Section("Information") {
                 SelectDetailView(title: "Phone number", description: client.phoneNumber)
                 SelectDetailView(title: "Nickname", description: client.nickname ?? "")
                 SelectDetailView(title: "Favourite", description: client.isFavourite.description)
             }
             .fontWeight(.semibold)
-            Section("Update") {
-                Button {
-                    showConfirmation = true
-                } label: {
-                    HStack {
-                        Image(systemName: "minus.circle")
-                        Text("Delete")
-                    }
-                    .font(.headline)
-                    .foregroundStyle(Color.accentColor)
-                    .padding(.vertical)
-                }
-            }
-        }
-        .confirmationDialog("Delete Client", isPresented: $showConfirmation) {
-            Button("Yes") { vm.delete(clientToDelete: client) }
-        } message: {
-            Text("Are you sure you want to delete this client?")
         }
         .navigationTitle(client.name)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button("Cancel") {

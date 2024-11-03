@@ -22,7 +22,7 @@ struct CreateServiceView: View {
                 CreateTextfield(text: $vm.duration, title: "Duration", placeholder: "Minutes", isDecimal: true)
                 Spacer()
                 Button {
-                    vm.saveService(title: vm.title, price: vm.price, duration: vm.duration)
+                    vm.addService(title: vm.title, price: vm.price, duration: vm.duration)
                     dismiss()
                     vm.title = ""
                     vm.price = ""

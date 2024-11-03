@@ -21,11 +21,17 @@ final class ServiceViewModel: ObservableObject {
         return services.filter({ $0.title.localizedCaseInsensitiveContains(searchText)})
     }
     
-    let firebaseService: FirebaseService
+    private var serviceListener: ListenerRegistration? = nil
+    
+    private let firebaseService: FirebaseService
     
     init(firebaseService: FirebaseService) {
         self.firebaseService = firebaseService
-        self.fetchServices()
+        self.fetchServicesWithListener()
+    }
+    
+    deinit {
+        self.serviceListener?.remove()
     }
     
     private func clearServiceInformation() {
@@ -35,24 +41,20 @@ final class ServiceViewModel: ObservableObject {
         duration = ""
     }
     
-    func fetchServices() {
+    func fetchServicesWithListener() {
         guard let uid = firebaseService.userSession?.uid else { return }
-        firebaseService.userDocument(userId: uid).collection("services").getDocuments { snapshot, error in
-            if error == nil {
-                if let snapshot = snapshot {
-                    DispatchQueue.main.async {
-                        self.services = snapshot.documents.map({ doc in
-                            return Service(id: doc.documentID, title: doc[Service.CodingKeys.title.rawValue] as? String ?? "n/a", price: doc[Service.CodingKeys.price.rawValue] as? String ?? "", duration: doc[Service.CodingKeys.duration.rawValue] as? String ?? "")
-                        })
-                    }
+        self.serviceListener = firebaseService.userDocument(userId: uid).collection("services").order(by: Service.CodingKeys.title.rawValue) // Optional: sort by a field
+            .addSnapshotListener { [weak self] (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents found")
+                    return
                 }
-            } else {
-                // handle error here
+                
+                self?.services = documents.compactMap({ try? $0.data(as: Service.self) })
             }
-        }
     }
     
-    func saveService(title: String, price: String, duration: String) {
+    func addService(title: String, price: String, duration: String) {
         guard let uid = firebaseService.userSession?.uid else { return }
         Task {
             try await firebaseService.create(collectionPath: "services", userId: uid, documentData: [Service.CodingKeys.title.rawValue: title, Service.CodingKeys.price.rawValue: price, Service.CodingKeys.duration.rawValue: duration])
@@ -65,15 +67,12 @@ final class ServiceViewModel: ObservableObject {
         firebaseService.userCollection.document(uid).collection("services").document(serviceToUpdate.id ?? "").setData([Service.CodingKeys.title.rawValue: serviceToUpdate.title, Service.CodingKeys.price.rawValue: serviceToUpdate.price, Service.CodingKeys.duration.rawValue: serviceToUpdate.duration,], merge: true)
     }
     
-    func deleteService(serviceToDelete: Service) {
+    func deleteService(at offsets: IndexSet) {
         guard let uid = firebaseService.userSession?.uid else { return }
-        firebaseService.userCollection.document(uid).collection("services").document(serviceToDelete.id ?? "").delete { error in
-            if error == nil {
-                DispatchQueue.main.async {
-                    self.services.removeAll { service in
-                        return service.id == serviceToDelete.id
-                    }
-                }
+        offsets.forEach { index in
+            let service = services[index]
+            if let serviceID = service.id {
+                firebaseService.delete(uid: uid, collectionPath: "services", docToDelete: serviceID)
             }
         }
     }

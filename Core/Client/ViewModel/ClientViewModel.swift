@@ -18,6 +18,8 @@ final class ClientViewModel: ObservableObject {
     @Published var isFavourite = false
     @Published var client: Client? = nil
     
+    private var clientListener: ListenerRegistration? = nil
+    
     var filteredClients: [Client] {
         guard !searchText.isEmpty else { return clients }
         return clients.filter({ $0.name.localizedCaseInsensitiveContains(searchText)})
@@ -28,7 +30,11 @@ final class ClientViewModel: ObservableObject {
     
     init(firebaseService: FirebaseService) {
         self.firebaseService = firebaseService
-        self.fetchClients()
+        self.fetchClientsWithListener()
+    }
+    
+    deinit {
+        self.clientListener?.remove()
     }
     
     private func clearInformation() {
@@ -38,21 +44,17 @@ final class ClientViewModel: ObservableObject {
         isFavourite = false
     }
     
-    func fetchClients() {
+    func fetchClientsWithListener() {
         guard let uid = firebaseService.userSession?.uid else { return }
-        firebaseService.userDocument(userId: uid).collection("clients").getDocuments { snapshot, error in
-            if error == nil {
-                if let snapshot = snapshot {
-                    DispatchQueue.main.async {
-                        self.clients = snapshot.documents.map({ doc in
-                            return Client(id: doc.documentID, name: doc[Client.CodingKeys.name.rawValue] as? String ?? "n/a", phoneNumber: doc[Client.CodingKeys.phoneNumber.rawValue] as? String ?? "n/a", nickname: doc[Client.CodingKeys.nickname.rawValue] as? String ?? "n/a", isFavourite: doc[Client.CodingKeys.isFavourite.rawValue] as? Bool ?? false)
-                        })
-                    }
+        self.clientListener = firebaseService.userDocument(userId: uid).collection("clients").order(by: Client.CodingKeys.name.rawValue) // Optional: sort by a field
+            .addSnapshotListener { [weak self] (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents found")
+                    return
                 }
-            } else {
-                // handle error here
+                
+                self?.clients = documents.compactMap({ try? $0.data(as: Client.self) })
             }
-        }
     }
     
     func create(name: String, phoneNumber: String, nickname: String?, isFavourite: Bool) {
@@ -68,19 +70,12 @@ final class ClientViewModel: ObservableObject {
         firebaseService.userCollection.document(uid).collection("clients").document(clientToUpdate.id ?? "").setData(["name": clientToUpdate.name, "phone_number": clientToUpdate.phoneNumber,"nickname": clientToUpdate.nickname ?? "n/a", "is_favourite": clientToUpdate.isFavourite], merge: true)
     }
     
-    func delete(clientToDelete: Client) {
+    func deleteClient(at offsets: IndexSet) {
         guard let uid = firebaseService.userSession?.uid else { return }
-        firebaseService.userDocument(userId: uid).collection("clients").document(clientToDelete.id ?? "").delete { error in
-            if error == nil {
-                DispatchQueue.main.async {
-                    self.clients.removeAll { client in
-                        return client.id == clientToDelete.id
-                    }
-                }
-                self.fetchClients()
-            } else {
-                // handle error here
-                print("Failed to delete client to firestore")
+        offsets.forEach { index in
+            let client = clients[index]
+            if let clientID = client.id {
+                firebaseService.delete(uid: uid, collectionPath: "clients", docToDelete: clientID)
             }
         }
     }

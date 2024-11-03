@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ClientView: View {
-    @EnvironmentObject var viewModel: ClientViewModel
+    @EnvironmentObject var clientVM: ClientViewModel
     @State private var isShowNewClient = false
     @Binding var showSideMenu: Bool
     
@@ -17,29 +17,33 @@ struct ClientView: View {
             ReusableHeader(showSideMenu: $showSideMenu, title: "Clients")
             clientListHeader
             Spacer()
-            if viewModel.filteredClients.isEmpty {
+            if clientVM.filteredClients.isEmpty {
                 Text("No clients available")
                     .fontWeight(.semibold)
                 Spacer()
             } else {
                 List {
-                    ForEach(viewModel.filteredClients) { client in
-                        NavigationLink(destination: ClientDetailView(client: client)) {
-                            EmptyView()
+                    ForEach(clientVM.filteredClients) { client in
+                        ZStack {
+                            NavigationLink(destination: ClientDetailView(client: client)) {
+                                EmptyView()
+                            }
+                            .environmentObject(clientVM)
+                            .opacity(0)
+                            ClientCellView(client: client)
                         }
-                        .opacity(0)
-                        ClientCellView(client: client)
                     }
+                    .onDelete(perform: clientVM.deleteClient)
                 }
                 .listStyle(.plain)
             }
         }
-        .onAppear(perform: viewModel.fetchClients)
+        .onAppear(perform: clientVM.fetchClientsWithListener)
         .font(.title2)
         .navigationBarBackButtonHidden(true)
         .overlay(alignment: .bottomTrailing, content: {
             HStack {
-                SearchBarView(searchText: $viewModel.searchText)
+                SearchBarView(searchText: $clientVM.searchText)
                 Button {
                     isShowNewClient.toggle()
                 } label: {
@@ -54,7 +58,7 @@ struct ClientView: View {
             NavigationStack {
                 CreateClientView()
             }
-            .environmentObject(viewModel)
+            .environmentObject(clientVM)
         })
     }
 }
@@ -70,7 +74,7 @@ extension ClientView {
     private var clientListHeader: some View {
         HStack {
             Button(action: {
-                viewModel.isFavourite.toggle()
+                clientVM.isFavourite.toggle()
             }, label: {
                 Image(systemName: "slider.horizontal.3")
                     .foregroundStyle(Color(.systemGray))
@@ -81,13 +85,13 @@ extension ClientView {
             Image(systemName: "chevron.down")
                 .foregroundStyle(Color.accentColor)
             
-                .rotationEffect(Angle(degrees: viewModel.isFavourite ? 180 : 1.0))
+                .rotationEffect(Angle(degrees: clientVM.isFavourite ? 180 : 1.0))
             
-            Text(viewModel.isFavourite ? "" : "All")
+            Text(clientVM.isFavourite ? "" : "All")
         }
         .padding(.top, 8)
         .padding(.horizontal)
         .font(.system(size: 18, weight: .semibold))
-        .animation(.easeInOut(duration: 0.75), value: viewModel.isFavourite)
+        .animation(.easeInOut(duration: 0.75), value: clientVM.isFavourite)
     }
 }

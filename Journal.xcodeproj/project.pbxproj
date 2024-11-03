@@ -231,15 +231,6 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		4670B7FF2CD5492B0030F5BB /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-				4633C70F2C8B1324007F15A9 /* DayView.swift */,
-				4670B8002CD549670030F5BB /* ScheduleView.swift */,
-			);
-			path = Schedule;
-			sourceTree = "<group>";
-		};
 		468DE5252C86109300F72C62 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,12 +243,8 @@
 		468DE52E2C86182B00F72C62 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
-				4633C7162C8B635A007F15A9 /* ApptDetailView.swift */,
-				469A01A52C8A21510074B102 /* BookApptView.swift */,
-				46007CB32C8A57F000374869 /* BookServiceView.swift */,
 				469A01962C8A08A60074B102 /* CalenderView.swift */,
-				4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */,
-				4670B7FF2CD5492B0030F5BB /* Schedule */,
+				4670B8002CD549670030F5BB /* ScheduleView.swift */,
 				46D5FAA62C87869B00C9B37C /* ViewModel */,
 			);
 			path = Calender;
@@ -468,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				46414E442C84F67C0053B5D3 /* HomeView.swift */,
+				46EBA2892CD80DB6007FC3AA /* Appointment */,
 				469AF2322C83465F0069191E /* Authentication */,
 				468DE52E2C86182B00F72C62 /* Calender */,
 				469A019F2C8A16A10074B102 /* Chart */,
@@ -588,11 +576,31 @@
 		46D5FAA62C87869B00C9B37C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				46AD305A2CD573180083ADEE /* ApptViewModel.swift */,
 				469A01A12C8A16F10074B102 /* CalenderViewModel.swift */,
 			);
 			name = ViewModel;
 			path = Chart/ViewModel;
+			sourceTree = "<group>";
+		};
+		46EBA2892CD80DB6007FC3AA /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				4633C7162C8B635A007F15A9 /* ApptDetailView.swift */,
+				469A01A52C8A21510074B102 /* BookApptView.swift */,
+				46007CB32C8A57F000374869 /* BookServiceView.swift */,
+				4633C7112C8B3189007F15A9 /* ConfirmApptView.swift */,
+				4633C70F2C8B1324007F15A9 /* DayView.swift */,
+				46EBA28A2CD80DDB007FC3AA /* ViewModel */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		46EBA28A2CD80DDB007FC3AA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				46AD305A2CD573180083ADEE /* ApptViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

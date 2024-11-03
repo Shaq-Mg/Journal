@@ -24,17 +24,21 @@ struct ServiceView: View {
             } else {
                 List {
                     ForEach(vm.filteredServices) { service in
-                        NavigationLink(destination: ServiceDetailView(service: service)) {
-                            EmptyView()
+                        ZStack {
+                            NavigationLink(destination: ServiceDetailView(service: service)) {
+                                EmptyView()
+                            }
+                            .opacity(0)
+
+                            ServiceCellView(service: service)
                         }
-                        .opacity(0)
-                        ServiceCellView(service: service)
                     }
+                    .onDelete(perform: vm.deleteService)
                 }
                 .listStyle(.plain)
             }
         }
-        .onAppear { vm.fetchServices() }
+        .onAppear { vm.fetchServicesWithListener() }
         .sheet(isPresented: $isShowNewService) {
             CreateServiceView()
         }

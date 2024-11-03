@@ -34,6 +34,16 @@ final class FirebaseService {
         userDocument(userId: uid).collection(collectionPath).document("\(typeToUpdate.id)").updateData(typeDictionary)
     }
     
+    func delete(uid: String, collectionPath: String, docToDelete: String) {
+        userDocument(userId: uid).collection(collectionPath).document(docToDelete).delete { error in
+            if let error = error {
+                print("Failed to delete document from database")
+            } else {
+                print("Document successfully deleted")
+            }
+        }
+    }
+    
     func generateAppointmentTimes(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) -> [Date] {
         var timesArray: [Date] = []
         

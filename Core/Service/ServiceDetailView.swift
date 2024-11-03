@@ -35,25 +35,8 @@ struct ServiceDetailView: View {
                     SelectDetailView(title: "Duration", description: String(service.duration))
                 }
                 .fontWeight(.semibold)
-                Section("Update") {
-                    Button {
-                        showDeleteAlert = true
-                    } label: {
-                        HStack {
-                            Image(systemName: "minus.circle")
-                            Text("Delete")
-                        }
-                        .font(.headline).bold()
-                        .padding(.vertical)
-                    }
-                }
             }
             .navigationBarBackButtonHidden(true)
-            .confirmationDialog("Delete Client", isPresented: $showDeleteAlert) {
-                Button("Yes") { vm.deleteService(serviceToDelete: service) }
-            } message: {
-                Text("Are you sure you want to delete this client?")
-            }
             .navigationTitle("Service info")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
