@@ -29,8 +29,11 @@ struct DayView: View {
                     }
                 }
             }
-            .onAppear { apptVM.fetchAppointments(for: currentDate) }
-        .navigationBarBackButtonHidden(true)
+            .onAppear {
+                apptVM.selectedDate = currentDate
+                apptVM.fetchAppointments(for: currentDate)
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

@@ -64,7 +64,7 @@ extension CalenderView {
                 VStack {
                     if value.day != -1 {
                         NavigationLink {
-                            BookApptView(currentDate: calenderVM.selectedDate)
+                            BookApptView(currentDate: value.date)
                                 .environmentObject(apptVM)
                         } label: {
                             Text("\(value.day)")

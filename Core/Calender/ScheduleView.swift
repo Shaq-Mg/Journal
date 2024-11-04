@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @EnvironmentObject var calenderVM: CalenderViewModel
+    @EnvironmentObject private var apptVM: ApptViewModel
+    @EnvironmentObject private var calenderVM: CalenderViewModel
     @State private var showDayView = false
     @Binding var showSideMenu: Bool
     
@@ -35,15 +36,15 @@ struct ScheduleView: View {
             calenderVM.selectedDate = calenderVM.fetchSelectedMonth()
         }
         .navigationBarBackButtonHidden(true)
-        .fullScreenCover(isPresented: $showDayView) {
-            DayView(showSideMenu: $showSideMenu, currentDate: calenderVM.selectedDate)
-        }
     }
 }
 
 #Preview {
-    ScheduleView(showSideMenu: .constant(false))
-        .environmentObject(CalenderViewModel(database: FirebaseService()))
+    NavigationStack {
+        ScheduleView(showSideMenu: .constant(false))
+            .environmentObject(ApptViewModel(database: FirebaseService()))
+            .environmentObject(CalenderViewModel(database: FirebaseService()))
+    }
 }
 
 extension ScheduleView {
@@ -81,8 +82,9 @@ extension ScheduleView {
             ForEach(calenderVM.fetchDates()) { value in
                 VStack {
                     if value.day != -1 {
-                        Button {
-                            showDayView.toggle()
+                        NavigationLink {
+                            DayView(showSideMenu: $showSideMenu, currentDate: value.date)
+                                .environmentObject(apptVM)
                         } label: {
                             Text("\(value.day)")
                                 .bold()
