@@ -74,10 +74,12 @@ extension ClientView {
     private var clientListHeader: some View {
         HStack {
             Button(action: {
-                clientVM.isFavourite.toggle()
+                withAnimation(.spring()) {
+                    clientVM.isFavourite.toggle()
+                }
             }, label: {
-                Image(systemName: "slider.horizontal.3")
-                    .foregroundStyle(Color(.systemGray))
+                Image(systemName: clientVM.isFavourite ? "heart.fill" : "heart")
+                    .font(.system(size: 22))
             })
             
             Spacer()
@@ -85,11 +87,11 @@ extension ClientView {
             Image(systemName: "chevron.down")
                 .foregroundStyle(Color.accentColor)
             
-                .rotationEffect(Angle(degrees: clientVM.isFavourite ? 180 : 1.0))
+                .rotationEffect(Angle(degrees: clientVM.isFavourite ? 180 : 0))
             
-            Text(clientVM.isFavourite ? "" : "All")
+            Text(clientVM.isFavourite ? "Favourites" : "All")
         }
-        .padding(.top, 8)
+        .padding(.vertical, 8)
         .padding(.horizontal)
         .font(.system(size: 18, weight: .semibold))
         .animation(.easeInOut(duration: 0.75), value: clientVM.isFavourite)
